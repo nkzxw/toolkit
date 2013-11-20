@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>that will extend the jQuery namespace if it is the sole argument.</title>
+</head>
+<body>
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script>
+    $(function(){
+        $.extend({ hello: function() {console.log('hello world')} });
+        $.hello();
+        
+        $.fn.extend({ hello: function() {console.log('hello world')} });
+        $.fn.hello();
+    })
+</script>
+</body>
+</html>
