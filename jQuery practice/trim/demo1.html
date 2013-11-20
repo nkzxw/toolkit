@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title></title>
+    <link rel="stylesheet" href="../../css/reset.css">
+</head>
+<body>
+<script src="http://code.jquery.com/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        var str = "  我左右两边 都有空格 ";
+        console.log('去空格前>' + str + ':' + str.length);
+        console.log('去空格后>' + $.trim(str) + ':' + $.trim(str).length);
+    })
+</script>
+</body>
+</html>

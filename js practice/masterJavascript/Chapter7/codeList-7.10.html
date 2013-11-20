@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>获取鼠标光标相对于整个页面的当前位置的2个通用函数---ifan</title>
+<link rel="stylesheet" type="text/css" href="../css/i-base.css" />
+</head>
+<body>
+<div class="wrapper">
+
+</div>
+<script src="../js/i-base.js"></script>
+<script>
+	//Get the horizontal position of the cursor.
+	function getX(e){
+		//Standardized event object.
+		e = e || window.event;
+		//W3C browser to check the location, then check the location of the IE.
+		return e.pageX || e.clientX + document.body.scrollLeft - document.body.clientLeft;
+	}
+	//Get the Vertical position of the cursor.
+	function getY(e){
+		//Standardized event object.
+		e = e || window.event;
+		//W3C browser to check the location, then check the location of the IE.
+		return e.pageY || e.clientY + document.body.scrollTop;
+	}
+</script>
+<script>
+	addEvent(window,'click',function(){
+		alert("当前鼠标的相对于整个页面的位置： "+getX()+' : '+getY());
+	});
+</script>
+</body>
+</html>

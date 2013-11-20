@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>DOM空格bug补救方案---ifan</title>
+<link rel="stylesheet" type="text/css" href="../css/i-base.css" />
+</head>
+<body>	
+   <h1>Introduction to the DOM</h1>
+	<p class="test">There are a number of reasons why the DOM is awesome, here are sme:</p>
+	<ul>
+		<li id="everywhere">It can be found everywhere.</li>
+		<li class="test">It's easy to use.</li>
+		<li class="test">It can help you to find what you want,really quickly.</li>
+	</ul>
+<script>
+	//Access to the root element.
+	//alert(document.documentElement);
+	
+	//Get "h1".
+	
+	//Error.
+	//alert(document.documentElement.firstChild.nextSibling.firstChild);
+	
+	function cleanWhitespace(element){
+		//If you do not supply an argument, then handle the entire "html" document.
+		element = element || document;
+		//Beginning with the first child as a pointer.
+		var cur = element.firstChild;
+		
+		//To date there is no child nodes.
+		while(cur != null){
+			//If the node is a text node, and contains only spaces.
+			if(cur.nodeType == 3 && ! /\s/.test(cur.nodeValue)){
+				//Then delete this text node.
+				element.removeChild(cur);
+			//Otherwise, it is an element.
+			}else if(cur.nodeType == 1){
+				//Recursively the entire document.
+				cleanWhitespace(cur);
+			}
+			
+			//Traverse the childNode.
+			cur=cur.nextSibling;
+		}
+	}
+	cleanWhitespace();
+	var hd=document.documentElement.firstChild;
+	
+	bd=document.documentElement.firstChild.nextSibling;alert(bd);
+	hOne=document.documentElement.firstChild.nextSibling.firstChild;
+	perp=hOne.nextSibling;alert(hd);
+</script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="keywords" content=""/>
+<meta name="description" content=""/>
+<title></title>
+<link rel="shortcut icon" href="" type="image/x-icon"/>
+<link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+<style>
+/*treeMenu.css------------------*/
+.tree-menu{width: 165px;}
+.tm-tit{height: 32px;line-height: 32px;border:1px solid #060;padding:0 12px;background-color:#019F00; }
+.tm-tit h2 a{color: #fff;font-size: 14px;}
+.tree-menu .tm-con{border: 1px solid #e6e6e6;}
+.tm-con dl dt{height: 27px;line-height: 27px;padding: 0 12px;border: solid #e6e6e6;border-width: 1px 0;margin-bottom:-1px;font-weight:700;background:url(../../images/treeMenu-sprite.jpg) repeat-x left -30px;cursor: pointer;position: relative;}
+.tm-con dl .dt-hover{background-position: left top; }
+.tm-con dt i{display: block;width: 19px;height: 27px;background: url(../../images/treeMenu-sprite.jpg) no-repeat left -150px;position: absolute;top:0;right:5px;}
+.tm-con dt .i-hover{background-position: left -90px;}
+.tm-con dt .i-down{background-position: left -120px;}
+.tm-con dt .i-d-hover{background-position: left -60px;}
+.tm-con dl dd{padding: 4px 0 5px;}
+.tm-con dd .item{padding:2px 0 2px 24px; }
+.tm-con dd a{color: #333;}
+.tm-con dd a:hover{color: #019F00;}
+</style>
+</head>
+<body>
+   <div class="wrapper">
+       <div class="tree-menu">
+           <div class="tm-tit">
+               <h2><a href="">我的中心</a></h2>
+           </div>
+           <div class="tm-con">
+               <dl tag="1">
+                   <dt tag="1">订单中心<i></i></dt>
+                   <dd>
+                       <div class="item">
+                           <a href="">我的订单</a>
+                       </div>
+                       <div class="item">
+                           <a href="">我的收藏</a>
+                       </div>
+                       <div class="item">
+                           <a href="">我的退款</a>
+                       </div>
+                       <div class="item">
+                           <a href="">我的投诉</a>
+                       </div>
+                   </dd>
+               </dl>
+               <dl tag="2">
+                   <dt tag="2">账户中心<i></i></dt>
+                   <dd>
+                       <div class="item">
+                           <a href="">账户信息</a>
+                       </div>
+                       <div class="item">
+                           <a href="">账户余额</a>
+                       </div>
+                       <div class="item">
+                           <a href="">消费记录</a>
+                       </div>
+                       <div class="item">
+                           <a href="">我的积分</a>
+                       </div>
+                   </dd>
+               </dl>
+               <dl tag="3">
+                   <dt tag="3">社区中心<i></i></dt>
+                   <dd>
+                       <div class="item">
+                           <a href="">商品评价/晒单</a>
+                       </div>
+                       <div class="item">
+                           <a href="">购买咨询</a>
+                       </div>
+                       <div class="item">
+                           <a href="">推荐有礼</a>
+                       </div>
+                       <div class="item">
+                           <a href="">短消息</a>
+                       </div>
+                   </dd>
+               </dl>
+           </div>
+       </div>
+   </div>
+<script src="../../js/i-base.js"></script>
+<script>
+    var dt_lists = tag('dt',tag('tm-con')[0]);
+    for(var i=0; i<dt_lists.length; i++){
+        dt_lists[i]._index = i ;
+        addEvent(dt_lists[i],'mouseover',function(){
+            addClass(this,'dt-hover');
+            if(this.next().style.display !== 'none'){
+               addClass(this.last(),'i-hover');
+            }else{
+               addClass(this.last(),'i-d-hover');
+            }
+        });
+        addEvent(dt_lists[i],'mouseout',function(){
+             removeClass(this,'dt-hover');
+            if(this.next().style.display !== 'none'){
+               removeClass(this.last(),'i-hover');
+            }else{
+               removeClass(this.last(),'i-d-hover');
+                addClass(this.last(), 'i-down' )
+            }
+        })
+
+        addEvent(dt_lists[i],'click',function(){
+            var list_dd = this.next(), i_ico = this.last();
+            function showLists(){
+                show(list_dd);
+                addClass(i_ico, 'i-hover')
+            }
+            function hideLists(){
+                hide(list_dd);
+                addClass(i_ico,'i-d-hover');
+            }
+            list_dd.style.display == 'none' ? showLists() : hideLists() ;
+        })
+    }
+</script>
+</body>
+</html>

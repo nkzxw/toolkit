@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="../../css/reset.css"/>
+    <script src="http://code.jquery.com/jquery.min.js"></script>
+    <style>
+        ul { font-size:18px; margin:0; }
+        span { color:blue; text-decoration:underline; cursor:pointer; }
+        .example { font-style:italic; }
+    </style>
+</head>
+<body>
+<div class="layout-inner">
+    To do list: <span>(click here to change)</span>
+    <ul>
+      <li>Eat</li>
+      <li>Sleep</li>
+      <li>Be merry</li>
+    </ul>
+</div>
+<script type="text/javascript">
+    $('span').click(function(){
+        $('li').each(function(){
+            $(this).toggleClass('example');
+        });
+    });
+</script>
+</body>
+</html>

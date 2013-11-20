@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <link rel="shortcut icon" href="" type="image/x-icon"/>
+    <title>事件--封装兼容性的添加，删除函数</title>
+    <link rel="stylesheet" type="text/css" href="../styles/base.css"/>
+    <style>
+        pre{color:green;padding:10px 15px;background:#f0f0f0;border:1px dotted #999;font:12px/1.5 Courier New;}
+        .operate{text-align:center}
+        #tip{display:none;width:300px;margin:10px auto;padding:15px 0;text-align:center;background:green;color:#fff;font:600 14px/1.5 Courier New;}
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <pre>
+        &lt;script type="text/javascript"&gt;
+                var EventUtil = {
+                    addHandler: function (oElement, sEvent, fnHandler) {
+                        oElement.addEventListener ? oElement.addEventListener(sEvent, fnHandler, false) : oElement.attachEvent("on" + sEvent, fnHandler)
+                    },
+                    removeHandler: function (oElement, sEvent, fnHandler) {
+                        oElement.removeEventListener ? oElement.removeEventListener(sEvent, fnHandler, false) : oElement.detachEvent("on" + sEvent, fnHandler)
+                    },
+                    addLoadHandler: function (fnHandler) {
+                        this.addHandler(window, "load", fnHandler)
+                    }
+                }
+        &lt;/script&gt;
+    </pre>
+    <div class="operate">
+        <button>毫无用处的按钮</button>
+        <button>绑定click</button>
+        <button>解除绑定</button>
+    </div>
+    <div id="tip"></div>
+</div>
+<script type="text/javascript">
+    var EventUtil = {
+        addHandler:function(oElem,sEvent,fn){
+            oElem.addEventListener ?
+            oElem.addEventListener(sEvent,fn,false) :
+            oElem.attachEvent('on'+sEvent,fn);
+        },
+        removeHandler:function(oElem,sEvent,fn){
+            oElem.removeEventListener ?
+            oElem.removeEventListener(sEvent,fn,false) :
+            oElem.detachEvent('on'+sEvent,fn)
+        },
+        LoadHandler:function(fn){
+            this.addHandler(window,'load',fn);
+        }
+    }
+
+    EventUtil.LoadHandler(function(){
+        var oButton = document.getElementsByTagName('button');
+        var tipDiv = document.getElementById('tip');
+
+        EventUtil.addHandler(oButton[1],'click',function(){
+            EventUtil.addHandler(oButton[0],'click',fn)
+            oButton[0].innerHTML = '我可以点击了';
+            tipDiv.style.display = 'none';
+            tipDiv.innerHTML = ''
+        });
+        EventUtil.addHandler(oButton[2],'click',function(){
+            EventUtil.removeHandler(oButton[0],'click',fn)
+            oButton[0].innerHTML = '毫无用处的按钮';
+            tipDiv.style.display = 'none';
+            tipDiv.innerHTML = ''
+        });
+
+        function fn(){
+            tipDiv.style.display = 'block';
+            tipDiv.innerHTML = '事件绑定成功！'
+        }
+    })
+</script>
+</body>
+</html>

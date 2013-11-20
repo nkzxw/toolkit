@@ -1,0 +1,75 @@
+@charset "utf-8";
+html{color: #000000;background: #ffffff}
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, cite, code, del, em, img, q, small, strong, sub, sup, b, u, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, nav, output, section, summary, time, audio, video{ margin: 0;padding: 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section{ display:block }
+body,button,input,select,textarea{font:12px/1.0 Helvetica, Arial, sans-serif}
+h1, h2, h3, h4, h5, h6 {font-size: 100%;font-weight: normal}
+ol, ul{ list-style:none }
+table{ border-collapse:collapse; border-spacing:0}
+caption, th{ text-align:left }
+a:link,a:visited{text-decoration:none}
+a:hover,a:active{text-decoration:underline;}
+fieldset,img{border: none}
+sup{vertical-align:text-top;}
+sub{vertical-align:text-bottom;}
+code,pre,var{padding:2px;border:1px solid #eee;font:normal 93%/138% courier new,courier,monospace;background: #f8f8f8;}
+blockquote, q {quotes: none;}
+blockquote:before, blockquote:after,q:before, q:after {content: ''; content: none}
+address, caption, cite, code, dfn, em, i, strong, th {font-style: normal;font-weight: normal}
+button, label, input[type="submit"], input[type="button"], input[type="radio"], input[type="checkbox"], input[type="file"]{ cursor:pointer}
+button{ border:none; padding:0}
+button img{ display:block}
+.clearfix:before, .clearfix:after{ content:""; display:table}
+.clearfix:after{ clear:both; *zoom:1}
+
+.layout-inner{margin-left: auto;margin-right: auto;width: 980px}
+
+
+.text,.textarea{padding:3px;line-height:20px;border:1px solid #ccc;font-family:inherit; -moz-box-shadow:inset 0 1px 2px rgba(0, 0, 0, 0.1), 0 1px 0 rgba(255, 255, 255, 0.2); -webkit-box-shadow:inset 0 1px 2px rgba(0, 0, 0, 0.1), 0 1px 0 rgba(255, 255, 255, 0.2); box-shadow:inset 0 1px 2px rgba(0, 0, 0, 0.1), 0 1px 0 rgba(255, 255, 255, 0.2);}
+.text:focus,.textarea:focus{border-color:rgba(82,168,236,0.75);border-color:#52a8ec\0; outline:none; -moz-box-shadow:0 0 8px rgba(82,168,236,0.5); -webkit-box-shadow:0 0 8px rgba(82,168,236,0.5); box-shadow:0 0 8px rgba(82,168,236,0.5)}
+.text{height:20px;}
+.textarea{resize: none;overflow-y:hidden;}
+.rc-align{ vertical-align:middle; margin-top:-2px; margin-bottom:1px; }
+
+.radius{
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+.shadow {
+    -webkit-box-shadow: 0 0 10px rgba(50, 50, 50, 0.8);
+    -moz-box-shadow: 0 0 10px rgba(50, 50, 50, 0.8);
+    box-shadow: 0 0 10px rgba(50, 50, 50, 0.5);
+    filter:progid:DXImageTransform.Microsoft.glow(Strength=5, Color='gray');
+    -ms-filter:"progid:DXImageTransform.Microsoft.glow(Strength=3, Color='gray')";
+}
+
+
+.gradient{background-image: -moz-linear-gradient(top, #641d1c, #f00);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#641d1c), to(#f00));
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#ff641d1c,endColorstr=#ffff0000);
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#ff641d1c,endColorstr=#ffff0000)";
+}
+
+.rgba {
+  background-color: transparent;
+  background-color: rgba(200,200,200,0.5);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#7edddddd,endColorstr=#7edddddd);
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#7edddddd,endColorstr=#7edddddd)";
+}
+
+.arrow {background: url(images/arrow.png) no-repeat; display: block; float: left; width: 11px; height: 20px;}
+.right{ /* this is the original image*/ }
+.left {
+  -moz-transform: rotate(180deg);-webkit-transform: rotate(180deg); -o-transform: rotate(180deg);
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+  -ms-filter:"progid:DXImageTransform.Microsoft.BasicImage(rotation=2)";}
+.up {
+  -moz-transform: rotate(270deg);-webkit-transform: rotate(270deg); -o-transform: rotate(270deg);
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+  -ms-filter:"progid:DXImageTransform.Microsoft.BasicImage(rotation=3)";}
+.down {
+  -moz-transform: rotate(90deg);-webkit-transform: rotate(90deg); -o-transform: rotate(90deg);
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+  -ms-filter:"progid:DXImageTransform.Microsoft.BasicImage(rotation=1)";
+}

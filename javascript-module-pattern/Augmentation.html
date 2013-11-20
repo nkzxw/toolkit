@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Augentation</title>
+</head>
+<body>
+<code>
+var MODULE = (function (my) {
+    my.anotherMethod = function () {
+        // added method...
+    };
+
+    return my;
+}(MODULE));
+</code>
+<script>
+var MODULE = (function (my) {
+    my.anotherMethod = function () {
+        console.log("I'm a anotherMethod");
+    };
+
+    return my;
+}(MODULE));
+
+MODULE.anotherMethod()
+</script>
+</body>
+</html>

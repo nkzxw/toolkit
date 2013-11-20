@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Javascript加载方式--document.write方式</title>
+    <script type="text/javascript">
+        //1.在同一对script标签里，document.write了script标签后就可以去执行后面的代码了.(但firefox例外：document.write了script标签后会马上执行src对应的脚本。)
+        //2.但在同一页面的，还是会堵塞其他资源的加载。
+        function loadjs(file){
+            document.write('<' + 'script src=' + file +'>');
+            document.write('<' + '/script' + '>');
+            alert('loadjs() exit...');
+        }
+
+        loadjs('alert.js');
+
+        alert('loadjs() completed!');
+    </script>
+    <script type="text/javascript">
+        alert('another js block');
+    </script>
+</head>
+<body>
+<h1>We want you back!</h1>
+<p>By reactivating your Yahoo! account you can experience the new Yahoo! Mail, more personalized content on Yahoo.com, and so much more.</p>
+<p>Once your account is reactivated, every time you sign in, your account will be extended by 12 months.</p>
+</body>
+</html>

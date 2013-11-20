@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <link rel="shortcut icon" href="" type="image/x-icon"/>
+    <title>简易tab选项卡</title>
+    <link rel="stylesheet" type="text/css" href="../styles/base.css"/>
+    <style>
+        .wrapper { }
+        #tabMenu{background:#333;overflow:hidden;zoom:1;}
+        #tabMenu li{list-style:none;float:left;padding:5px 20px;color:#fff;cursor:pointer;}
+        #tabMenu .cur{background-color:#999;color:#000}
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <ul id=tabMenu>
+        <li>第一课</li>
+        <li>第二课</li>
+        <li>第三课</li>
+    </ul>
+    <div id="content">
+        <ul style="display:block;">
+            <li><a href="">网页特效原理分析</a></li>
+            <li><a href="">响应用户操作</a></li>
+            <li><a href="">提示框效果</a></li>
+            <li><a href="">事件驱动</a></li>
+            <li><a href="">元素属性操作</a></li>
+            <li><a href="">动手编写第一个JS特效</a></li>
+        </ul>
+        <ul style="display:none">
+            <li><a href="">改变网页背景颜色</a></li>
+            <li><a href="">函数传参</a></li>
+            <li><a href="">高重用性函数的编写</a></li>
+            <li><a href="">126邮箱全选效果</a></li>
+            <li><a href="">循环及遍历操作</a></li>
+            <li><a href="">调试器的简单使用</a></li>
+            <li><a href="">JavaScript组成：ECMAScript、DOM、BOM，JavaScript兼容性来源</a></li>
+            <li><a href="">JavaScript出现的位置、优缺点</a></li>
+            <li><a href="">变量、类型、typeof、数据类型转换、变量作用域</a></li>
+        </ul>
+        <ul style="display:none">
+            <li><a href="">JavaScript组成：ECMAScript、DOM、BOM，JavaScript兼容性来源</a></li>
+            <li><a href="">JavaScript出现的位置、优缺点</a></li>
+            <li><a href="">变量、类型、typeof、数据类型转换、变量作用域</a></li>
+            <li><a href="">JavaScript组成：ECMAScript、DOM、BOM，JavaScript兼容性来源</a></li>
+            <li><a href="">JavaScript出现的位置、优缺点</a></li>
+            <li><a href="">变量、类型、typeof、数据类型转换、变量作用域</a></li>
+            <li><a href="">JavaScript组成：ECMAScript、DOM、BOM，JavaScript兼容性来源</a></li>
+            <li><a href="">JavaScript出现的位置、优缺点</a></li>
+            <li><a href="">变量、类型、typeof、数据类型转换、变量作用域</a></li>
+            <li><a href="">JavaScript组成：ECMAScript、DOM、BOM，JavaScript兼容性来源</a></li>
+            <li><a href="">JavaScript出现的位置、优缺点</a></li>
+            <li><a href="">变量、类型、typeof、数据类型转换、变量作用域</a></li>
+        </ul>
+    </div>
+</div>
+<script>
+    window.onload = function(){
+        var tabMenus = document.getElementById('tabMenu').getElementsByTagName('li');
+        var tabBoxes = document.getElementById('content').getElementsByTagName('ul');
+
+        for(var i=0;i<tabMenus.length;i++){
+            tabMenus[i].index = i;
+            tabMenus[i].onclick = function(){
+                for(var j=0;j<tabMenus.length;j++){
+                    tabMenus[j].className = '';
+                }
+                this.className = 'cur';
+                for(var k=0;k<tabBoxes.length;k++){
+                    tabBoxes[k].style.display = 'none';
+                    tabBoxes[this.index].style.display = 'block';
+                }
+            }
+        }
+    }
+</script>
+</body>
+</html>

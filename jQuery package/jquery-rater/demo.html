@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>jquery打分组件</title>
+    <style type="text/css">
+        .score-rater{position:relative;overflow:hidden;display:inline-block;width:80px;height:14px;background:url('rater.png') repeat-x;}
+        .score-rater i{position:absolute;left:0;top:0;cursor:pointer;width:16px;height:14px;background:url('rater.png') repeat-x 0 -500px}
+        .score-rater .select{background-position:0 -32px}
+        .score-rater .hover{background-position:0 -16px}
+    </style>
+</head>
+<body>
+<div class="rater-layout">
+    <span class="score-rater" id="score-rater">
+    <i title="1分" score='1'></i>
+    <i title="2分" score='2'></i>
+    <i title="3分" score='3'></i>
+    <i title="4分" score='4'></i>
+    <i title="5分" score='5'></i>
+   </span>
+</div>
+
+<script src="http://code.jquery.com/jquery.min.js"></script>
+<script src="rater.js"></script>
+<script>
+    var Rate = new pRate("score-rater",function(){
+    	alert(Rate.Index+'分')
+    });
+</script>
+</body>
+</html>

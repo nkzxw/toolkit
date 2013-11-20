@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        label{display:inline-block;width:120px;text-align:right;}
+        .amout{text-indent:90px;}
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <h1>output element example</h1>
+    <div class="layout">
+        <h2></h2>
+        <form onsubmit="return false" oninput="c.value=parseInt(a.value)+parseInt(b.value)">
+            <input name="a" type="number" step="2" /> +
+            <input name="b" type="number" step="2" /> =
+            <output name="c"></output>
+        </form>
+    </div><!--layout end-->
+    <div class="layout">
+        <h2></h2>
+        <form onsubmit="return false" oninput="f.value = d.valueAsNumber+e.valueAsNumber">
+            <input name="d" id="d" type="number" step="any" /> +
+            <input name="e" id="e" type="number" step="any" /> =
+            <output name="f" for="d e"></output>
+        </form>
+    </div><!--layout end-->
+    <div class="layout">
+        <h2></h2>
+        <form onsubmit="return false" oninput="amount.value = (hours.valueAsNumber*rate.valueAsNumber)+((hours.valueAsNumber*rate.valueAsNumber)*vat.valueAsNumber)">
+            <legend>Invoice</legend>
+            <p><label for="hours">Number of hours</label>
+               <input type="number" id="hours" name="hours"  min="0" step="10" />
+            </p>
+            <p><label for="rate">Rate<span>£</span></label>
+               <input type="number" id="rate" name="rate" min="0" step="10" />
+            </p>
+            <p><label for="vat">Vat</label>
+               <input type="number" id="vat" name="vat" min="0" step="0.10" value="0.20" />
+            </p>
+            <p class="amout">
+               Tatol:<strong>£<output name="amount" for="hours rate vat"></output></strong>
+            </p>
+        </form>
+    </div><!--layout end-->
+    <div class="layout">
+        <h2>A Mildly Controversial Example Using ＜input type="range"＞ </h2>
+        <form onsubmit="return false" oninput="level.value = flevel.valueAsNumber">
+            <label for="flevel">Flying Skill Level</label>
+            <input type="range" id="flevel" name="flevel" min="0" max="100" value="0" />
+            <output name="level" for="flevel"></output>
+        </form>
+    </div><!--layout end-->
+    <div class="layout">
+        <h2>Using getElementById to support older browsers</h2>
+        <form onsubmit="return false" oninput="document.getElementById('k').innerHTML=parseFloat(document.getElementById('m').value)+parseFloat(document.getElementById('n').value)">
+            <input type="number" id="m" name="m" step="1" /> +
+            <input type="number" id="n" name="n" step="1" /> =
+            <output id="k" name="k" for="m n"></output>
+        </form>
+    </div><!--layout end-->
+</div>
+</body>
+</html>

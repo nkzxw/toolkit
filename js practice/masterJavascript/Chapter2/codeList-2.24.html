@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>私有方法---ifan</title>
+<link rel="stylesheet" type="text/css" href="../css/i-base.css" />
+</head>
+<body>
+<div class="wrapper">
+
+</div>
+<script>
+	//Create an object constructor 'Classroom'
+	function Classroom(students,teacher){
+		//The 'Classroom' object attribute data into the public
+		this.students = students;
+		this.teacher = teacher;
+		
+		//private method 'disp'.
+		function disp(){
+			alert(this.teacher)		
+		}
+		
+		//Error
+		disp()
+	}
+	Classroom();
+	
+	//Create a new Classroom objects.
+	var classr = new Classroom(["jeperc","yifan"],"mr.teacher");
+	//Error
+	classr.disp();
+</script>
+</body>
+</html>

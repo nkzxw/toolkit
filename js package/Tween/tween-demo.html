@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <title>Tween</title>
+    <link rel="shortcut icon" href="" type="image/x-icon"/>
+    <link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+    <style>
+        .wrapper { margin: 10px auto; }
+        /*Tween.css-----------*/
+        .d-show { width: 550px; height: 50px; border: 1px solid #ccc; padding: 1px; position: relative; }
+        #J_t-move { width: 50px; height: 50px; background-color: #930; position: absolute; }
+        .chart-line { width: 550px; height: 200px; margin: 30px 0 0 0; position: relative; }
+        #t-Chart { height: 200px; border: 1px solid #ccc; padding: 1px; }
+        #t-line { width: 1px; height: 200px; background-color: #ccc; position: absolute; left: 0; top: 0; }
+        .tween-type{margin: 20px 0 0;}
+        .tween-type h3{margin: 10px 0;}
+        .tween-run{margin: 10px 0 0;}
+        .dotted{background-color:#f60;font-size:0;width:3px;height:3px;position:absolute;}
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <div class="d-show">
+        <div id="J_t-move"></div>
+      </div>
+      <div class="chart-line">
+        <div id="t-Chart"> </div>
+        <div id="t-line"></div>
+      </div>
+
+    <div class="tween-type">
+        <h3>Tween类型：</h3>
+        <div class="lists">
+            <label> <input name="vTween" type="radio" value="Linear" checked="checked"/> Linear </label>
+            <label><input name="vTween" type="radio" value="Quad"/> Quadratic </label>
+            <label><input name="vTween" type="radio" value="Cubic"/> Cubic </label>
+            <label><input name="vTween" type="radio" value="Quart"/> Quartic </label>
+            <label><input name="vTween" type="radio" value="Quint"/> Quintic </label>
+            <label><input name="vTween" type="radio" value="Sine"/> Sinusoidal </label> <br/>
+            <label><input name="vTween" type="radio" value="Expo"/> Exponential </label>
+            <label><input name="vTween" type="radio" value="Circ"/> Circular </label>
+            <label><input name="vTween" type="radio" value="Elastic"/> Elastic </label>
+            <label><input name="vTween" type="radio" value="Back"/> Back </label>
+            <label><input name="vTween" type="radio" value="Bounce"/> Bounce </label>
+        </div>
+        <h3>ease类型：</h3>
+        <div class="lists">
+            <label> <input name="vEase" type="radio" value="easeIn" checked="checked"/> easeIn </label>
+            <label><input name="vEase" type="radio" value="easeOut"/> easeOut </label>
+            <label><input name="vEase" type="radio" value="easeInOut"/> easeInOut </label>
+        </div>
+    </div>
+    <div class="tween-run">
+        <input id="idSpeed" type="button" value="减慢速度"/> <input id="idRun" type="button" value=" Run "/>
+    </div>
+</div>
+<script src="../../js/i-base.js"></script>
+<script src="tween.js"></script>
+<script>
+    var Each = function(list, fun){
+        for (var i = 0, len = list.length; i < len; i++) { fun(list[i], i); }
+    };
+
+//////////////////////////////////////////////////////////
+
+    var fun, iChart = 550, iDuration = 100;
+
+    function Move(){
+        var oM = ID("J_t-move").style, oL = ID("t-line").style, t=0, c=500, d=iDuration;
+        oM.left=oL.left="0px"; clearTimeout(Move._t);
+        function _run(){
+            if(t<d){
+                t++;
+                oM.left = Math.ceil(fun(t,0,c,d)) + "px";
+                oL.left = Math.ceil(Tween.Linear(t,0,iChart,d)) + "px";
+                Move._t = setTimeout(_run, 10);
+            }else{
+                oM.left = c + "px";
+                oL.left = iChart + "px";
+            }
+        }
+        _run();
+    }
+
+////////////////////////////////////////////////////////
+
+    function Chart(){
+        var a = [];
+        for (var i = 0; i < iChart; i++) {
+            a.push('<div class="dotted" style="left:' + (i-1) + 'px;top:' + (Math.ceil(fun(i,200,-200,iChart))) + 'px;"><\/div>');
+        }
+        ID("t-Chart").innerHTML = a.join("");
+    }
+
+////////////////////////////////////////////////////////
+
+    var arrTween = document.getElementsByName("vTween");
+    var arrEase = document.getElementsByName("vEase");
+
+    Each(arrTween, function(o){ o.onclick = function(){ SetFun(); Chart(); } })
+    Each(arrEase, function(o){ o.onclick = function(){ SetFun(); Chart(); } })
+
+    function SetFun(){
+        var sTween, sEase;
+        Each(arrTween, function(o){ if(o.checked){ sTween = o.value; } })
+        Each(arrEase, function(o){ if(o.checked){ sEase = o.value; } })
+        fun = sTween == "Linear" ? Tween.Linear : Tween[sTween][sEase];
+    }
+
+    ID("idRun").onclick = function(){ SetFun(); Chart(); Move(); }
+
+    ID("idSpeed").onclick = function(){
+        if(iDuration == 100){
+            iDuration = 500; this.value = "加快速度";
+        }else{
+            iDuration = 100; this.value = "减慢速度";
+        }
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <link rel="shortcut icon" href="" type="image/x-icon"/>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="../styles/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../styles/black.css"/>
+    <style>
+        body{margin:0;padding:0;}
+        html,body{height:100%;}
+        .wrapper{overflow:hidden;}
+        #skin{margin:5px 0;}
+        #skin span{display:inline-block;width:10px;height:10px;margin:0 5px;border:4px solid;text-indent:-999px;}
+        #skin .cur{background-color:#fff!important;}
+        #skin #red{background-color:red;border-color:red}
+        #skin #green{background-color:green;border-color:green}
+        #skin #black{background-color:#000000;border-color:#000000}
+        #nav{border:1px solid #fff;}
+        #nav li{list-style:none;float:left;padding:3px 15px;text-align:center;border-right:1px solid #fff;}
+        #nav .last{border-right:none;}
+        #nav li a{color:#fff;}
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <div id="skin"><span id="red">红</span><span id="green">绿</span><span class="cur" id="black">黑</span></div>
+    <ul id="nav" class="cf">
+        <li><a class="href" href="">新闻</a></li>
+        <li><a class="href" href="">娱乐</a></li>
+        <li><a class="href" href="">体育</a></li>
+        <li><a class="href" href="">电影</a></li>
+        <li class="last"><a class="href" href="">音乐</a></li>
+    </ul>
+</div>
+<script>
+    window.onload = function(){
+        var oLink = document.getElementsByTagName('link')[2];
+        var oSkin = document.getElementById('skin').getElementsByTagName('span');
+        for(var i=0;i<oSkin.length;i++){
+            oSkin[i].onclick = function(){
+                for(var j in oSkin){oSkin[j].className=""};
+                this.className = 'cur';
+                oLink['href'] = '../styles/'+this.id+'.css';
+            }
+        }
+    }
+</script>
+</body>
+</html>

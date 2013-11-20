@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <link rel="shortcut icon" href="" type="image/x-icon"/>
+    <title></title>
+    <style>
+        .wrapper { }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <form method="POST">
+        <p>Enter your phone number:
+        <input type="text" name="phone" id="phone" size="27" onchange="getCostomerInfo();" /></p>
+        <p>Your order will be delivered to:</p>
+        <div id="address"></div>
+        <p>Type your order in here:</p>
+        <p><textarea name="order" id="order" cols="50" rows="6"></textarea></p>
+        <p><input type="submit" value="order Pizza" id="submit" /></p>
+    </form>
+</div>
+<script type="text/javascript">
+    function createXHR(){
+        if(typeof XMLHttpRequest != "undefined"){
+            return new XMLHttpRequest();
+        }else if(typeof ActiveXObject != "undefined"){
+            if(typeof arguments.callee.activeXString != "string"){
+                var versions = ["MSXML2.XMLHttp.6.0","MSXML2.XMLHttp.3.0","MSXML2.XMLHttp"], i,len;
+                for(i=0;i< versions.length;i++){
+                    try{
+                        new ActiveXObject(versions[i]);
+                        arguments.callee.activeXString = versions[i];
+                        break;
+                    }catch(ex){
+
+                    }
+                }
+            }
+            return new ActiveXObject(arguments.callee.activeXString);
+        }else{
+            throw new Error("No XHR object available.");
+        }
+    }
+
+    var xhr = createXHR();
+
+    function getCostomerInfo(){
+        var phone = document.getElementById('phone').value;
+        var url = "/cgi-local/lookupCustomer.php?phone?" + escape(phone);
+        xhr.open('GET',url,true);
+        xhr.onreadystatechange = updatePage;
+        xhr.send(null);
+    }
+
+    function updatePage(){
+        if(xhr.readyState == 4){
+            if(xhr.status == 200){
+                var response = xhr.responseText.split("|");
+                document.getElementById('address').value = response[0];
+                document.getElementById('order').value = response[1].replace("/\n/g");
+            }else if(xhr.status == 404){
+                alert("Request URL is does not exist!");
+            }else if(xhr.status == 403){
+                alert("Access denied.");
+            }else{
+                alert("Error:status code is:" + xhr.status);
+            }
+
+        }
+
+    }
+</script>
+</body>
+</html>

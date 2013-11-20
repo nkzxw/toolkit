@@ -1,0 +1,84 @@
+/* @Description: iw.base.css
+ * @Author:      ifany
+ * @email:       ifanyaco@gmail.com
+ * @Update:      2011.12.22
+ */
+@charset "utf-8";
+/* @Description: reset.css  Based on meyer's  and yui's
+ */
+html{ color:#000; background:#FFF }
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, a, del, hr, em, img, strong, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video{
+margin:0; padding:0; border:0; font-size:100%; font:inherit; vertical-align:baseline; }
+body{ line-height:1; font:13px / 1.231 'microsoft yahei', verdana, arial; *font-size:small; *font:x-small }
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, img{ display:block; }
+ol, ul{ list-style:none; }
+ol li{ list-style:decimal outside }
+ul li{ list-style:disc outside }
+table{ border-collapse:collapse; border-spacing:0; font-size:inherit; font:100% }
+caption, th{ text-align:left }
+select, input, button, textarea{ font:99% arial, helvetica, clean, sans-serif }
+input, textarea, select{ *font-size:100% }
+input[ type = text], input[ type = password], textarea{ width:12.25em; *width:11.9em }
+button, label, input[type="submit"], input[type="button"], input[type="radio"], input[type="checkbox"], input[type="file"]{ cursor:pointer; }
+button{border:1px solid #ddd;background:#f7f7f7;padding:5px;}
+button img{ display:block; }
+legend{ color:#000 }
+em{ font-style:italic }
+i{font-style:normal;}
+h1{ font-size:138.5% }
+h2{ font-size:123.1% }
+h3{ font-size:108% }
+h1, h2, h3, strong{ font-weight:bold }
+h4, h5, h6{ font-weight:normal; }
+/*locate*/
+.inblock{ display:inline-block; *display:inline; *zoom:1; }
+.fl{ float:left; }
+.fr{ float:right; }
+.cb{ clear:both; }
+.pr{position:relative;}
+.pa{ position:absolute; }
+.hidden{ display:none; }
+.visible{display:block;}
+/* For modern browsers */
+.cf:before, .cf:after{ content:""; display:table; }
+.cf:after{ clear:both; }
+/* For IE 6/7 (trigger hasLayout) */
+.cf{ zoom:1; }
+
+/**/
+a{outline:none;/*移除超链的虚线框  IE8,FF有用*/
+ hide-focus:expression(this.hideFocus=true); /*IE6、IE7*/}
+a:link, a:visited{ text-decoration:none; }
+a:hover{ text-decoration:underline;}
+a:active, a:focus{}
+/**/
+.rc-align{ vertical-align:middle; margin-top:-2px; margin-bottom:1px; }
+.money{ font-family:Arial; font-weight:900; font-size:14px;color:#DC442F;}
+.mr25{ margin-right:25px; }
+/*layout*/
+.inner, article{ width:100%; max-width:1200px; min-width:640px;_width:1200px; margin:0 auto; }
+.wrapper{ width:1200px; margin:0 auto; }
+.layout{padding:20px;border-bottom:1px dotted #ddd;}
+.layout h2{padding-bottom:10px;}
+
+/*button*/
+.btn-icon,.btn-icon em{height:27px;line-height:27px;background:transparent url("../images/sprite_btn.png") no-repeat left top}
+.btn-icon{display:inline-block;overflow:hidden;padding-left:10px;vertical-align:middle;outline:medium none;color:#fff;text-decoration:none}
+.btn-icon:hover{text-decoration:none;}
+.btn-icon em{display:inline-block;padding:0 15px 0 5px;font-style:normal;cursor:pointer;overflow:hidden;}
+
+.green-btn{background-position:0 0}
+.green-btn em{background-position:right -32px;}
+.green-btn:hover{background-position:0 -64px}
+.green-btn:hover em{background-position:right -96px;}
+.green-btn:active{background-position:0 -128px}
+.green-btn:active em{background-position:right -160px;}
+
+.gray-btn{background-position:0 -192px}
+.gray-btn em{background-position:right -224px;}
+.gray-btn:hover{background-position:0 -256px}
+.gray-btn:hover em{background-position:right -288px;}
+.gray-btn:active{background-position:0 -320px}
+.gray-btn:active em{background-position:right -352px;}
+

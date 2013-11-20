@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <link rel="shortcut icon" href="" type="image/x-icon"/>
+    <title>Ajax中的高级请求和响应</title>
+    <style>
+        .wrapper {position:relative; }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+</div>
+<script type="text/javascript">
+    function createXHR(){
+        if(typeof XMLHttpRequest != "undefined"){
+            return new XMLHttpRequest();
+        }else if(typeof ActiveXObject != "undefined"){
+            if(typeof arguments.callee.activeXString != "string"){
+                var versions = ["MSXML2.XMLHttp.6.0","MSXML2.XMLHttp.3.0","MSXML2.XMLHttp"], i,len;
+                for(i=0;i< versions.length;i++){
+                    try{
+                        new ActiveXObject(versions[i]);
+                        arguments.callee.activeXString = versions[i];
+                        break;
+                    }catch(ex){
+
+                    }
+                }
+            }
+            return new ActiveXObject(arguments.callee.activeXString);
+        }else{
+            throw new Error("No XHR object available.");
+        }
+    }
+
+    var xhr = createXHR();
+
+    function getSalesDate(){
+        alert("Ready state is:" + xhr.readyState);
+        //Setup(initialize) the request;
+        var url = "/boards/servlet/UpdateBoardSales";
+        xhr.open('GET',url,true);
+        xhr.onreadystatechange = updatePage;
+        xhr.send(null);
+    }
+
+    function updatePage(){
+        //Output the current ready state
+        alert("updatePage() called with ready state of " + xhr.readyState + "and a response text of" + xhr.responseText);
+    }
+
+    window.onload = function(){
+        getSalesDate();
+    }
+</script>
+</body>
+</html>

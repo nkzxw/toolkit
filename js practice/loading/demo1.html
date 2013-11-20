@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Javascript的装载与执行(一)</title>
+    <style>
+        .red{color: red;font-weight: bold;}
+    </style>
+</head>
+<body>
+<dl>
+    <dt>浏览器对于Javascript的运行有两大特性：</dt>
+    <dd>1）载入后马上执行</dd>
+    <dd>2）执行时会阻塞页面后续的内容（包括页面的渲染、其它资源的下载）</dd>
+</dl>
+<p id="prep">js加载前</p>
+<script>
+    alert('js加载中...')
+</script>
+<script>
+    var newElem = document.createElement('span'),
+        newText = document.createTextNode('I am new elem');
+    newElem.className = 'red';
+    newElem.appendChild(newText);
+    document.getElementById('prep').appendChild(newElem);
+    alert('new elem add completed');
+</script>
+<p>js加载后</p>
+</body>
+</html>

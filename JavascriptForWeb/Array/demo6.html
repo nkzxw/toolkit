@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Array数组--利用length属性也可以方便地在数组末尾添加新项</title>
+</head>
+<body>
+<script type="text/javascript">
+    var colors = ["red","blue","green"];
+    colors[colors.length] = "black";
+    colors[colors.length] = "brown";
+    console.log(colors);
+
+    colors[99] = "white";
+    console.log(colors.length + ":" + colors)
+</script>
+</body>
+</html>

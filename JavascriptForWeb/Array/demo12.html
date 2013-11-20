@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>数组的操作方法</title>
+</head>
+<body>
+<script type="text/javascript">
+    var colors = ["red","green","blue"];
+    var colors2 = colors.concat("yellow",["black","brown"])
+    console.log(colors);
+    console.log(colors2);
+
+    var value = colors2;
+    var value2 = value.slice(1);
+    var value3 = value.slice(1,4);
+    var value4 = value.slice(-2,-1);
+    console.log(value2);
+    console.log(value3);
+    console.log(value4);
+
+    var colorValue = ["red","green","blue"];
+    var removed = colorValue.splice(0,1);
+    console.log(colorValue);
+    console.log(removed);
+
+    removed = colorValue.splice(1,0,"yellow","orange");
+    console.log(colorValue);
+    console.log(removed);
+
+    removed = colorValue.splice(1,1,"red","purple");
+    console.log(colorValue);
+    console.log(removed);
+</script>
+</body>
+</html>

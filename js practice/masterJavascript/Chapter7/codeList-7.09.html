@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>动画(fadeIn/fadeOut)---ifan</title>
+<link rel="stylesheet" type="text/css" href="../css/i-base.css" />
+<style>h1{height:60px;background:green;color:#fff;display:none;}</style>
+</head>
+<body>
+<div class="wrapper">
+    <h1>dfsdf<button id='hide'>隐藏H1</button></h1>
+	<button id='show'>显示H1</button>	
+</div>
+<script src="../js/i-base.js"></script>
+<script>
+	function fadeIn(elem){
+		setOpacity(elem, 0);
+		show(elem);
+		for (var i = 0; i <= 100; i += 5) {
+			(function(){
+				var pos = i;
+				setTimeout(function(){
+					setOpacity(elem, pos);
+				}, (pos + 1) * 10);
+			})();
+		}	
+	}
+	
+	function fadeOut(elem){
+		//setOpacity(elem, 0);
+		for (var i = 0; i <= 100; i += 5) {
+			(function(){
+				var pos = i;
+				setTimeout(function(){
+					setOpacity(elem, 100-pos);
+				}, (pos + 1) * 10);
+			})();
+			
+		}
+		
+	}
+</script>
+<script>
+	var h1 = tag('h1')[0];
+	addEvent(ID('show'),'click',function(){
+		fadeIn(h1);
+	});
+	addEvent(ID('hide'),'click',function(){
+		fadeOut(h1);
+	});
+</script>
+</body>
+</html>

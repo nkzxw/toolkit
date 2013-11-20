@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Object Functions</title>
+</head>
+<body>
+<script src="underscore.js"></script>
+<script>
+    /*--
+        _.keys(object)
+    --*/
+//    console.log(_.keys({one : 1, two : 2, three : 3}));
+
+    /*--
+        _.values(object)
+    --*/
+//    console.log(_.values({one : 1, two : 2, three : 3}));
+
+    /*--
+        _.pairs(object)
+    --*/
+//    console.log(_.pairs({one : 1, two : 2, three : 3}));
+
+    /*--
+        _.invert(object)
+    --*/
+//    console.log(_.invert({Moe: "Moses", Larry: "Louis", Curly: "Jerome"}));
+
+    /*--
+        _.functions(object)
+    --*/
+//    console.log(_.functions(_));
+
+    /*--
+        _.extend(destination, *sources)
+    --*/
+//    var obj1 = {name : 'ifany'},
+//        obj2 = {age : 30};
+//    console.log(_.extend(obj1, obj2));
+//    console.log(obj1);
+//    console.log(obj2);
+
+    /*--
+        _.pick(object, *keys)
+    --*/
+//    console.log(_.pick({name : 'ifany', age : 30, career : 'Soft Engineer'}, 'name', 'career'));
+
+    /*--
+        _.omit(object, *keys)
+    --*/
+//    console.log(_.omit({name : 'ifany', age : 30, career : 'Soft Engineer'}, 'name', 'career'));
+
+    /*--
+        _.defaults(object, *defaults)
+    --*/
+//    var me = {name : 'ifany'};
+//    console.log(_.defaults(me, {name : 'jeperc', career : 'Soft Engineer'}));
+
+    /*--
+        _.clone(object)
+    --*/
+//    var me = {name : 'ifany'};
+//    var shadow = _.clone(me);
+//    console.log(me);
+//    console.log(shadow);
+
+    /*--
+        _.tap(object, interceptor)
+    --*/
+//    _.chain([1, 2, 3, 200])
+//            .filter(function(num){ return num % 2 === 0; })
+//            .tap(alert)
+//            .map(function(num){ return num*num })
+//            .value();
+
+    /*--
+        _.has(object, key)
+    --*/
+//    console.log(_.has({a : 1, b : 2, c : 3}, 'b'));
+
+    /*--
+        _.isEqual(object, other)
+    --*/
+//    var moe   = {name : 'moe', luckyNumbers : [13, 27, 34]};
+//    var clone = {name : 'moe', luckyNumbers : [13, 27, 34]};
+//
+//    console.log(moe === clone);
+//
+//    console.log(_.isEqual(moe, clone));
+
+    /*--
+        _.isEmpty(object)
+    --*/
+//    console.log(_.isEmpty([1, 2, 3, 4]));
+//    console.log(_.isEmpty({}))
+
+    /*--
+        _.isElement(object)
+    --*/
+//    console.log(_.isElement([1,2]));
+//    console.log(_.isElement(document.getElementsByTagName('body')[0]));
+
+    /*--
+        _.isArray(object)
+    --*/
+//    console.log((function(){ return _.isArray(arguments) })());
+//    console.log(_.isArray([1, 2, 3]));
+
+    /*--
+        _.isObject(value)
+    --*/
+//    console.log(_.isObject({}));
+//    console.log(_.isObject(1));
+
+    /*--
+        _.isArguments(object)
+    --*/
+//    console.log((function(){ return _.isArguments(arguments) })());
+//    console.log(_.isArguments([1, 2, 3]));
+
+    /*--
+        _.isFunction(object)
+    --*/
+//    console.log(_.isFunction(alert));
+
+    /*--
+        _.isString(object)
+    --*/
+    console.log(_.isString('ifany'));
+
+    /*--
+        _.isNumber(object)
+    --*/
+
+    /*--
+       _.isFinite(object)
+    --*/
+
+    /*--
+        _.isBoolean(object)
+    --*/
+
+    /*--
+        _.isDate(object)
+    --*/
+
+    /*--
+        _.isRegExp(object)
+    --*/
+
+    /*--
+        _.isNaN(object)
+    --*/
+
+    /*--
+        _.isNull(object)
+    --*/
+
+    /*--
+        _.isUndefined(value)
+    --*/
+</script>
+</body>
+</html>

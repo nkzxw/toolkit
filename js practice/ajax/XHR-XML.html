@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <link rel="shortcut icon" href="" type="image/x-icon"/>
+    <title>在请求和响应中使用XML</title>
+    <link rel="stylesheet" type="text/css" href="../../css/base.css" />
+    <style>
+        .wrapper {margin:0 auto}
+        .form{margin:10px 0;border:1px solid #ccc;background:#f7f7f7}
+        .form fieldset{margin-bottom:10px;}
+        .form legend{display:none;}
+        .form p{margin:5px 10px;}
+        .form p label{width:60px;display:block;float:left;text-align:right;padding-right:15px;}
+        .form .submit{margin-left:75px;}
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <div class="form">
+    	<form action="" method="post">
+    		<fieldset class="login">
+    			<legend>Login Information</legend>
+			<p><label for="firstName" class="hover">firstName</label>
+			    <input type="text" id="firstName" class="required text" /></p>
+			<p><label for="lastName" class="hover">lastName</label>
+			    <input type="text" id="lastName" class="required password" /></p>
+    		</fieldset>
+		<fieldset>
+    			<legend>person Information</legend>
+			<p><label for="street" class="hover">street</label>
+			    <input type="text" id="street" class="required text" /></p>
+			<p><label for="city" class="hover">city</label>
+			    <input type="text" id="city" class="required text" /></p>
+			<p><label for="state" class="hover">state</label>
+			    <input type="text" id="state" class="required date text" /></p>
+    		    <p><label for="zipCode" class="hover">zipCode</label>
+			    <input type="text" id="zipCode" class="url text" /></p>
+		</fieldset>
+		<fieldset>
+			<legend>提交表单</legend>
+			<p><input type="submit" value="Submit Form" class="submit" /></p>
+		</fieldset>
+    	</form>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function createXHR(){
+        if(typeof XMLHttpRequest != "undefined"){
+            return new XMLHttpRequest();
+        }else if(typeof ActiveXObject != "undefined"){
+            if(typeof arguments.callee.activeXString != "string"){
+                var versions = ["MSXML2.XMLHttp.6.0","MSXML2.XMLHttp.3.0","MSXML2.XMLHttp"], i,len;
+                for(i=0;i< versions.length;i++){
+                    try{
+                        new ActiveXObject(versions[i]);
+                        arguments.callee.activeXString = versions[i];
+                        break;
+                    }catch(ex){
+
+                    }
+                }
+            }
+            return new ActiveXObject(arguments.callee.activeXString);
+        }else{
+            throw new Error("No XHR object available.");
+        }
+    }
+
+    var xhr = createXHR();
+
+    /*function callServer(){
+        //Get the city and state from the Web form.
+        var firstName = document.getElementById('firstName').value;
+        var lastName = document.getElementById('lastName').value;
+        var street = document.getElementById('street').value;
+        var city = document.getElementById('city').value;
+        var state = document.getElementById('state').value;
+        var zipCode = document.getElementById('zipCode').value;
+
+        //Build the URL to connect to.
+        var url = "/scripts/saveAddress.php?firstName=" + escape(firstName) + "&lastName=" + escape(lastName) + "&street=" + escape(street) + "&city=" + escape(city) + "&state=" + escape(state) + "&zipCode=" + escape(zipCode);
+
+        //Open a connection to the server.
+        xhr.open("GET",url,true);
+
+        //Set up a function for the server to run when it's done.
+        xhr.onreadystatechange = confirmUpdate;
+
+        //Send the request.
+        xhr.send(null);
+    }*/
+
+    function callServer(){
+        //Get the city and state from the Web form.
+        var firstName = document.getElementById('firstName').value;
+        var lastName = document.getElementById('lastName').value;
+        var street = document.getElementById('street').value;
+        var city = document.getElementById('city').value;
+        var state = document.getElementById('state').value;
+        var zipCode = document.getElementById('zipCode').value;
+
+        var xmlString = "<profile>" + "<firstname>" + firstName + "</firstname>" + "<lastname>" + lastName + "</lastname>" + "<street>" + street + "</street>" + "<city>" + city + "</city>" + "<state>" + state + "</state>" + "<zipCode>" + zipCode + "</zipCode>" + "</profile>";
+
+        //Build the URL to connect to.
+        var url = "/scripts/saveAddress.php";
+
+        //Open a connection to the server.
+        xhr.open("POST",url,true);
+
+        //Tell the server you are sending it XML.
+        xhr.setRequestHeader("Content-Type","text/xml")
+
+        //Set up a function for the server to run when it's done.
+        xhr.onreadystatechange = confirmUpdate;
+
+        //Send the request.
+        xhr.send(xmlString);
+    }
+
+    function confirmUpdate(){
+        if(xhr.readyState == 4){
+            if(xhr.status == 200){
+                var xmlDoc = xhr.responseXML;
+                var firstName = xmlDoc.getElementsByTagName("firstname")[0].value;
+                var lastName = xmlDoc.getElementsByTagName("lastname")[0].value;
+                var street = xmlDoc.getElementsByTagName("street")[0].value;
+                var city = xmlDoc.getElementsByTagName("city")[0].value;
+                var state = xmlDoc.getElementsByTagName("state")[0].value;
+                var zipCode = xmlDoc.getElementsByTagName("zipCode")[0].value;
+
+                //Now do whatever your want with the values.
+            }
+        }
+    }
+</script>
+</body>
+</html>

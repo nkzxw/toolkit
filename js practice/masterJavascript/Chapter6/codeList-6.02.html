@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>阻止事件冒泡的通用函数---ifan</title>
+<link rel="stylesheet" type="text/css" href="../css/i-base.css" />
+</head>
+<body>
+	<style>
+		
+	</style>
+<div class="wrapper">
+	<h1>stopBubble()的具体应用</h1>
+    <ul>
+     	<li>Dog</li>
+		<li>Cats</li>
+		<li>Mice</li>
+     </ul>
+</div>
+<script src="../js/i-base.js"></script>
+<script>
+	//Generic function to stop event bubbling.
+	//eg: function fname(e){...stopBubble(e);}
+	function stopBubble(e){
+		if(e && e.stopPropagation){
+			//W3c
+			e.stopPropagation();
+		}else{
+			//IE
+			window.event.cancelBubble = true ;
+		}
+	}
+</script>
+<script>
+	var all = tag("*");
+	for(var i=0; i<all.length; i++){
+		all[i].onmouseover = function(e){
+			this.style.border = '2px solid green';
+			stopBubble(e);
+		}
+		all[i].onmouseout = function(e){
+			this.style.border = '2px solid #fff';
+			stopBubble(e);
+		}
+	}
+</script>
+</body>
+</html>

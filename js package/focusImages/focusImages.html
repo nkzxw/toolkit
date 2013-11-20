@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="keywords" content=""/>
+<meta name="description" content=""/>
+<title>focusImages</title>
+<link rel="shortcut icon" href="" type="image/x-icon"/>
+<link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+<style>
+.wrapper{margin: 10px auto}
+/*focusImg.css------*/
+.J_focusImg{width:450px;height:296px;position:relative;border:1px solid #666;}
+.J_focusImg .pic li{list-style:none;position:absolute;top:0;left:0;}
+.J_focusImg .pic img{width: 448px;height: 294px;margin: 1px;}
+.J_focusImg .num {position: absolute;right: 3px;bottom: 3px;}
+.J_focusImg .num span{display: block;float: left;width:16px;height:16px;text-align:center;margin-left:5px;border: 1px solid #ccc;background: #fff; cursor: pointer}
+.J_focusImg .num .cur,.J_focusImg .num span:hover{background: #ccc;color: red;border-color: #fff;}
+</style>
+</head>
+<body>
+<div class="wrapper">
+    <div class="J_focusImg">
+        <ul class="pic">
+            <li><a href=""><img src="../../images/focusImg/1.jpg" alt=""></a></li>
+            <li><a href=""><img src="../../images/focusImg/2.jpg" alt=""></a></li>
+            <li><a href=""><img src="../../images/focusImg/3.jpg" alt=""></a></li>
+            <li><a href=""><img src="../../images/focusImg/1.jpg" alt=""></a></li>
+            <li><a href=""><img src="../../images/focusImg/2.jpg" alt=""></a></li>
+            <li><a href=""><img src="../../images/focusImg/4.jpg" alt=""></a></li>
+        </ul>
+        <div class="num cf">
+            <span>1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
+            <span>5</span>
+            <span>6</span>
+        </div>
+    </div>
+    <div class="J_focusImg">
+        <ul class="pic">
+            <li><a href=""><img src="../../images/focusImg/1.jpg" alt=""></a></li>
+            <li><a href=""><img src="../../images/focusImg/2.jpg" alt=""></a></li>
+            <li><a href=""><img src="../../images/focusImg/3.jpg" alt=""></a></li>
+            <li><a href=""><img src="../../images/focusImg/4.jpg" alt=""></a></li>
+            <li><a href=""><img src="../../images/focusImg/1.jpg" alt=""></a></li>
+            <li><a href=""><img src="../../images/focusImg/2.jpg" alt=""></a></li>
+        </ul>
+        <div class="num cf">
+            <span>1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
+            <span>5</span>
+            <span>6</span>
+        </div>
+    </div>
+</div>
+<script src="../../js/i-base.js"></script>
+<script src="focusImages.js"></script>
+<script>
+//循环焦点图根元素"J_focusImg"数目，并执行每个焦点图。
+for(var i=0; i<getByClass("J_focusImg").length; i++){
+focusImages("J_focusImg", i, 1000, "mouseover");
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>作为值的函数</title>
+</head>
+<body>
+<script type="text/javascript">
+    function callSomeFunction(someFunction,someArgument){
+        return someFunction(someArgument);
+    }
+
+    function addsum(num){
+        return num + 10;
+    }
+    console.log(callSomeFunction(addsum,100));
+
+    function getGreeting(name){
+        return "Hello " + name;
+    }
+    console.log(callSomeFunction(getGreeting,"Ifany"));
+
+    //
+    function createComparisonFunction(propertyName){
+        return function(object1,object2){
+            var value1 = object1[propertyName],
+                value2 = object2[propertyName];
+
+            if(value1 < value2){
+                return -2;
+            }else if(value1 > value2){
+                return 1;
+            }else{
+                return 0;
+            }
+        }
+    }
+    var data = [{name:"Zachary",age:28},{name:"Nicholas",age:29}];
+    data.sort(createComparisonFunction("name"));
+    console.log(data[0].name);
+    data.sort(createComparisonFunction("age"));
+    console.log(data[0].name);
+</script>
+</body>
+</html>

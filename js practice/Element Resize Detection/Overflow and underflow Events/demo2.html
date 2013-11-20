@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style type="text/css">
+        #tester {
+            width: 200px;
+            height: 250px;
+            margin: 20px auto;
+            background: tomato;
+            border: 1px solid #333;
+            overflow: auto;
+            background: limegreen;
+        }
+        #tester[flow="over"] {
+            background: tomato;
+        }
+
+        #tester[flow="under"] {
+            background: limegreen;
+        }
+
+        body {
+          font-size: large;
+        }
+        @media (max-width: 800px) {
+          body { font-size: medium; }
+        }
+        @media (max-width: 400px) {
+          body { font-size: small; }
+        }
+    </style>
+</head>
+<body>
+<button id="font_up">+ Height</button>
+<button id="font_down">- Height</button>
+
+<div id="tester">
+<p>Suddenly the foremost Martian lowered his tube and discharged a canister of the black gas at the ironclad.  It hit her larboard side and glanced off in an inky jet that rolled away to seaward, an unfolding torrent of Black Smoke, from which the ironclad drove clear.</p>
+</div>
+<script type="text/javascript">
+
+    //W3C broswers
+    function addFlowListener(element, type, fn){
+      var flow = type == 'over';
+      element.addEventListener('OverflowEvent' in window ? 'overflowchanged' : type + 'flow', function(e){
+        if (e.type == (type + 'flow') ||
+          ((e.orient == 0 && e.horizontalOverflow == flow) ||
+          (e.orient == 1 && e.verticalOverflow == flow) ||
+          (e.orient == 2 && e.horizontalOverflow == flow && e.verticalOverflow == flow))) {
+          return fn.call(this, e);
+        }
+      }, false);
+    }
+
+    var tester = document.getElementById('tester');
+
+    addFlowListener(tester,'over',function(e){
+        console.log(e);
+        this.setAttribute('flow','over');
+    })
+    addFlowListener(tester,'under',function(e){
+        console.log(e);
+        this.setAttribute('flow','under');
+    })
+
+    document.getElementById('font_up').addEventListener('click',function(){
+        tester.style.height = Number(getComputedStyle(tester).height.replace('px','')) + 40 + 'px';
+    })
+    document.getElementById('font_down').addEventListener('click',function(){
+        tester.style.height = Number(getComputedStyle(tester).height.replace('px','')) - 40 + 'px';
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>寄生构造函数模式</title>
+</head>
+<body>
+<script type="text/javascript">
+    function Person(name,age,job){
+        var o = new Object();
+        o.name = name;
+        o.age = age;
+        o.job = job;
+        o.sayName = function(){
+            console.log(this.name);
+        };
+
+        return o;
+    }
+
+    var friend = new Person('Jeperc',26,'Teacher');
+    friend.sayName();
+
+    //创建一个具有额外方法的特殊数组：
+    function SpecialArray(){
+        var values = new Array();
+
+        values.push.apply(values,arguments);
+
+        values.toPipeString = function(){
+            return this.join('|');
+        };
+
+        return values;
+    }
+
+    var colors = new SpecialArray('red','blue','green');
+    console.log(colors.toPipeString());
+</script>
+</body>
+</html>

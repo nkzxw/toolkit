@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>作用域---ifan</title>
+<link rel="stylesheet" type="text/css" href="../css/i-base.css" />
+</head>
+<body>
+<div class="wrapper">
+
+</div>
+<script>
+	//Set the global variable 'foo'
+	var foo='test';
+	
+	//In the if block
+	if(true){
+		//Note: the global scope is still
+		var foo='new test';
+	}
+	alert(foo === 'new test');
+	
+	//create a new function,to modify the variable foo
+	function test(){
+		var foo="old test";
+	}
+	//Perform test (), foo only work within the scope of the function
+	test();
+	
+	//
+	alert(foo == 'old test');
+	
+</script>
+</body>
+</html>

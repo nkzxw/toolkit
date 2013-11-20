@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>检测数组</title>
+</head>
+<body>
+<script type="text/javascript">
+    function isArray(value){
+        return Object.prototype.toString.call(value) == "[object Array]";
+    }
+
+    var arr = [1,2,3],
+        str="123";
+
+    console.log("1:" + isArray(arr));
+    console.log("2:" + isArray(str));
+
+</script>
+</body>
+</html>

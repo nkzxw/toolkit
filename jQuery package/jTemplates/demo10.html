@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Using functions</title>
+</head>
+<body>
+
+<!--Output Template-->
+<div id="result1"></div>
+<div id="result2"></div>
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+<script type="text/javascript" src="jQuery.jTemplates.js"></script>
+<script>
+    $(function(){
+        //In {...} u can use any JavaScript code.
+
+        //return method
+        $('#result1').setTemplate('{$T.toUpperCase()}').processTemplate('ifany chen');
+
+        //function by Parameter
+        $('#result2').setTemplate('{$P.inc(4)}').setParam('inc',inc).processTemplate();
+
+        function inc(num){
+            return num+1;
+        }
+
+    })
+</script>
+</body>
+</html>

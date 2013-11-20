@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <link rel="shortcut icon" href="" type="image/x-icon"/>
+    <title>Z-index</title>
+    <link href="../base.css" rel="stylesheet" type="text/css" />
+    <style>
+        .box{width:100px;height:100px;position:absolute;}
+        .A{z-index:100;top:25px;background:red;}
+        .A1{z-index:300;top:30px;background:green;left:10px;}
+        .B{z-index:200;top:75px;background:#666;}
+
+        #container {position: relative;}
+        #box1 {position: absolute;z-index: 20;top: 100px;left: 210px;width: 200px;height: 200px;background-color: yellow;}
+        #box2 {position: absolute;z-index: 10;top: 50px;left: 160px;width: 200px;height: 200px;background-color: green;}
+
+        #container3 {position: relative;}
+        #box3 {position: absolute;top: 100px;left: 210px;width: 200px;height: 200px;background-color: yellow;z-index: -10;}
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <div class="layout">
+        <h2>定位元素 A（z-index:100）里面有定位元素 A1（z-index:300），而定位元素 B 和元素 A 兄弟关系（z-index:200）。你会发现无论 A1 的 z-index 是多大，也会被 z-index 是 200 的 B 所覆盖，因为 A 的 z-index 只有 100。</h2>
+            <div class="pr">
+                <div class="box A">
+                    <p>我是boxA</p>
+                    <div class="box A1">我是boxA1</div>
+                </div>
+                <div class="box B">我是boxB</div>
+            </div>
+    </div><!--layout end-->
+    <div class="layout pr" style="margin-top:200px">
+        <h2>IE中z-index BUG:——在 IE 浏览器中，定位元素(即使z-index:auto)会产生一个新的 stacking context，并且从 z-index 的值为 0 开始。</h2>
+        <div id="container">
+            <div id="box1">这个box1应该在上面</div>
+        </div>
+        <div id="box2">这个box2应该在下面，IE浏览器会对定位元素产生一个新的stacking context ，甚至当元素 z-index的为“auto”。</div>
+    </div><!--layout end-->
+
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+</div>
+        <h2>z-index 的负值解析的一些误区</h2>
+
+              <div id="box3">为什么负值的定位元素在 IE 和 Firefox 下显示不一致呢？Why？</div>
+
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+</body>
+</html>

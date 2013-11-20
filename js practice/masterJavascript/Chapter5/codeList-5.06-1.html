@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>()---ifan</title>
+<link rel="stylesheet" type="text/css" href="../css/i-base.css" />
+<style>
+	.a{width:300px;height:200px;background:black;}
+	.b{background:blue;}
+	.c{background:green;}
+</style>
+</head>
+<body>
+<div class="wrapper">
+       <div id="d" class="a b"></div>
+</div>
+<script src="../js/i-base.js"></script>
+<script>
+	function hasClass(elem,name){
+		return elem.className.match(new RegExp('(\\s|^)'+name+'(\\s|$)'));
+	}
+	function addClass(elem,name){
+		if(!this.hasClass(elem,name)){
+			elem.className += " " +name;
+		}
+	}
+	function removeClass(elem,name){
+		if(hasClass(elem,name)){
+			var reg = new RegExp('(\\s|^)'+name+'(\\s|$)');
+			elem.className = elem.className.replace(reg, ' ')
+		}
+	}
+	
+</script>
+<script>
+	domReady(function(){
+		//addClass(ID('d'),'c');
+		removeClass(ID('d'),'b');
+	});
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>调整元素相对于当前位置的距离的2个函数---ifan</title>
+<link rel="stylesheet" type="text/css" href="../css/i-base.css" />
+<style>
+	h1{position:absolute;left:0px;top:20px;}
+</style>
+</head>
+<body>
+<div class="wrapper">
+     <h1>pageX,pageY</h1>
+	<h2><button>addX(elem, pos)</button>
+	 <button>addY(elem, pos)</button></h2> 
+</div>
+<script src="../js/i-base.js"></script>
+<script>
+	//Horizontal position of the element to add a function of pixel distance.
+	 function addX(elem, pos){
+	 	setX(elem, posX(elem) + pos );
+	 }
+	 //vertical position of the element to add a function of pixel distance.
+	 function addY(elem, pos){
+	 	setY(elem, posY(elem) + pos );
+	 }
+</script>
+<script>
+	var btn1 = tag('button')[0],btn2 = tag('button')[1],h1 = tag('h1')[0];
+	addEvent(btn1,'click',function(){
+		addX(h1,10);
+	});
+	addEvent(btn2,'click',function(){
+		addY(h1,10);
+	})
+</script>
+</body>
+</html>

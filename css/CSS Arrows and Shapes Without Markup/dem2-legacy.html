@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Generating CSS Content</title>
+    <style>
+    .inner{margin:30px auto;width:1000px}
+    
+    .arrow{position:relative;width:100px;height:100px;background-color:#000}
+    .arrow .arrow-tip{content:''; position:absolute;width:0;height:0;border:10px solid transparent;}
+    .arrow-top .arrow-tip{left:50%;bottom:100%;margin-left:-10px;border-bottom-color:#000}
+    .arrow-left .arrow-tip{right:100%;top:50%;margin-top:-10px;border-right-color:#000}
+    .arrow-right .arrow-tip{left:100%;top:50%;margin-top:-10px;border-left-color:#000}
+    .arrow-bottom .arrow-tip{left:50%;top:100%;margin-left:-10px;border-top-color:#000}
+    </style>
+</head>
+<body>
+    <div class="inner">
+        <div class="arrow arrow-top">
+            <span class="arrow-tip"></span>
+        </div><br>
+        <div class="arrow arrow-left">
+            <span class="arrow-tip"></span>
+        </div><br>
+        <div class="arrow arrow-right">
+            <span class="arrow-tip"></span>
+        </div><br>
+        <div class="arrow arrow-bottom">
+            <span class="arrow-tip"></span>
+        </div>
+    </div>
+</body>
+</html>

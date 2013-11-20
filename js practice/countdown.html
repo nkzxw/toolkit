@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <title>原生js倒计时</title>
+</head>
+<body>
+<span id="countdown" data-time="1359561600000">&nbsp;</span>
+<br/>
+<span id="countdown2" data-time="1362758400000">&nbsp;</span> 
+<script type="text/javascript">
+function countdown(ele){
+var dataTime,distanceTime,targetTimeMsg,restTime;
+var ele = document.getElementById(ele);
+dataTime = ele.getAttribute('data-time');
+distanceTime= new Date(parseInt(dataTime)); 
+targetTimeMsg = distanceTime.getFullYear() + "年";  
+targetTimeMsg += (distanceTime.getMonth()+1) + "月";  
+targetTimeMsg += (distanceTime.getDate()) + "日";  
+//targetTimeMsg += (distanceTime.getHours()) + "时";  
+//targetTimeMsg += (distanceTime.getMinutes()) + "分";  
+//targetTimeMsg += (distanceTime.getSeconds()) + "秒";  
+(restTime = function(){  
+   var totalMS,D,H,M,S,MS;
+
+    nowTime = new Date(); 
+
+    totalMS = distanceTime.getTime() - nowTime.getTime();  
+    D = Math.floor(totalMS/(1000 * 60 * 60 * 24));  
+
+    if( D >= 0 ){
+        H = Math.floor(totalMS/(1000*60*60)) % 24;  
+        M = Math.floor(totalMS/(1000*60)) % 60;  
+        S = Math.floor(totalMS/1000) % 60;  
+        MS = Math.floor(totalMS/100) % 10;
+
+        H = H.toString().length === 1 ? '0' + H : H;
+        M = M.toString().length === 1 ? '0' + M : M;
+        S = S.toString().length === 1 ? '0' + S : S;
+
+        var html = '今天距离<strong>' + targetTimeMsg + '</strong>还有<strong>' + D + '</strong>天<strong>' + H + '</strong>时<strong>' + M + '</strong>分<strong>' + S + '.' + MS + '</strong>秒';
+
+        ele.innerHTML = html;
+        //restTime = null;
+    }  
+    else {  
+        ele.innerHTML=targetTimeMsg +"已过！";  
+    }  
+    setTimeout(restTime,100);  
+})();
+} 
+window.onload=function(){   
+    countdown('countdown');
+    countdown('countdown2'); 
+}
+</script>
+</body>
+</html>

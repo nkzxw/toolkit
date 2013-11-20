@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>确定滚动条位置的2个函数---ifan</title>
+<link rel="stylesheet" type="text/css" href="../css/i-base.css" />
+</head>
+<body>
+<div class="wrapper" style="width:1500px;height:1000px;">
+
+</div>
+<script src="../js/i-base.js"></script>
+<script>
+	//Determine the location of the browser function of the horizontal scroll.
+	function scrollX(){
+		//A shortcut, use the IE6 / 7 strict mode.
+		var de = document.documentElement;
+		return self.pageXOffset || (de && de.scrollLeft) || document.body.scrollLeft;
+	}
+	//Determine the location of the browser function of the vertical scroll.
+	function scrollY(){
+		//A shortcut, use the IE6 / 7 strict mode.
+		var de = document.documentElement;
+		return self.pageYOffset || (de && de.scrollTop) || document.body.scrollTop;
+	}
+</script>
+<script>
+	addEvent(window,'load',function(){
+		alert(scrollX());
+		alert(scrollY());
+	});
+</script>
+</body>
+</html>

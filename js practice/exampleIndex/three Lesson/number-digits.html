@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <link rel="shortcut icon" href="" type="image/x-icon"/>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="../styles/base.css"/>
+    <style>
+        .wrapper { }
+        input.text{width:50px;background:#f0f0f0;padding:5px;border:1px solid #ccc;}
+        strong{padding:0 10px;color:green;}
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <input type="text" class="text" />
+    <button>是否为两位数？</button>
+    <strong>?</strong>
+</div>
+<script type="text/javascript">
+    window.onload = function(){
+        var oInput = document.getElementsByTagName('input')[0];
+        var oButton = document.getElementsByTagName('button')[0];
+        var oStrong = document.getElementsByTagName('strong')[0];
+
+        oInput.onkeyup = function(){
+            this.value = this.value.replace(/[^\d]/,'');
+        };
+
+        oButton.onclick = function(){
+            oInput.value === '' ?
+            alert('请输入数字！') :
+            (oStrong.innerHTML = (/^\d{2}$/).test(parseInt(oInput.value)) ? '√ 这是二位数' : '这是' + oInput.value.length + "位数");
+        }
+    }
+</script>
+</body>
+</html>

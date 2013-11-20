@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title></title>
+    <style>
+        body {
+      padding: 10px;
+      margin: 0;
+      background: #fff;
+      font-family: Arial;
+    }
+
+    #wrap {
+      margin: 20px 0 0;
+      background: #f0f0f0;
+      border: 1px solid #d0d0d0;
+    }
+
+    #list {
+        display: block;
+        margin: 10px;
+        background: #CAE8F9;
+    }
+        .resize-sensor, .resize-sensor > div {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+<div style="margin-bottom: 10px;">Use the button below to set the list's margin to a random value, this will cause the list to change dimensions and trigger a resize event.</div>
+
+<button id="trigger">Trigger Resize</button>
+
+<section id="wrap">
+		<ul id="list">
+			<li>I'm an unordered list</li>
+			<li>I was last resized:</li>
+			<li id="resize_time">No resizing detected yet!</li>
+		</ul>
+</section>
+<script src="resize.js"></script>
+<script>
+window.onload = function(){
+    var trigger = document.getElementById('trigger');
+    var wrap = document.getElementById('wrap');
+    var list = document.getElementById('list');
+
+    trigger.addEventListener('click', function(){
+        list.style.margin = (Math.floor(Math.random() * 80) + 1) + 'px';
+    }, false);
+
+    var time = document.getElementById('resize_time');
+    addResizeListener(list, function(e){
+        console.log(e);
+        time.innerHTML = Math.round(new Date().getTime() / 1000) + ' seconds from the epoch'
+    });
+}
+</script>
+</body>
+</html>

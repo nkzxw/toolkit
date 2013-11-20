@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>跨域调用js文件中的json数据</title>
+</head>
+<body>
+<h3 id="test"></h3>
+<script>
+    var $test = document.getElementById('test');
+
+    var localHandler = function(data){
+        $test.innerHTML = 'I am local function,an be called by cross domain file remote2.js,remote data is:' + data.result;
+    }
+</script>
+<script src="http://www.jspython.com/demo/temp/remote2.js"></script>
+</body>
+</html>

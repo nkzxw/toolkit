@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <link rel="shortcut icon" href="" type="image/x-icon"/>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="../styles/base.css"/>
+    <style>
+        .wrapper { }
+        #elem{width:200px;height:200px;background-color:#333;color:#fff;}
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <p><label for="name">属性名</label><input id="name" type="text" /></p>
+    <p><label for="value">属性值</label><input id="value" type="text" /></p>
+    <p><button>确定</button><button>重置</button></p>
+    <div id="elem">通过函数传递参数，改变元素的样式</div>
+</div>
+<script>
+    var changeStyle = function(elem,attr,value){
+        elem.style[attr] = value;
+    };
+    window.onload = function(){
+        var name = document.getElementById('name');
+        var val = document.getElementById('value');
+        var ele = document.getElementById('elem');
+        var sure = document.getElementsByTagName('button')[0];
+        var reset = document.getElementsByTagName('button')[1];
+
+        name.onkeyup = val.onkeyup = function(){
+            this.value = this.value.replace(/[^(a-zA-Z0-9)|(#)]/,"");
+        };
+
+        sure.onclick = function(){
+            changeStyle(ele,name.value,val.value);
+        };
+        reset.onclick = function(){
+            ele.removeAttribute('style');
+        };
+    }
+</script>
+</body>
+</html>

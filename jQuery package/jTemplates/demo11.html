@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Static content</title>
+</head>
+<body>
+
+<!--Output Template-->
+<div id="result1"></div>
+<br/>
+<div id="result2"></div>
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+<script type="text/javascript" src="jQuery.jTemplates.js"></script>
+<script>
+    $(function(){
+        //In {...} u can use any JavaScript code.
+
+        // Using {#literal}..{#/literal}
+        $('#result1').setTemplate('{#literal}class Car {<br/>&nbsp;&nbsp;int fuel;<br/>}{#/literal}').processTemplate();
+
+        // Using {#ldelim} and {#rdelim}
+        $('#result2').setTemplate('class Car {#ldelim}<br/>&nbsp;&nbsp;int fuel;<br/>{#rdelim}').processTemplate();
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>函数没有重载（深入理解）</title>
+</head>
+<body>
+<script type="text/javascript">
+    function addSomeNumber(num){
+        return num + 100;
+    }
+    function addSomeNumber(num){
+        return num + 200;
+    }
+    console.log(addSomeNumber(100));
+
+    var addNumber = function(num){
+        return num + 500;
+    }
+    addNumber = function(num){
+        return num + 1000;
+    }
+
+    console.log(addNumber(100));
+</script>
+</body>
+</html>

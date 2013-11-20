@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>function overloading---ifan</title>
+<link rel="stylesheet" type="text/css" href="../css/i-base.css" />
+</head>
+<body>
+<div class="wrapper">
+
+</div>
+<script>
+   //A function to send a message
+	function sendMessage(msg,obj){
+		if(arguments.length===2){
+			obj.handleMsg(msg);
+		}else{
+			alert(msg);
+		}
+	}
+	//The case of a parameter
+	sendMessage("hello,world!");
+	
+	//The case of two parameters
+	sendMessage('How are you?',{
+		handleMsg:function(msg){
+			alert("This is a custom message: " + msg);
+		}
+	});
+	
+</script>
+</body>
+</html>

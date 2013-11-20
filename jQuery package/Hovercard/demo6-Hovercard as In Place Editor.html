@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Hovercard as In Place Editor</title>
+</head>
+<body>
+<label id="demo-inPlaceEditor">John Resig</label>
+<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.10.1.min.js"></script>
+<script src="jquery.hovercard.js"></script>
+<script>
+$(function(){
+    var hoverHTMLDemoInPlaceEditor = '<div>Hmm! People may think that it was him who wrote jQuery when it was actually written by <br />' +
+                                        '<form>' +
+                                        '<input id="funny-input-value" type="text"/><br/><br/>' +
+                                        '<input type="submit" id="btn-funny" value="Yes, I know it better!" /><br/> ' +
+                                        '</form>' +
+                                        '<br/><small>This is just for fun!</small></div>';
+    $('#demo-inPlaceEditor').hovercard({
+        detailsHTML: hoverHTMLDemoInPlaceEditor,
+        width: 400
+    })
+    
+    $('body').delegate('#btn-funny', 'click', function (e) {
+        e.preventDefault();
+        var newText = $('#funny-input-value').val().length > 0 ? $('#funny-input-value').val() : 'Super Man';
+        $('#demo-inPlaceEditor').text(newText);
+        $('.hc-details').hide();
+//        $.notify('Updated. By the way do you really think '+ newText + ' wrote jQuery!', {
+//            background: '#ffffbb',
+//            autoHide: true,
+//            autoHideDelay: 6000,
+//            messageType: "success",
+//            clickAnywhereToClose: true,
+//            position: "bottom-right",
+//            width: 400
+//        });
+    });
+})
+</script>
+</body>
+</html>

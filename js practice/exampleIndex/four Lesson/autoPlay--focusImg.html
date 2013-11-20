@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <link rel="shortcut icon" href="" type="image/x-icon"/>
+    <title>自动播放一幻灯片效果</title>
+    <link rel="stylesheet" type="text/css" href="../styles/base.css"/>
+    <style>
+        body{font:12px/20px Arial;text-align:center;}
+        .wrapper {background:#000;overflow:hidden;}
+        #focusImg{position:relative;width:492px;margin:10px auto;height:172px;background-color:#fff;border:8px solid #fff;-moz-border-radius:5px 5px 5px 5px;-webkit-border-radius:5px 5px 5px 5px;border-radius:5px 5px 5px 5px;}
+        #focusImg .imgs{position:relative;width:490px;height:170px;overflow:hidden;zoom:1;border:1px solid #ccc;}
+        #focusImg .imgs li{list-style:none;position:absolute;left:0;top:0;width:490px;height:170px;opacity:0;filter:alpha(opacity=0);}
+        #focusImg .imgs .cur{opacity:1.0;filter:alpha(opacity=100)}
+        #focusImg .num{position:absolute;right:0;bottom:5px;}
+        #focusImg .num li{list-style:none;float:left;width:20px;margin:0 5px 0 0;height:20px;cursor:pointer;overflow:hidden;color:#fff;background-color:#f90;opacity:0.7;filter:alpha(opacity=70);-moz-border-radius:20px 20px 20px 20px;-webkit-border-radius:20px 20px 20px 20px;border-radius:20px 20px 20px 20px;}
+        #focusImg .num .cur{opacity:1.0;filter:alpha(opacity=100);font-weight:700;background-color:#f60;}
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <div id="focusImg">
+        <ul class="imgs">
+            <li class="cur"><a href=""><img src="../images/focusImg/01.jpg" alt="">c</a></li>
+            <li><a href="javascript:void(0)"><img src="../images/focusImg/02.jpg" alt=""></a></li>
+            <li><a href="javascript:void(0)"><img src="../images/focusImg/03.jpg" alt=""></a></li>
+            <li><a href="javascript:void(0)"><img src="../images/focusImg/04.jpg" alt=""></a></li>
+            <li><a href="javascript:void(0)"><img src="../images/focusImg/05.jpg" alt=""></a></li>
+        </ul>
+        <ul class="num">
+            <li class="cur">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+    </div>
+</div>
+<script>
+window.onload = function(){
+    var focusImgBox = document.getElementById('focusImg');
+    var imgBox = focusImgBox.getElementsByTagName('ul')[0].getElementsByTagName('li');
+    var numBox = focusImgBox.getElementsByTagName('ul')[1].getElementsByTagName('li');
+    var timer = play = null;
+    var index = 0;
+
+    for(var i=0;i<numBox.length;i++){
+        numBox[i].index = i;
+        numBox[i].onmouseover = function(){
+            show(this.index);
+        }
+    }
+
+    focusImgBox.onmouseover = function(){
+        clearInterval(play);
+    };
+    focusImgBox.onmouseout = function(){
+        autoPlay();
+    };
+
+    function autoPlay(){
+        play = setInterval(function(){
+               index++;
+               index >= imgBox.length && (index = 0);
+               show(index);
+        },2000);
+    }
+    autoPlay();
+
+    function show(n){
+        index = n;
+        var alpha = 0;
+        for(var i=0; i<numBox.length; i++){numBox[i].className = '';}
+        numBox[index].className = 'cur';
+        clearInterval(timer);
+
+        for(var j=0;j<imgBox.length;j++){
+            imgBox[j].style.opacity = 0;
+            imgBox[j].style.filter = "alpha(opacity=0)";
+        }
+
+        timer = setInterval(function(){
+            alpha += 2;
+            alpha > 100 && (alpha=100);
+            imgBox[index].style.opacity = alpha/100;
+            imgBox[index].style.filter = "alpha(opacity="+alpha+")";
+            alpha == 100 && clearInterval(timer);
+        },20);
+    }
+}
+</script>
+</body>
+</html>

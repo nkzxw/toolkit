@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Chaining</title>
+</head>
+<body>
+<script src="underscore.js"></script>
+<script>
+    console.log(_.map([1, 2, 3], function(n){ return n * 2 }));
+    console.log(_([1, 2, 3]).map(function(n){ return n * 2 }));
+
+    var lyrics = [
+        {line : 1, words : "I'm a lumberjack and I'm okay"},
+        {line : 2, words : "I sleep all night and I work all day"},
+        {line : 3, words : "He's a lumberjack and he's okay"},
+        {line : 4, words : "He sleeps all night and he works all day"}
+    ];
+
+    var c = _.chain(lyrics)
+            .map(function(line){ return line.words.split(' ') })
+            .flatten()
+            .reduce(function(counts, word){
+                counts[word] = (counts[word] || 0) + 1;
+                return counts;
+            }, {})
+            .value();
+    console.log(c);
+
+    var geeker = [{name : 'ifany', age :30}, {name : 'qingyong', age : 40}, {name : 'jeperc', age : 20}];
+    var youngest = _.chain(geeker)
+            .sortBy(function(geeker){ return geeker.age })
+            .map(function(geeker){ return geeker.name + ' is ' + geeker.age })
+            .first()
+            .value();
+    console.log(youngest);
+
+    console.log(_([1, 2, 3, 4]).value());
+</script>
+</body>
+</html>

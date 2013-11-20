@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <link rel="shortcut icon" href="" type="image/x-icon"/>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="../styles/base.css"/>
+    <style>
+        .wrapper {margin:10px auto; }
+        #imgLists{width:710px;padding:0 0 10px 10px;border:1px solid #333;overflow:hidden;zoom:1;}
+        #imgLists li{list-style:none;float:left;margin:10px 10px 0 0;}
+        #imgLists li img{width:128px;height:128px;border:1px solid #666;cursor:crosshair;opacity:.3;filter:alpha(opacity=30)}
+        #imgLists .cur img{opacity:1;filter:alpha(opacity=100)}
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <ul id="imgLists">
+        <li><img src="../images/1.jpg" alt=""></li>
+        <li><img src="../images/4.jpg" alt=""></li>
+        <li><img src="../images/6.jpg" alt=""></li>
+        <li><img src="../images/7.jpg" alt=""></li>
+        <li><img src="../images/9.jpg" alt=""></li>
+        <li><img src="../images/9.jpg" alt=""></li>
+        <li><img src="../images/7.jpg" alt=""></li>
+        <li><img src="../images/6.jpg" alt=""></li>
+        <li><img src="../images/4.jpg" alt=""></li>
+        <li><img src="../images/1.jpg" alt=""></li>
+    </ul>
+</div>
+<script>
+    window.onload = function(){
+        var lists = document.getElementsByTagName('li');
+        for(var i=0;i<lists.length;i++){
+            lists[i].onmouseover = function(){
+                this.className = 'cur';
+            };
+            lists[i].onmouseout = function(){
+                this.className = '';
+            };
+        }
+    }
+</script>
+</body>
+</html>

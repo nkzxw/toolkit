@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>获取元素位置的通用函数---ifan</title>
+<link rel="stylesheet" type="text/css" href="../css/i-base.css" />
+<style>
+	h1{position:relative;left:0px;top:20px;}
+	h2{position:relative;left:0px;top:20px;}
+</style>
+</head>
+<body>
+<div class="wrapper">
+     <h1>pageX,pageY</h1>
+	 <h2>posX,posY</h2>
+</div>
+<script src="../js/i-base.js"></script>
+<script>
+	//Get the element relative to the horizontal position of the father.
+	function pageX(elem){
+		//如果offsetParent是元素的父亲，那么提前退出；
+		//否则，我们需要找到元素和元素的父亲相对于整个页面位置，并计算他们之间的差。
+		var pageXW = elem.offsetParent ? elem.offsetLeft - pageX(elem.offsetParent) : elem.offsetLeft;
+		return pageXW;
+	}
+	//Get the element relative to the vertical position of the father.
+	 function pageY(elem){
+	 	//如果offsetParent是元素的父亲，那么提前退出；
+		//否则，我们需要找到元素和元素的父亲相对于整个页面位置，并计算他们之间的差。
+	 	var pageYH = elem.offsetParent ? elem.offsetTop - pageY(elem.offsetParent) : elem.offsetTop;
+		return pageYH;
+	 }
+	 
+	 //Get the element relative to the horizontal position of the father.
+	 function parentX(elem){
+	 	return elem.parentNode == elem.offsetParent ? elem.offsetLeft : pageX(elem) - pageX(elem.parentNode);
+	 }
+	 //Get the element relative to the vertical position of the father
+	 function parentY(elem){
+	 	return elem.parentNode == elem.offsetParent ? elem.offsetTop : pageY(elem) - pageY(elem.parentNode);
+	 }
+	 
+	 
+	 //Find left position of elements.
+	 function posX(elem){
+	 	//Get the ultimate style and get the value.
+	 	return parseInt(getStyle(elem, 'left'));
+	 }
+	 //Find the top position of elements.
+	 function posY(elem){
+	 	//Get the ultimate style and get the value.
+	 	return parseInt(getStyle(elem, 'top'));
+	 }
+	 
+	 //Set the horizontal position of the function elements.
+	 function setX(elem, pos){
+	 	//Set of CSS using pixels 'left' properties.
+	 	elem.style.left = pos + 'px';
+	 }
+	 //Set the vertical position of the function elements.
+	 function setY(elem, pos){
+	 	//Set of CSS using pixels 'left' properties.
+	 	elem.style.top = pos + 'px';
+	 }
+	 	
+</script>
+<script>
+	var h1=tag('h1')[0];
+	var h2 = tag('h2')[0];
+	//alert(pageX(h1)+";"+pageY(h1));
+	//alert(parentX(h1)+";"+parentY(h1));
+	//alert(posX(h1)+";"+posY(h1));
+	//setX(h2,100);
+	//setY(h2,100);
+	//alert(posX(h2)+";"+posY(h2));
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>用闭包实现函数curry化---ifan</title>
+<link rel="stylesheet" type="text/css" href="../css/i-base.css" />
+</head>
+<body>
+<div class="wrapper">
+
+</div>
+<script>
+	//A function of digital sum function generator
+	function addGenerator(num){
+		//Returns a simple function, find the two numbers, where the first number from the generator
+		return function(toAdd){
+			return num + toAdd;
+		}
+	}
+	//This function can be obtained with the parameters and 5
+	var addFive=addGenerator(5);
+	//return ture
+	alert(addFive(4) === 9);
+</script>
+</body>
+</html>

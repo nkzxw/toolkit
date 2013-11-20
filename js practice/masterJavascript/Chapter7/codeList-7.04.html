@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>获取元素当前的高度和宽度---ifan</title>
+<link rel="stylesheet" type="text/css" href="../css/i-base.css" />
+</head>
+<body>
+<div class="wrapper">
+    <h1>Header1</h1>
+	<h2>Header2</h2>
+	<h3>Header3</h3>
+</div>
+<script src="../js/i-base.js"></script>
+<script>
+	//To obtain the true height of element.
+	function getHeight(elem){
+		return parseInt(getStyle(elem, 'height'));
+	}
+	//To obtain the true width of element
+	function getWidth(elem){
+		return parseInt(getStyle(elem, 'width'));
+	}
+</script>
+<script>
+	alert('h1的height是:'+getHeight(tag('h1')[0])+'; width的：'+getWidth(tag('h1')[0]));
+    alert('h2的height是:'+getHeight(tag('h2')[0])+'; width的：'+getWidth(tag('h2')[0]));
+    alert('h3的height是:'+getHeight(tag('h3')[0])+'; width的：'+getWidth(tag('h3')[0]));
+</script>
+</body>
+</html>

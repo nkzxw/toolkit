@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>DOM-Drag</title>
+<link rel="stylesheet" type="text/css" href="../../css/base.css" />
+<style>
+	#d-drag1,#d-drag2{width:100px;height: 120px;margin:10px;background-color: #ccc;position: absolute;}
+	#drag1-hd,#drag2-hd{height:25px;background-color:#666666;color: #fff;}
+	#d-drag1,#drag2-hd{cursor:crosshair;}
+</style>
+<script src="../../js/i-base.js"></script>
+<script src="dom-drag.js"></script>
+</head>
+
+<body>
+	<div class="wrapper">
+		<div id="d-drag1">
+			<div id="drag1-hd">标题1</div>
+			<div id="drag1-bd">内容1</div>
+		</div>
+		<div id="d-drag2">
+			<div id="drag2-hd">标题2</div>
+			<div id="drag2-bd">内容2</div>
+		</div>
+	</div>
+	<script>
+	domReady(function(){
+		var d_drag1 = ID("d-drag1");		
+		Drag.init(d_drag1);
+		addEvent(d_drag1,'mouseover',function(){
+			dragIndexAdd(d_drag1);
+		});
+		
+		var d_drag2 = ID("d-drag2"),drag2_hd = ID("drag2-hd");
+		Drag.init(drag2_hd,d_drag2);
+		addEvent(d_drag2,'mouseover',function(){
+			dragIndexAdd(d_drag2);
+		});
+	})    
+	</script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Generating CSS Content</title>
+    <style>
+    .inner{margin:30px auto;width:1000px}
+    
+    .arrow{position:relative;width:100px;height:100px;border:1px solid #000;background-color:#fff}
+    .arrow .outer-tip,.arrow .inner-tip{content:''; position:absolute;width:0;height:0;border:solid transparent;}
+    
+    .arrow-top .outer-tip,
+    .arrow-left .outer-tip,
+    .arrow-right .outer-tip,
+    .arrow-bottom .outer-tip{border-width:10px;}
+    
+    .arrow-top .inner-tip,
+    .arrow-left .inner-tip,
+    .arrow-right .inner-tip,
+    .arrow-bottom .inner-tip{border-width:9px}
+    
+    .arrow-top .outer-tip,
+    .arrow-top .inner-tip{left:50%;bottom:100%}
+    .arrow-top .outer-tip{border-bottom-color:#000;margin-left:-10px}
+    .arrow-top .inner-tip{border-bottom-color:#fff;margin-left:-9px}
+    
+    .arrow-left .outer-tip,
+    .arrow-left .inner-tip{right:100px;top:50%}
+    .arrow-left .outer-tip{border-right-color:#000;margin-top:-10px;}
+    .arrow-left .inner-tip{border-right-color:#fff;margin-top:-9px;}
+    
+    .arrow-right .outer-tip,
+    .arrow-right .inner-tip{left:100%;top:50%}
+    .arrow-right .outer-tip{border-left-color:#000;margin-top:-10px;}
+    .arrow-right .inner-tip{border-left-color:#fff;margin-top:-9px;}
+    
+    .arrow-bottom .outer-tip,
+    .arrow-bottom .inner-tip{left:50%;top:100%}
+    .arrow-bottom .outer-tip{border-top-color:#000;margin-left:-10px}
+    .arrow-bottom .inner-tip{border-top-color:#fff;margin-left:-9px}
+    
+    </style>
+</head>
+<body>
+    <div class="inner">
+        <div class="arrow arrow-top">
+            <span class="outer-tip"></span>
+            <span class="inner-tip"></span>
+        </div><br>
+        <div class="arrow arrow-left">
+            <span class="outer-tip"></span>
+            <span class="inner-tip"></span>
+        </div><br>
+        <div class="arrow arrow-right">
+            <span class="outer-tip"></span>
+            <span class="inner-tip"></span>
+        </div><br>
+        <div class="arrow arrow-bottom">
+            <span class="outer-tip"></span>
+            <span class="inner-tip"></span>
+        </div>
+    </div>
+</body>
+</html>

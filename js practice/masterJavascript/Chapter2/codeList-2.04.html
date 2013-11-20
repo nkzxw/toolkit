@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>修改对象的引用，同时保持完整性---ifan</title>
+<link rel="stylesheet" type="text/css" href="../css/i-base.css" />
+</head>
+<body>
+<div class="wrapper">
+
+</div>
+<script>
+	//Creating an String Object
+	var items='test';
+	
+	//Create a reference Object.
+	var itemsRef=items;
+	
+	//The new connection string in the back
+	//Note: This will create a new object, rather than modify the original object
+	items+='ing';
+	
+	//them point to different objects
+	alert(items!=itemsRef);
+</script>
+</body>
+</html>

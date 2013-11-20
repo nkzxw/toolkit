@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Private Member in JavaScript(二)</title>
+</head>
+<body>
+<h1>Patterns</h1>
+<h3>Public</h3>
+<pre>
+    function Constructor(...){
+        this.membername = value;
+    }
+    Constructor.prototype.membername = value;
+</pre>
+<h3>Private</h3>
+<pre>
+    function Constructor(...){
+        var that = this;
+        var membername = value;
+
+        function member(...){...}
+    }
+
+    Note: The function statement
+        function member(...){...}
+    is shorthand for
+        var member = function(...){...}
+</pre>
+<h3>Privileged</h3>
+<pre>
+    function Constructor(...){
+        this.member = function(...){...}
+    }
+</pre>
+
+<script>
+    //private
+    function Container(param){
+        this.member = param;
+        var secret = 3;
+        var that = this;
+    }
+
+    var myContainer = new Container('abc');
+    console.log(myContainer.member);
+    console.log(myContainer.secret);  //undefined
+    console.log(myContainer.that);  //undefined
+</script>
+</body>
+</html>

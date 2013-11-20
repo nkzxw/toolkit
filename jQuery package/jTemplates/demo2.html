@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>In {...} can be any JavaScript's code.</title>
+</head>
+<body>
+<div id="result"></div>
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+<script type="text/javascript" src="jQuery.jTemplates.js"></script>
+<script>
+    $(function(){
+        var mydata = {name:'Ifany',age:28};
+
+        $('#result').setTemplate('My name is {$T.name},the age is {$T.age},after {$T.age} years,my age will be {28*2}!').processTemplate(mydata);
+    })
+</script>
+</body>
+</html>

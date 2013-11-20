@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title></title>
+    <style>
+        .fixedColumn .fixedTable td {
+            color: #FFFFFF;
+            background-color: #187BAF;
+            font-size: 12px;
+            font-weight: normal;
+        }
+
+        .fixedHead td, .fixedFoot td {
+            color: #FFFFFF;
+            background-color: #187BAF;
+            font-size: 12px;
+            font-weight: normal;
+            padding: 5px;
+            border: 1px solid #187BAF;
+        }
+        .fixedTable td {
+            font-size: 8.5pt;
+            background-color: #FFFFFF;
+            padding: 5px;
+            text-align: left;
+            border: 1px solid #CEE7FF;
+        }
+    </style>
+</head>
+<body>
+<div class="layout-inner">
+    <div id="tableDiv_Arrays" class="tableDiv">
+        <table id="Open_Text_Arrays" class="FixedTables">
+            <thead>
+            <tr>
+                <th>
+                    Purpose
+                </th>
+                <th>
+                    C#
+                </th>
+                <th>
+                    Php4
+                </th>
+                <th>
+                    Php5
+                </th>
+                <th>
+                    ActionScript
+                </th>
+                <th>
+                    JavaScript
+                </th>
+                <th>
+                    Ruby
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    Declare an array
+                </td>
+                <td>
+                    int[] x = new int[5];
+                </td>
+                <td>
+                    // key only integer or string<br/>
+                    // value any<br/>
+                    $array = array(1, 2, 3, 4, 5);<br/>
+                    $arr = array(&quot;foo&quot; =&gt; &quot;bar&quot;, 12 =&gt; true);
+                </td>
+                <td>
+                    // key only integer or string<br/>
+                    // value any<br/>
+                    $array = array(1, 2, 3, 4, 5);<br/>
+                    $arr = array(&quot;foo&quot; =&gt; &quot;bar&quot;, 12 =&gt; true);
+                </td>
+                <td>
+                    var arr:Array = [1,2,3];
+                </td>
+                <td>
+                    new Array()<br/>
+                    new Array(len)<br/>
+                    new Array([item0,[item1,[item2,...]]]<br/>
+                    //Example<br/>
+                    var objArray=new Array();<br/>
+                    var arr=[0,1,2,3,4,5,6];
+                </td>
+                <td>
+                    a = [ 1, 'cat', 3.14 ]
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Initialize an array
+                </td>
+                <td>
+                    int[] x = new int[5] {<br/>
+                    1, 2, 3, 4, 5};
+                </td>
+                <td>
+                    $arr = array(<br/>
+                    &nbsp;&nbsp;&nbsp; &quot;somearray&quot; =&gt; array(<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 6 =&gt; 5,<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 13 =&gt; 9,<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;a&quot; =&gt; 42));
+                </td>
+                <td>
+                    $arr = array(<br/>
+                    &nbsp;&nbsp;&nbsp; &quot;somearray&quot; =&gt; array(<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 6 =&gt; 5,<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 13 =&gt; 9,<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;a&quot; =&gt; 42));
+                </td>
+                <td>
+                    var arr:Array = new Array(1,2,3);
+                </td>
+                <td>
+                    var arr=[0,1,2,3,4,5,6];<br/>
+                    var complexArray = [[1,{x:1, y:2}], [2, {x:3, y:4}]];
+                </td>
+                <td>
+                    inst_section = { 'cello' =&gt; 'string', 'trumpet' =&gt; 'brass', 'violin' =&gt;
+                    'string' }
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Add or remove element
+                </td>
+                <td>
+                    &nbsp;
+                </td>
+                <td>
+                    $arr[&quot;x&quot;] = 42;
+                    <br/>
+                    // This adds a new element to<br/>
+                    // the array with key &quot;x&quot;<br/>
+                    $array[] = 6;<br/>
+                    unset($arr[5]);
+                    <br/>
+                    // This removes the element from the array
+                </td>
+                <td>
+                    $arr[&quot;x&quot;] = 42;
+                    <br/>
+                    // This adds a new element to<br/>
+                    // the array with key &quot;x&quot;<br/>
+                    unset($arr[5]);
+                    <br/>
+                    // This removes the element from the array
+                </td>
+                <td>
+                    arr.push(item);<br/>
+                    arr.splice(at,count);
+                </td>
+                <td>
+                    // Add elements<br/>
+                    objArray.push([value1[,value2[,....]]]);<br/>
+                    //[1,2,3, 4].push("a","b") result is [1,2,3,4,"a","b"]<br/>
+                    objArray.pop(); //remove the last element[1,2,3, 4].pop() result is [1,2,3]
+                    <br/>
+                    objArray.shift(); //remove the first element.<br/>
+                    objArray.splice(start, deleteCount, [item1[, item2[, . . . [,itemN]]]])
+                </td>
+                <td>
+                    &nbsp;
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Reallocate array
+                </td>
+                <td>
+                    n/a
+                </td>
+                <td>
+                    // This deletes the whole array
+                    <br/>
+                    unset($arr);
+                </td>
+                <td>
+                    // This deletes the whole array<br/>
+                    unset($arr);&nbsp;&nbsp;&nbsp;&nbsp;
+                </td>
+                <td>
+                    n/a
+                </td>
+                <td>
+                    n/a
+                </td>
+                <td>
+                    &nbsp;
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div style="clear: both;"></div>
+    <div id="tableDiv_General" class="tableDiv">
+        <table id="Open_Text_General" class="FixedTables">
+            <thead>
+                <tr>
+                    <th>
+                        Purpose
+                    </th>
+                    <th>
+                        C#
+                    </th>
+                    <th>
+                        Php4
+                    </th>
+                    <th>
+                        Php5
+                    </th>
+                    <th>
+                        ActionScript
+                    </th>
+                    <th>
+                        JavaScript
+                    </th>
+                    <th>
+                        Ruby
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    Declare a variable
+                </td>
+                <td>
+                    // declarators<br/>
+                    // (keywords include user-defined types
+                    <br/>
+                    // and built-in types)
+                </td>
+                <td>
+                    // Only use var declare a class variable
+                </td>
+                <td>
+                    // Only use var declare a class variable
+                </td>
+                <td>
+                    var varName : Type;
+                </td>
+                <td>
+                    // var<br/>
+                    // No var means Globle variable,
+                    <br/>
+                    //but it should be initialized while it is used.<br/>
+                </td>
+                <td>
+                    Don&#8217;t declare
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Declare a named constant
+                </td>
+                <td>
+                    const readonly
+                </td>
+                <td>
+                    define
+                </td>
+                <td>
+                    define
+                </td>
+                <td>
+                    const a:Number = 1;
+                </td>
+                <td>
+                    n/a
+                </td>
+                <td>
+                    begins with an uppercase letter (A-Z)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Create a new instance of a class
+                </td>
+                <td>
+                    new
+                </td>
+                <td>
+                    new
+                </td>
+                <td>
+                    new
+                </td>
+                <td>
+                    new
+                </td>
+                <td>
+                    new
+                    <br/>
+                    //JavaScript does not support true classes.<br/>
+                    //it is possible to define pseudoclasses in JavaScript.
+                </td>
+                <td>
+                    Class method new
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Create a new object
+                </td>
+                <td>
+                    new
+                </td>
+                <td>
+                    new
+                </td>
+                <td>
+                    new
+                </td>
+                <td>
+                    { memeberName : member }
+                </td>
+                <td>
+                    new
+                </td>
+                <td>
+                    &nbsp;
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Assign an object to an object variable
+                </td>
+                <td>
+                    =
+                </td>
+                <td>
+                    =
+                </td>
+                <td>
+                    =
+                </td>
+                <td>
+                    =
+                </td>
+                <td>
+                    =
+                </td>
+                <td>
+                    =
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Function/method does not return a value
+                </td>
+                <td>
+                    void
+                </td>
+                <td>
+                    function
+                </td>
+                <td>
+                    function
+                </td>
+                <td>
+                    function
+                </td>
+                <td>
+                    function
+                </td>
+                <td>
+                    def
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Overload a function or method (Visual Basic: overload a procedure or method)
+                </td>
+                <td>
+                    n/a
+                </td>
+                <td>
+                    n/a
+                </td>
+                <td>
+                    n/a
+                </td>
+                <td>
+                    n/a
+                </td>
+                <td>
+                    n/a
+                </td>
+                <td>
+                    n/a
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Refer to the current object
+                </td>
+                <td>
+                    this
+                </td>
+                <td>
+                    $this
+                </td>
+                <td>
+                    $this
+                </td>
+                <td>
+                    this
+                </td>
+                <td>
+                    this
+                </td>
+                <td>
+                    self
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Make a nonvirtual call to a virtual method of the current object
+                </td>
+                <td>
+                    // n/a
+                </td>
+                <td>
+                    // n/a
+                </td>
+                <td>
+                    // n/a
+                </td>
+                <td>
+                    // n/a
+                </td>
+                <td>
+                    // n/a
+                </td>
+                <td>
+                    &nbsp;
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Retrieve character from a string
+                </td>
+                <td>
+                    str[10] // where str is a string
+                </td>
+                <td>
+                    $userName = &quot;kimi&quot;;<br/>
+                    Echo $userName[i]
+                </td>
+                <td>
+                    $userName = &quot;kimi&quot;;<br/>
+                    Echo $userName[i]
+                </td>
+                <td>
+                    str.charAt(3);
+                </td>
+                <td>
+                    var str = &quot;I am a string.&quot;
+                    <br/>
+                    document.write(str.charAt(0)); // get the first character.
+                </td>
+                <td>
+                    str[10]
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Declare a compound data type (structure)
+                </td>
+                <td>
+                    struct class interface
+                </td>
+                <td>
+                    class
+                </td>
+                <td>
+                    classinterface
+                </td>
+                <td>
+                    n/a
+                </td>
+                <td>
+                    &nbsp;
+                </td>
+                <td>
+                    class Struct
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Initialize an object (constructor)
+                </td>
+                <td>
+                    // Constructors<br/>
+                    // or system default type constructors<br/>
+                    // Class Constructors
+                </td>
+                <td>
+                    // Constructors<br/>
+                    // or system default type constructors<br/>
+                    // (concept, not keyword)
+                </td>
+                <td>
+                    function __construct()
+                </td>
+                <td>
+                    public class ClassA{ public ClassA(){} }<br/>
+                </td>
+                <td>
+                    // Constructors<br/>
+                </td>
+                <td>
+                    initialize
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Terminate an object directly
+                </td>
+                <td>
+                    n/a
+                </td>
+                <td>
+                    n/a
+                </td>
+                <td>
+                    n/a
+                </td>
+                <td>
+                    n/a
+                </td>
+                <td>
+                    &nbsp;
+                </td>
+                <td>
+                    &nbsp;
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Method called by the system just before garbage collection reclaims an object<sup>7</sup>
+                </td>
+                <td>
+                    Destructors
+                </td>
+                <td>
+                    n/a
+                </td>
+                <td>
+                    function __destruct()
+                </td>
+                <td>
+                    n/a
+                </td>
+                <td>
+                    n/a
+                </td>
+                <td>
+                    &nbsp;
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Guarantee that unmanaged resources are disposed of after use
+                </td>
+                <td>
+                    using
+                </td>
+                <td>
+                    n/a
+                </td>
+                <td>
+                    n/a
+                </td>
+                <td>
+                    n/a
+                </td>
+                <td>
+                    n/a
+                </td>
+                <td>
+                    &nbsp;
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Initialize a variable where it is declared
+                </td>
+                <td>
+                    // initialize to a value:<br/>
+                    int x = 123;<br/>
+                    // or use default constructor:<br/>
+                    int x = new int();
+                </td>
+                <td>
+                    $myString = &#39;test string&#39;;<br/>
+                    $myInt = 12;
+                </td>
+                <td>
+                    $myString = &#39;test string&#39;;<br/>
+                    $myInt = 12;
+                </td>
+                <td>
+                    var a : int = 1;
+                </td>
+                <td>
+                    // initialize to a value<br/>
+                    var x = 123;<br/>
+                    //or use default constructor:<br/>
+                    var str = new String(&quot;I am string.&quot;);
+                </td>
+                <td>
+                    my_array = [ 1, 2, 3 ]<br/>
+                    song = Song.new("Bicylops", "Fleck", 260)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Take the address of a function
+                </td>
+                <td>
+                    delegate
+                </td>
+                <td>
+                    n/a
+                </td>
+                <td>
+                    n/a
+                </td>
+                <td>
+                    function abc(){}<br/>
+                    var ptr : Function = abc;
+                </td>
+                <td>
+                    n/a
+                </td>
+                <td>
+                    method instance_method
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Callback
+                </td>
+                <td>
+                    delegate
+                </td>
+                <td>
+                    call_user_func<br/>
+                    function printName(){<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;echo &quot;Mike&quot;;<br/>
+                    }<br/>
+                    $v = &quot;printName&quot;;<br/>
+                    echo $v();
+                </td>
+                <td>
+                    call_user_func<br/>
+                    function printName(){<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;echo &quot;Mike&quot;;<br/>
+                    }<br/>
+                    $v = &quot;printName&quot;;<br/>
+                    echo $v();
+                </td>
+                <td>
+                    n/a
+                </td>
+                <td>
+                    &nbsp;
+                </td>
+                <td>
+                    Method.call
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Declare that an object can be modified asynchronously
+                </td>
+                <td>
+                    volatile
+                </td>
+                <td>
+                    n/a
+                </td>
+                <td>
+                    n/a
+                </td>
+                <td>
+                    n/a
+                </td>
+                <td>
+                    n/a
+                </td>
+                <td>
+                    &nbsp;
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Force explicit declaration of variables
+                </td>
+                <td>
+                    // All variables must be declared prior to use n/a
+                </td>
+                <td>
+                    n/a
+                </td>
+                <td>
+                    n/a
+                </td>
+                <td>
+                    n/a
+                </td>
+                <td>
+                    n/a
+                </td>
+                <td>
+                    &nbsp;
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Enable local type inference
+                </td>
+                <td>
+                    n/a
+                </td>
+                <td>
+                    n/a
+                </td>
+                <td>
+                    n/a
+                </td>
+                <td>
+                    n/a
+                </td>
+                <td>
+                    &nbsp;
+                </td>
+                <td>
+                    &nbsp;
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Test for an object variable that does not refer to an object
+                </td>
+                <td>
+                    obj == null
+                </td>
+                <td>
+                    $obj == nullis_null
+                </td>
+                <td>
+                    $obj == nullis_null
+                </td>
+                <td>
+                    obj == null
+                </td>
+                <td>
+                    obj == null
+                </td>
+                <td>
+                    Obj == nil
+                    <br/>
+                    nil? method
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Value of an object variable that does not refer to an object
+                </td>
+                <td>
+                    null
+                </td>
+                <td>
+                    null
+                </td>
+                <td>
+                    null
+                </td>
+                <td>
+                    null
+                </td>
+                <td>
+                    undefined or null
+                </td>
+                <td>
+                    nil
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Test for a database null expression
+                </td>
+                <td>
+                    n/a
+                </td>
+                <td>
+                    n/a
+                </td>
+                <td>
+                    n/a
+                </td>
+                <td>
+                    n/a
+                </td>
+                <td>
+                    n/a
+                </td>
+                <td>
+                    &nbsp;
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Test whether a Variant variable has been initialized
+                </td>
+                <td>
+                    n/a
+                </td>
+                <td>
+                    empty() or isset()
+                </td>
+                <td>
+                    empty() or isset()
+                </td>
+                <td>
+                    varName==undefined
+                </td>
+                <td>
+                    var a;<br/>
+                    a == undefined;
+                </td>
+                <td>
+                    &nbsp;
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Define a default property
+                </td>
+                <td>
+                    Indexers
+                </td>
+                <td>
+                    n/a
+                </td>
+                <td>
+                    __toString
+                </td>
+                <td>
+                    n/a
+                </td>
+                <td>
+                    n/a
+                </td>
+                <td>
+                    to_s
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Object cloning
+                </td>
+                <td>
+                    n/a
+                </td>
+                <td>
+                    n/a
+                </td>
+                <td>
+                    clone__clone
+                </td>
+                <td>
+                    n/a
+                </td>
+                <td>
+                    n/a
+                </td>
+                <td>
+                    &nbsp;
+                </td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+                <th>
+                    Purpose
+                </th>
+                <th>
+                    C#
+                </th>
+                <th>
+                    Php4
+                </th>
+                <th>
+                    Php5
+                </th>
+                <th>
+                    ActionScript
+                </th>
+                <th>
+                    JavaScript
+                </th>
+                <th>
+                    Ruby
+                </th>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+<script src="http://code.jquery.com/jquery.min.js"></script>
+<script src="jquery.fixedtable.js"></script>
+<script>
+    $(function() {
+        $(".tableDiv").each(function() {
+            var Id = $(this).get(0).id;
+            var maintbheight = 555;
+            var maintbwidth = 760;
+
+            $("#" + Id + " .FixedTables").fixedTable({
+                width: maintbwidth,
+                height: maintbheight,
+                fixedColumns: 1,
+                classHeader: "fixedHead",
+                classFooter: "fixedFoot",
+                classColumn: "fixedColumn",
+                fixedColumnWidth: 150,
+                outerId: Id,
+                Contentbackcolor: "#FFFFFF",
+                Contenthovercolor: "#99CCFF",
+                fixedColumnbackcolor:"#187BAF",
+                fixedColumnhovercolor:"#99CCFF"
+            });
+        });
+    });
+
+</script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Prototypal Inheritance in JavaScript</title>
+</head>
+<body>
+<script>
+
+    // usage: newObject = object(oldObject);
+//    function object(o) {
+//        function F() {}
+//        F.prototype = o;
+//        return new F();
+//    }
+
+    // usage: newObejct = oldObject.begetObject();
+//    Object.prototype.begetObject = function(){
+//        function F() {}
+//        F.prototype = this;
+//        return new F();
+//    }
+
+    //
+    if(typeof Object.creat !== 'function'){
+        Object.creat = function(o){
+            function F() {}
+            F.prototype = o;
+            return new F();
+        }
+    }
+
+
+    var person = {
+        'name': 'jeperc',
+        'age': 26,
+        'getName': function(){
+            return this.name;
+        }
+    }
+
+//    var my = object(person);
+//    var my = person.begetObject();
+    var my = Object.creat(person);
+
+    console.log(my);
+
+    my.name = 'ifany';
+    my.age = 28;
+
+    console.log(my);
+    console.log(person);
+</script>
+</body>
+</html>

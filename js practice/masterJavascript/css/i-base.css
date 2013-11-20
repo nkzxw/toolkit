@@ -1,0 +1,53 @@
+@charset "utf-8";
+/* reset.css  Based on meyer's  and yui's
+ * Author:ifany
+ * Date:2011.09.06
+ */
+html {color: #000;background: #FFF}
+html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p,a, del,hr, em, img,strong,dl, dt, dd, ol, ul, li,fieldset, form, label, legend,table, caption, tbody, tfoot, thead, tr, th, td,article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,time, mark, audio, video {
+margin: 0;padding: 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;}
+body {line-height: 1;font: 13px / 1.231 arial, helvetica, clean, sans-serif;*font-size:small;* font:x-small}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section,img {display: block;}
+ol, ul {list-style: none;}
+ol li {list-style: decimal outside}
+ul li {list-style: disc outside}
+table {border-collapse: collapse;border-spacing: 0;font-size: inherit;font: 100%}
+caption, th {text-align: left}
+th, td {border: 1px solid #000;padding: .5em}
+select, input, button, textarea {font: 99% arial, helvetica, clean, sans-serif}
+input, textarea, select { *font-size:100%}
+input[ type = text], input[ type = password], textarea {width: 12.25em;*width: 11.9em}
+button,label,input[type="submit"],input[type="button"],input[type="radio"],input[type="checkbox"],input[type="file"]{cursor:pointer;}
+button{border:none;padding:0;}
+button img{display:block;}
+legend {color: #000}
+em {font-style: italic}
+h1 {font-size: 138.5%}
+h2 {font-size: 123.1%}
+h3 {font-size: 108%}
+h1, h2, h3, strong {font-weight: bold}
+h4, h5, h6{font-weight:normal;}
+/*locate*/
+.fl{float: left;}
+.fr{float:right;}
+/*Used for block-level elements*/
+.in-block{display: inline-block;*display: inline;*zoom:1;}
+/* For modern browsers */
+.cf:before,.cf:after {content:"";display:table;}
+.cf:after {clear:both;}
+/* For IE 6/7 (trigger hasLayout) */
+.cf {zoom:1;}
+.cb{clear:both;}
+.pa{position:absolute;}
+/**/
+a:link,a:visited{text-decoration:none;}
+a:hover,a:active{text-decoration:underline;}
+.money{font-family:Arial;font-weight:900;font-size:14px;}
+.mr25{margin-right:25px;}
+/*layout*/
+.wrapper{width:1000px;margin:0 auto;}
+.r-c-aln{vertical-align:middle; margin-top:-2px; margin-bottom:1px;}
+.txt_overflow{width:24em; height:1.3em; overflow:hidden; zoom:1;}
+.txt_overflow .txt_con{float:left; height:1.3em; margin-right:3em; overflow:hidden;}
+.txt_overflow .txt_dotted{width:3em; height:1.31em; float:right; margin-top:-1.3em;}

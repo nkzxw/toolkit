@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>通过class的值查找元素---ifan</title>
+<link rel="stylesheet" type="text/css" href="../css/i-base.css" />
+</head>
+<body>
+<div class="wrapper">
+    <span class="a c">1</span>
+	<p class="a c">2</p>
+	<span class="a c">3</span>
+	<div class='b c'>4</div>
+	<strong class="b c">5</strong>
+	<div id="wrap"><strong class="b c">6</strong></div>
+</div>
+<script src="../js/i-base.js"></script>
+<script>
+	function CN(name,elem,tag){
+		if(elem){
+			elem = typeof elem=='string'?document.getElementById(elem):elem;
+		}else{
+			elem = document.body;
+		}
+		var els = elem.getElementsByTagName( tag || "*" ), arr = [];
+		for(var i=0,len=els.length; i<len; i++){
+			for(var j=0,k=els[i].className.split(" "),l=k.length; j<l; j++){
+				if(k[j] == name){
+					arr.push(els[i]);
+					break;
+				}
+			}
+		}
+		return arr;
+	}
+</script>
+<script>
+	alert(CN('a').length);
+	alert(CN('b','wrap').length);
+	alert(CN('b',null,'strong').length);
+	alert(CN('b','wrap','strong').length);
+</script>
+</body>
+</html>

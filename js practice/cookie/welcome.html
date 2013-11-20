@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>创建一个欢迎 cookie</title>
+</head>
+<body>
+
+<script>
+    function setCookie(key,value,expiredays){
+        var expireDate = new Date();
+        //将天数转换为有效的日期
+        expireDate.setDate(expireDate.getDate() + expiredays);
+        //将 cookie 名称、值及其过期日期存入 document.cookie 对象
+        document.cookie = key + '=' + escape(value) +
+                ((expiredays == null) ? '' : ';expires =' + expireDate.toGMTString());
+    }
+
+    function getCookie(key){
+        if(document.cookie.length > 0){
+            var startIndex,endIndex;
+            startIndex = document.cookie.indexOf(key + '=');
+            if(startIndex != -1){
+                startIndex = startIndex + key.length+1;
+                endIndex = document.cookie.indexOf(';',startIndex);
+                if(endIndex == -1){
+                    endIndex = document.cookie.length;
+                }
+
+                return unescape(document.cookie.substring(startIndex,endIndex));
+            }
+        }else{
+            return '';
+        }
+    }
+
+    function checkCookie(){
+        var username = getCookie('username');
+        if(username != null && username != ''){
+            alert('Welcome again,' + username);
+        }else{
+            username = prompt('Please enter your name: ','');
+            if(username != null && username != ''){
+                setCookie('username',username,365);
+            }
+        }
+    }
+
+    window.onload = function(){
+        checkCookie();
+    }
+</script>
+</body>
+</html>

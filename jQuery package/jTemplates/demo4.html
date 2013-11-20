@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>multiple elements and parameters</title>
+    <style>
+        table{margin-bottom:30px;border-collapse:collapse; border-spacing:0}
+        thead{font-weight: bold; }
+        td{padding:5px 10px;border: 1px solid #ccc;}
+    </style>
+</head>
+<body>
+<!--Template content-->
+<textarea id="template" style="display: none">
+    <strong>{$T.name} : {$T.list_id} {$P.lang.language}</strong>
+    <table>
+        <thead>
+            <tr>
+                <td>{$P.lang['id']}</td>
+                <td>{$P.lang['name']}</td>
+                <td>{$P.lang['mail']}</td>
+            </tr>
+        </thead>
+        {#foreach $T.table as record}
+        <tr>
+            <td>{$T.record.id}</td>
+            <td>{$T.record.name}</td>
+            <td>{$T.record.mail}</td>
+        </tr>
+        {#/for}
+    </table>
+</textarea>
+<!--Output Template-->
+<div id="result1" class="jTemplate"></div>
+<div id="result2" class="jTemplate"></div>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+<script type="text/javascript" src="jQuery.jTemplates.js"></script>
+<script>
+    $(function(){
+        //data for testing
+        var data = ({
+            name : 'User list',
+            list_id : 4,
+            table : [
+                {id: 1, name: 'Anne', age: 22, mail: 'anne@domain.com'},
+                {id: 2, name: 'Amelie', age: 24, mail: 'amelie@domain.com'},
+                {id: 3, name: 'Polly', age: 18, mail: 'polly@domain.com'},
+                {id: 4, name: 'Alice', age: 26, mail: 'alice@domain.com'},
+                {id: 5, name: 'Martha', age: 25, mail: 'martha@domain.com'}
+            ]
+        });
+
+        //Localize data
+        var lang = {};
+        lang['en'] = {
+            'id': 'ID',
+            'name': 'Name',
+            'mail': 'E-Mail',
+            'language': 'english'
+        };
+        lang['pl'] = {
+            'id': 'ID',
+            'name': 'Nazwisko',
+            'mail': 'Adres e-mail',
+            'language': 'polski'
+        };
+
+
+        //attach the template
+        $('.jTemplate').setTemplateElement('template');
+
+        //set parameters 'lang'
+        $('#result1').setParam('lang',lang['en']);
+        $('#result2').setParam('lang',lang['pl']);
+
+        //process the template
+        $('.jTemplate').processTemplate(data);
+
+    })
+</script>
+</body>
+</html>

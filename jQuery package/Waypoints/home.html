@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <title></title>
+    <link rel="shortcut icon" href="" type="image/x-icon"/>
+    <link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+    <style type="text/css">
+        header{position: fixed;top:0;left: 0;z-index: 3;width:100%;padding:0 0 10px 0;}
+        header nav > ul{float:right;padding:5px 14px 12px 0;margin:0 10px 0 0;background-color:#777;background-image:-webkit-gradient(linear, 0 0, 0 100%, from(#888888), to(#666666)); background-image:-webkit-linear-gradient(#888888, #666666); background-image:-moz-linear-gradient(#888888, #666666); background-image:linear-gradient(#888888, #666666); -pie-background:linear-gradient(#888888, #666666);-webkit-border-radius:0 0 10px 10px;-moz-border-radius:0 0 10px 10px;border-radius:0 0 10px 10px;-webkit-box-shadow:0 3px 5px #888;-moz-box-shadow:0 3px 5px #888;box-shadow:0 3px 5px #888;}
+        header nav > ul > li{list-style:none;float:left;margin:7px 0 0 14px;}
+        header nav a{display:block;padding:7px 10px;font-size:14px;color:#555;text-shadow:1px 1px 1px rgba(255, 255, 255, 0.2), -1px -1px 1px rgba(0, 0, 0, 0.15);background-color:#aaa;background-image:-webkit-gradient(linear, 0 0, 0 100%, from(#bbbbbb), to(#999999)); background-image:-webkit-linear-gradient(#bbbbbb, #999999); background-image:-moz-linear-gradient(#bbbbbb, #999999); background-image:linear-gradient(#bbbbbb, #999999); -pie-background:linear-gradient(#bbbbbb, #999999);-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;-webkit-box-shadow:1px 1px 0px rgba(0, 0, 0, 0.2), -1px -1px 0px rgba(255, 255, 255, 0.2);-moz-box-shadow:1px 1px 0px rgba(0, 0, 0, 0.2), -1px -1px 0px rgba(255, 255, 255, 0.2);box-shadow:1px 1px 0px rgba(0, 0, 0, 0.2), -1px -1px 0px rgba(255, 255, 255, 0.2);}
+        header nav a:hover,header nav a:focus{outline:0;color:#eee;text-shadow:0 0 5px rgba(255, 255, 255, 0.2);}
+        header nav a:active,header nav .link-active{color:#eee;text-shadow:0 0 5px rgba(255, 255, 255, 0.2);background-color:#333; background-image:-webkit-gradient(linear, 0 0, 0 100%, from(#222222), to(#444444)); background-image:-webkit-linear-gradient(#222222, #444444); background-image:-moz-linear-gradient(#222222, #444444); background-image:linear-gradient(#222222, #444444); -pie-background:linear-gradient(#222222, #444444);-webkit-box-shadow:-1px -1px 0px rgba(0, 0, 0, 0.5), 1px 1px 0px rgba(255, 255, 255, 0.1);-moz-box-shadow:-1px -1px 0px rgba(0, 0, 0, 0.5), 1px 1px 0px rgba(255, 255, 255, 0.1);box-shadow:-1px -1px 0px rgba(0, 0, 0, 0.5), 1px 1px 0px rgba(255, 255, 255, 0.1);}
+
+        article{position:relative;z-index:2;height:100%;line-height:1.5;}
+        article > section {width:100%;min-height:100%;}
+        article > section h1{color:#ccc;-webkit-transition:color 500ms ease 0;-moz-transition:color 500ms ease 0;-o-transition:color 500ms ease 0;transition:color 500ms ease 0;}
+        article > section.section-active h1 { color:#333 }
+
+        .section-wrap{-webkit-box-flex:1; -moz-box-flex:1; box-flex:1; padding:0 10px}
+        .section-wrap > h1{margin-bottom:24px}
+        #about .section-wrap{padding:60px 0 0;}
+        #about h1{position:absolute;left:10px;top:0;margin-bottom:6px;}
+        #examples .section-wrap{padding:20px 0;}
+        .section-wrap .columns{height:600px;border:1px dotted #ccc;}
+
+        #examples ul > li{list-style:none;float:left;width:25%;}
+        #examples ul > li > a{display:block;padding:14px 10px;margin-left:20px;text-decoration:none;background-color:#f5f5f5;background-image:-webkit-gradient(linear, 0 0, 0 100%, from(#fbfbfb), to(#f1f1ff)); background-image:-webkit-linear-gradient(#fbfbfb, #f1f1ff); background-image:-moz-linear-gradient(#fbfbfb, #f1f1ff); background-image:linear-gradient(#fbfbfb, #f1f1ff); -pie-background:linear-gradient(#fbfbfb, #f1f1ff);-webkit-border-radius:15px;-moz-border-radius:15px;border-radius:15px;-webkit-box-shadow:0 5px 10px #aaa;-moz-box-shadow:0 5px 10px #aa;box-shadow:0 5px 10px #aaa;}
+        #examples ul > li:first-child > a{margin-left:0;}
+        #examples ul > li > a:hover, #examples ul > li > a:focus { background:#fff; -webkit-box-shadow:0 1px 2px #aaaaaa; -moz-box-shadow:0 1px 2px #aaaaaa; box-shadow:0 1px 2px #aaaaaa; behavior:url(PIE.htc) }
+        #examples ul > li > a:hover > .icon, #examples ul > li > a:focus > .icon { color:#82b3d9 }
+        .icon{margin-bottom:10px;text-align:center;font-family:"Hoefler Text", Cambria, Utopia, "Liberation Serif", "Nimbus Roman No9 L Regular", Times, "Times New Roman", serif;font-size:144px;color:#bbb;text-shadow:4px 4px 0 #eee;background-color:#fff;border:1px solid #dde;-webkit-border-radius:10px;-moz-border-radius:10px;border-radius:10px;}
+        #examples ul > li > a > h2{text-align:center;color:#82B3D9;}
+    </style>
+</head>
+<body>
+<header>
+    <div class="inner">
+        <nav>
+            <ul>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Examples</a></li>
+                <li><a href="#">Documentation</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<article>
+    <section id="about">
+        <div class="section-wrap">
+            <h1>jQuery Waypoints</h1>
+            <div class="columns"></div>
+        </div>
+    </section>
+    <section id="examples">
+        <div class="section-wrap">
+            <h1>Examples</h1>
+            <div class="columns">
+                <ul>
+                    <li><a href="">
+                        <div class="icon">∞</div>
+                        <h2>Infinite Scrolling</h2>
+                    </a></li>
+                    <li><a href="">
+                        <div class="icon">§</div>
+                        <h2>Sticky Elements</h2>
+                    </a></li>
+                    <li><a href="">
+                        <div class="icon">π</div>
+                        <h2>Scroll Analytics</h2>
+                    </a></li>
+                    <li><a href="">
+                        <div class="icon">ː</div>
+                        <h2>Dial Controls</h2>
+                    </a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section id="documentation">
+        <div class="section-wrap">
+            <h1>Documentation</h1>
+            <div class="columns"></div>
+        </div>
+    </section>
+</article>
+<script src="http://ajax.microsoft.com/ajax/jquery/jquery-1.4.4.min.js"></script>
+<script src="waypoints.js"></script>
+<script>
+    jQuery(function($) {
+        // Register each section as a waypoint.
+        $('article > section').waypoint({ offset: '50%' });
+
+        // The same for all waypoints
+        $('body').delegate('article > section', 'waypoint.reached', function(event, direction) {
+            var $active = $(this);
+
+            if (direction === "up") {
+                $active = $active.prev();
+            }
+            if (!$active.length) $active.end();
+
+            $('.section-active').removeClass('section-active');
+            $active.addClass('section-active');
+
+            $('.link-active').removeClass('link-active');
+            $('a[href=#'+$active.attr('id')+']').addClass('link-active');
+        });
+
+        // Negates the flash of non-active nav.
+        $('body > header nav a').click(function() {
+            $(this).addClass('link-active');
+        }).eq(0).addClass('link-active');
+
+        // Wicked credit to
+        // http://www.zachstronaut.com/posts/2009/01/18/jquery-smooth-scroll-bugs.html
+        var scrollElement = 'html, body';
+        $('html, body').each(function () {
+            var initScrollTop = $(this).attr('scrollTop');
+            $(this).attr('scrollTop', initScrollTop + 1);
+            if ($(this).attr('scrollTop') == initScrollTop + 1) {
+                scrollElement = this.nodeName.toLowerCase();
+                $(this).attr('scrollTop', initScrollTop);
+                return false;
+            }
+        });
+
+        // Smooth scrolling for internal links
+        $("a[href^='#']").click(function(event) {
+            event.preventDefault();
+
+            var $this = $(this),
+            target = this.hash,
+            $target = $(target);
+
+            $(scrollElement).stop().animate({
+                'scrollTop': $target.offset().top
+            }, 500, 'swing', function() {
+                window.location.hash = target;
+            });
+
+        });
+    });
+
+</script>
+</body>
+</html>

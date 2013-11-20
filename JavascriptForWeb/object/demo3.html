@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>对象字面量也是向函数传递大量可选参数的首先方式</title>
+</head>
+<body>
+<script type="text/javascript">
+    function displayInfo(args){
+        if(args){
+
+            var output = "";
+
+            if(typeof args.name == "string"){
+                output += "name: " + args.name + "\n";
+            }
+
+            if(typeof args.age == "number"){
+                output += "Age: " + args.age + "\n";
+            }
+
+            console.log(output);
+        }else{
+            console.log("No args!")
+        }
+    }
+
+    displayInfo();
+
+    displayInfo({
+        name : "Ifany",
+        age : 29
+    });
+
+    displayInfo({
+        name : "Jeperc"
+    });
+
+</script>
+</body>
+</html>

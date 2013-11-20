@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+</head>
+<body>
+<div class="layout-inner">
+    <ul>
+        <li>foo</li>
+        <li>bar</li>
+    </ul>
+</div>
+<script type="text/javascript">
+    //$.each([33,66],function(index,value){
+    //    alert(index + ':' + value);
+    //});
+    $(function(){
+        $('li').each(function(index){
+            alert(index + ':' + $(this).text());
+        });
+    })
+</script>
+</body>
+</html>

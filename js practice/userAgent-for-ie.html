@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>如何识别ie6，ie7，ie8</title>
+    <link rel="stylesheet" href="../css/reset.css" />
+</head>
+<body>
+    <div class="layout-inner">
+        <h1>我是IE<strong id="ie-number">9+</strong></h1>
+    </div>
+    
+<script type="text/javascript">
+    var userAgent = navigator.userAgent.toLowerCase(),
+
+    browserId = userAgent.match(/(firefox|chrome|safari|opera|msie)/)[1],
+
+    browserVersion = (userAgent.match(new RegExp('.+(?:version)[\/: ]([\\d.]+)')) || 
+    userAgent.match(new RegExp('(?:'+browserId+')[\/: ]([\\d.]+)')) || [0,'0'])[1],
+
+    isIe6 = (browserId + browserVersion == "msie6.0"),
+
+    isIe7 = (browserId + browserVersion == "msie7.0"),
+
+    isIe8 = (browserId + browserVersion == "msie8.0");
+
+    var number = document.getElementById('ie-number');
+    if(isIe6){ number.innerHTML="6" }
+    if(isIe7){ number.innerHTML="7" }
+    if(isIe8){ number.innerHTML="8" }
+</script>
+</body>
+</html>

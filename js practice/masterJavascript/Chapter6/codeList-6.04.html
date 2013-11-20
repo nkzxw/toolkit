@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Dean Edwards所写的addEvent/removeEvent库---ifan</title>
+<link rel="stylesheet" type="text/css" href="../css/i-base.css" />
+</head>
+<body>
+<div class="wrapper">
+
+</div>
+<script src="../js/i-base.js"></script>
+<script>
+ //addEvent / removeEvent Library.
+ function addEvent(element, type, handler){
+ 	//For each event handler a unique ID assigned.
+ 	if(!handler.$$guid){handler.$$guid = addEvent.guid++;}
+	
+	//For the elements to create a list of event types.
+	if(!element.events){element.events = {}; }
+	
+	//For each of the elements / events to create a list of event handler.
+	var handlers = element.events[type];
+	if(!handlers){
+		handlers = element.events[type] = {};
+		
+		//Save the existing event handler (if present).
+		if(element["on" + type]){
+			handlers[0] = element["on" + type];
+		}
+	}
+	//Stored in the list change event handler.
+	handlers[handler.$$guid] = handler;
+	//Give a global event handler to handle all the work.
+	element["on" + type] = handleEvent;
+ };
+ 
+ //Counter create separate ID.
+ addEvent.guid = 1;
+ 
+ function removeEvent(element, type, handler){
+ 	//Remove from list event handler.
+ 	if(element.events && element.events[type]){
+		delete element.events[type][handler.$$guid];
+	}
+ };
+ 
+ function handleEvent(event){
+ 	var returnValue = true;
+	
+	//Get event object (IE uses a global event object).
+	event = event || fixEvent(window.event);
+	
+	//Get event handler hash tables.
+	var handlers = this.events[event.type];
+	
+	//So each event handler implementation.
+	for(var i in handlers){
+		this.$$handleEvent = handlers[i];
+		if(this.$$handleEvent(event) === false){
+			returnValue = false;
+		}
+	}
+	return returnValue;
+ }
+ 
+ //Increase the number of IE's lack of event object method.
+ function fixEvent(event){
+ 	//Add W3C standard event methods.
+ 	event.preventDefault = fixEvent.preventDefault;
+	event.stopPropagation = fixEvent.stopPropagation;
+	return event;
+ }
+ fixEvent.preventDefault = function(){
+ 	this.returnValue = false;
+ }
+ fixEvent.stopPropagation = function(){
+ 	this.cancelBubble = true;
+ }
+</script>
+<script>
+	addEvent(window,'load',inCome);
+	function inCome(){
+		alert("加载完毕");
+	}
+	addEvent(window,'load',welCome);
+	function welCome(){
+		alert("欢迎光临！");
+	}
+	//removeEvent(window,'load',inCome);
+</script>
+</body>
+</html>

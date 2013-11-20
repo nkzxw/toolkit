@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="keywords" content=""/>
+<meta name="description" content=""/>
+<title></title>
+<link rel="shortcut icon" href="" type="image/x-icon"/>
+<link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+<style>
+/*autoScroll.css--------*/
+#J_autoScroll{width:130px;height:60px;overflow:hidden;}
+#J_scrollContainer li{height: 15px;line-height: 15px;}
+</style>
+</head>
+<body>
+<div class="wrapper">
+ <div id="J_autoScroll">
+     <div id="J_scrollContainer">
+         <ul>
+             <li>1dafsafsafasfsafasfsa</li>
+             <li>1dafsafsafasfsafasfsa</li>
+             <li>1dafsafsafasfsafasfsa</li>
+             <li>1dafsafsafasfsafasfsa</li>
+             <li>2dafsafsafasfsafasfsa</li>
+             <li>2dafsafsafasfsafasfsa</li>
+             <li>2dafsafsafasfsafasfsa</li>
+             <li>2dafsafsafasfsafasfsa</li>
+             <li>3dafsafsafasfsafasfsa</li>
+             <li>3dafsafsafasfsafasfsa</li>
+             <li>3dafsafsafasfsafasfsa</li>
+             <li>3dafsafsafasfsafasfsa</li>
+             <li>4dafsafsafasfsafasfsa</li>
+             <li>4dafsafsafasfsafasfsa</li>
+             <li>4dafsafsafasfsafasfsa</li>
+             <li>4dafsafsafasfsafasfsa</li>
+         </ul>
+     </div>
+ </div>
+</div>
+<script>
+    /* createByEva 2008/11/17 滚动停顿展示效果
+       1.outerId : 外部容器ID
+       2.innerId : 展示部分容器ID.
+       4.pauseTime: 间隔停止时间 1000=1秒
+       5.speed: 滚动速度 0-100
+       6.distance : 间隔滚动距离
+       7.direction : 'x' or 'y' 表示上下还是左右滚动
+       使用说明:var mySlider = new autoSlider('autoShow','showContainer',1000,100,200,'x');
+       水平滚动，注意保持展示层容器不要换行
+       */
+       var autoSlider = function(){
+              this.init.apply(this,arguments);
+       }
+       autoSlider.prototype = {
+              init:function(outerId,innerId,pauseTime,speed,distance,direction){
+                     this.outerId = outerId;
+                     this.innerId = innerId;
+                     this.pauseTime = pauseTime;
+                     this.speed = speed;
+                     this.distance = distance;
+                     this.direction = direction.toLowerCase();
+                     this.timer = null;
+                     this.timer2 = null;
+                     outer = this.$(this.outerId);//得到最外层div
+                     inner = this.$(this.innerId);//得到展示层div
+                     outer.style.overflow = 'hidden';
+                     inner.innerHTML += inner.innerHTML;
+                     innerOffset = this.direction =='y'? inner.offsetHeight : inner.offsetWidth;
+                     this.direction =='y'? inner.style.height = innerOffset * 2 +'px': inner.style.width= innerOffset * 2 +'px';
+                     this.start(0);
+              },
+              start:function(cd){
+                     var $this = this;
+                     outer.onmouseover = function(){$this.pause();};
+                     outer.onmouseout = function(){$this.goon();};
+                     var currentDistance = cd; //当前步进距离
+                     play();
+                     function play(){
+                            $this.timer = setTimeout(play,1000/$this.speed);
+                            if(currentDistance < innerOffset){
+                                   if(currentDistance % $this.distance == 0){
+                                          clearTimeout($this.timer);
+                                          $this.timer2 = setTimeout(play,$this.pauseTime);
+                                   }
+                                   currentDistance++;
+                            }else{
+                                   currentDistance = 0;
+                                   currentStep = 0;
+                            }
+                            $this.direction =='y'?outer.scrollTop = currentDistance:outer.scrollLeft = currentDistance;
+                     }
+              },
+              pause:function(){
+                     clearTimeout(this.timer);
+                     clearTimeout(this.timer2);
+              },
+              goon:function(){
+                     this.direction == 'y'? this.start(outer.scrollTop):this.start(outer.scrollLeft);
+              },
+              $:function(o){
+                     if(o){return document.getElementById(o);}
+              }
+       };
+
+       var mySlider = new autoSlider('J_autoScroll','J_scrollContainer',2000,100,60,'y');
+</script>
+</body>
+</html>

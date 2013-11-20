@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>setTimeout---ifan</title>
+<link rel="stylesheet" type="text/css" href="css/i-base.css" />
+</head>
+<body>
+<div class="wrapper">
+   <div id="main" style="height:60px;"></div>
+</div>
+<script>
+	//Get an ID for the 'main' elements
+	var obj=document.getElementById('main');
+	
+	//Modify it border style
+	obj.style.border="1px solid red";
+	
+	//Initializing a second after the execution of the callback function
+	setTimeout(function(){
+		//Again revised its border style
+		obj.style.border = "3px solid green";
+	},1000);
+	
+</script>
+</body>
+</html>

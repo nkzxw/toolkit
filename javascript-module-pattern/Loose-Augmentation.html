@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Loose Augmentation</title>
+</head>
+<body>
+<code>
+var MODULE = (function (my) {
+    // add capabilities...
+
+    return my;
+}(MODULE || {}));
+</code>
+<script>
+var MODULE = (function (my) {
+    my.antherProperty = 'my property';
+    my.anotherMethod = function () {
+        console.log("I'm a anotherMethod");
+    };
+
+    return my;
+}(MODULE || {}));
+
+MODULE.anotherProperty = 'my rodo property';
+
+console.log(MODULE.anotherProperty);
+MODULE.anotherMethod();
+</script>
+</body>
+</html>

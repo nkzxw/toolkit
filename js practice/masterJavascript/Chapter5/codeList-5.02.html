@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>简单的DOM遍历---ifan</title>
+<link rel="stylesheet" type="text/css" href="../css/i-base.css" />
+</head>
+<body>
+    <h1>Introduction to the DOM</h1>
+	<p class="test">There are a number of reasons why the DOM is awesome, here are sme:</p>
+	<ul>
+		<li id="everywhere">It can be found everywhere.</li>
+		<li class="test">It's easy to use.</li>
+		<li class="test">It can help you to find what you want,really quickly.</li>
+	</ul>
+<script>
+	//Find related elements 'elem' previous sibling element.
+	//eg:elem.prev()
+	function prev(elem){
+		do{
+			elem = elem.previousSibling;
+		} while (elem && elem.nodeType != 1){
+			return elem;
+		}
+	}
+	HTMLElement.prototype.prev = function(){
+		var elem = this;
+		do{
+			elem = elem.previousSibling;
+		} while (elem && elem.nodeType != 1){
+			return elem;
+		}
+	}
+	
+	//Find related elements 'elem' next sibling element.
+	//eg:elem.next()
+	function next(elem){
+		do{
+			elem = elem.nextSibling;
+		} while (elem && elem.nodeType != 1){
+			return elem;
+		}
+	}
+	HTMLElement.prototype.next = function(){
+		var elem = this;
+		do{
+			elem = elem.nextSibling;
+		}while(elem && elem.nodeType != 1)
+		return elem;
+	}
+	
+	//Find elements 'elem' first child.
+	//eg:elem.first()
+	function first(elem){
+		elem = elem.firstChild;
+		return elem && elem.nodeType !=1 ? next(elem):elem;
+	}
+	HTMLElement.prototype.first = function(){
+		var elem = this;
+		elem = elem.firstChild;
+		return elem && elem.nodeType !=1 ? next(elem):elem;
+	}
+	
+	//Find elements 'elem' last child.
+	//eg:elem.last()
+	function last(elem){
+		elem = elem.lastChild;
+		return elem && elem.nodeType !=1 ? prev(elem):elem;
+	}
+	HTMLElement.prototype.last = function(){
+		var elem = this;
+		elem = elem.lastChild;
+		return elem && elem.nodeType !=1 ? prev(elem):elem;
+	}
+	
+	//Find elements 'elem' of parent element.
+	//eg:elem.parent()
+	function parent(elem, num){
+		num = num || 1;
+		for (var i=0;i<num;i++)
+		if(elem != null) elem=elem.parentNode;
+		return elem;
+	}
+	HTMLElement.prototype.parent = function(){
+		var elem = this;
+		var num = this.num;
+		num = num || 1;
+		for (var i=0;i<num;i++)
+		if(elem != null) elem=elem.parentNode;
+		return elem;
+	}
+	
+	
+	
+	
+	
+	
+	//Get <p> element.
+	alert(document.body.last().parent());
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>原型链</title>
+</head>
+<body>
+<script type="text/javascript">
+    function SuperType(){
+        this.property = true;
+    }
+    SuperType.prototype.getSuperValue = function(){
+        return this.property;
+    }
+
+    function SubType(){
+        this.subproperty = false;
+    }
+
+    //继承了SuperType
+    SubType.prototype = new SuperType();
+    SuperType.prototype.getSubValue = function(){
+        return this.subproperty;
+    }
+
+    var instance = new SubType();
+    console.log(instance.getSuperValue());
+
+    //确定原型和实例的关系
+    console.log(instance instanceof Object);
+    console.log(instance instanceof SuperType);
+    console.log(instance instanceof SubType);
+
+    console.log(Object.prototype.isPrototypeOf(instance));
+    console.log(SuperType.prototype.isPrototypeOf(instance));
+    console.log(SubType.prototype.isPrototypeOf(instance));
+</script>
+</body>
+</html>

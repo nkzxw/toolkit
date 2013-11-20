@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title></title>
+    <link rel="stylesheet" href="../../css/reset.css"/>
+    <style type="text/css">
+        .hidden{visibility: hidden}
+        .ie10 .hidden{visibility: visible}
+        @media screen and (-ms-high-contrast:active),(-ms-high-contrast:none){
+            .hidden{visibility: visible}
+        }
+
+        @media  screen and (min-width:0\0) {
+            .testie9-10{color: green;}
+        }
+    </style>
+    <script type="text/javascript">
+       // if(Function('/*@cc_on return document.documentMode===10@*/')()){
+         //   document.documentElement.className+=' ie10';
+       // }
+    </script>
+</head>
+<body>
+<div class="layout-inner">
+    <p>
+        <!--[if IE]>
+        我是IE
+        <![endif]-->
+    </p>
+
+    <p>
+        <!--[if IE 6]>
+        我是IE6
+        <![endif]-->
+    </p>
+
+    <p>
+        <!--[if IE 7]>
+        我是IE7
+        <![endif]-->
+    </p>
+
+    <p>
+        <!--[if IE 8]>
+        我是IE8
+        <![endif]-->
+    </p>
+
+    <p>
+        <!--[if IE 9]>
+        我是IE9
+        <![endif]-->
+    </p>
+
+    <p>
+        <!--[if gte IE 8]>
+        我是大于等于IE8
+        <![endif]-->
+    </p>
+
+    <p>
+        <!--[if lt IE 9]>
+        我是小于IE9
+        <![endif]-->
+    </p>
+
+    <p>
+        <!--[if lte IE 7]>
+        我是小于等于IE7
+        <![endif]-->
+    </p>
+
+    <p>
+        <!--[if gt IE 6]>
+        我是大于IE6
+        <![endif]-->
+    </p>
+
+    <p class="hidden">
+        我是IE10
+    </p>
+
+    <p class="testie9-10">
+        我是IE9,IE10
+    </p>
+</div>
+<script src=""></script>
+<script></script>
+</body>
+</html>

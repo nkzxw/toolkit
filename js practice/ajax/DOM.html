@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <link rel="shortcut icon" href="" type="image/x-icon"/>
+    <title>建立基于DOM的Web应用程序</title>
+    <style>
+        .wrapper {margin:10px auto;width:1000px;}
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <h1>Welcome to the DOM magic shop!</h1>
+    <form name="magic-hat">
+        <p><img id="topHat" src="images/top-hat.jpg" /></p>
+        <button id="hocusPocus" type="button" onclick="showRabbit();">Hocus Pocus!</button>
+    </form>
+</div>
+
+<script type="text/javascript">
+    var topHat = document.getElementById('topHat');
+    var button = document.getElementById('hocusPocus');
+    function showRabbit(){
+        topHat.setAttribute('src','images/rabbit-hat.jpg');
+        button.innerHTML = 'Get back to that hat!';
+        button.onclick = hideRabbit;
+    }
+    function hideRabbit(){
+        topHat.setAttribute('src','images/top-hat.jpg');
+        button.innerHTML = 'Hocus Pocus!';
+        button.onclick = showRabbit;
+    }
+</script>
+</body>
+</html>

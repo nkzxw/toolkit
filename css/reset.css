@@ -1,0 +1,25 @@
+@charset "utf-8";
+html{color: #000000;background: #ffffff}
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, cite, code, del, em, img, q, small, strong, sub, sup, b, u, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, nav, output, section, summary, time, audio, video{ margin: 0;padding: 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section{ display:block }
+body,button,input,select,textarea{font:12px/1.0 Helvetica, Arial, sans-serif}
+h1, h2, h3, h4, h5, h6 {font-size: 100%;font-weight: normal}
+ol, ul{ list-style:none }
+table{ border-collapse:collapse; border-spacing:0}
+caption, th{ text-align:left }
+a:link,a:visited{text-decoration:none}
+a:hover,a:active{text-decoration:underline;}
+fieldset,img{border: none}
+sup{vertical-align:text-top;}
+sub{vertical-align:text-bottom;}
+code,pre,var{padding:2px;border:1px solid #eee;font:normal 93%/138% courier new,courier,monospace;background: #f8f8f8;}
+blockquote, q {quotes: none;}
+blockquote:before, blockquote:after,q:before, q:after {content: ''; content: none}
+address, caption, cite, code, dfn, em, i, strong, th {font-style: normal;font-weight: normal}
+button, label, input[type="submit"], input[type="button"], input[type="radio"], input[type="checkbox"], input[type="file"]{ cursor:pointer}
+button{ border:none; padding:0}
+button img{ display:block}
+.clearfix:before, .clearfix:after{ content:""; display:table}
+.clearfix:after{ clear:both; *zoom:1}
+
+.layout-inner{margin-left: auto;margin-right: auto;width: 980px}

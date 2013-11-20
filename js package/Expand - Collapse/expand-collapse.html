@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <title></title>
+    <link rel="shortcut icon" href="" type="image/x-icon"/>
+    <link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+    <style>
+       .box{width:300px;border:1px solid #ccc;font-size:12px}
+       .box dt{line-height:24px;text-align:right;margin:0;padding:0 10px;background:#CCC}
+       .box dd{line-height:20px;margin:0}
+       #holder2{height: 200px;}
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <dl class="box">
+       <dt id="title">点击展开/收起</dt>
+       <dd id="holder">
+           内容
+        </dd>
+    </dl>
+    <dl class="box">
+        <dt id="title2">点击展开/收起</dt>
+        <dd id="holder2">
+            内容2
+        </dd>
+    </dl>
+</div>
+<script src="../../js/i-base.js"></script>
+<script>
+/*
+ *  id：展开/收起内容区的id
+ *  minH : 展开/收起的最小高度
+ *  maxH : 展开/收起的最大高度
+ *  expand : true - 从收起到展开、false - 从展开到收起
+ *  rate : 缓动变化率 0-1
+ *  speed : 速度（毫秒）
+ */
+var Toggle = function(id, minH, maxH, expand, rate, speed){
+    this.minH = minH;
+    this.maxH = maxH;
+    this.tempH = 0;
+    this.rate = rate;
+    this.speed = speed;
+    this.moving = false;
+    this.moveT = null;
+    this.holder = document.getElementById(id);
+    this.expand = expand;
+}
+Toggle.prototype = {
+    start : function(){
+        if(this.moving) return;
+        this.moving = true;
+        this.tempH = this.expand ? this.minH : this.maxH;
+        var t = this;
+        this.moveT = setInterval(function(){t.move()}, this.speed);
+    },
+    move : function(){
+        if(this.expand){
+            if(this.tempH >= this.maxH){
+                this.moving = false;
+                this.expand = false;
+                clearInterval(this.moveT);
+            }else{
+                var h = Math.round((this.maxH - this.tempH) * this.rate);
+                if(h <= 1){
+                    h = 1;
+                }
+                this.tempH += h;
+            }
+        }else{
+            if(this.tempH <= this.minH){
+                this.moving = false;
+                this.expand = true;
+                clearInterval(this.moveT);
+            }else{
+                var h = Math.round((this.tempH - this.minH) * this.rate);
+                if(h <= 1){
+                    h = 1;
+                }
+                this.tempH -= h;
+            }
+        }
+        this.holder.style.height = this.tempH + "px";
+    }
+}
+
+</script>
+<script>
+//版块一（默认已收起）
+var obj = new Toggle("holder",20,200,true, 0.2, 10);
+document.getElementById("title").onclick = function(){
+    obj.start();
+}
+
+//版块二（默认已展开）
+var obj2 = new Toggle("holder2",20,200,false, 0.2, 10);
+document.getElementById("title2").onclick = function(){
+    obj2.start();
+}
+</script>
+</body>
+</html>

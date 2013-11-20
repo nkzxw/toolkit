@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Prototype库模拟的2个面向对象的javascript函数---ifan</title>
+<link rel="stylesheet" type="text/css" href="../css/i-base.css" />
+</head>
+<body>
+<div class="wrapper">
+
+</div>
+<script>
+	//Create a called 'Class' of the global object.
+	var Class = {
+		//'Class' attribute 'create', used to create a new object constructor
+		create:function(){
+			//Return an anonymous object constructor.
+			return function(){
+				//Call its own initialization method.
+				this.initialize.apply(this,arguments);
+			}
+		}
+	}
+	
+	//To the object 'Object' Add a new static method, it is the role of property from one object to another object
+	Object.extend = function(destination, source){
+		//Through all the attributes to be extended.
+		for(property in source){
+			//The property will be extended to the target object
+			destination[property] = source [property];
+		}
+		//Return the modified object
+		return destination;
+	} 
+	
+	//String's prototype to add additional methods.
+	Object.extend(Sring.prototype,{
+		stripTags:function(){
+			return this.replace(/<\/?[^>]+>/gi, '');
+		},
+		
+		toArray:function(){
+			return this.split('');
+		},
+		
+		camelize:function(){
+			var oStringList = this.split('-');
+			
+			if(oStringList.length == 1) return oStringList[0];
+			
+			var camelizedString = this.indexOf('-') == 0 
+			? oStringList[0].charAt(0).toUpperCase() + oStringList[0].subString(1)
+			:oStringList[0];
+			
+			for(var i = 1,len = oStringList.length;i<len;i++){
+				var s = oStringList[i];
+				camelizedString += s.charAt(0).toUpperCase() + s.subString(1);
+			}
+			
+			return camelizedString;
+		}
+	});
+	
+	//stripTags() method example.
+	"<b><i>Hello</i>, world</b>".stripTags() == "Hello, world";
+	
+	//toArray() method example.
+	"abcdefg".toArray()[3] == "d";
+	
+	//camelize() method example.
+	"background-color".camelize() == "backgroundColor";
+	
+	//To application.
+	
+	var Person = Class.create();
+	
+	Object.extend(Person.prototype,{
+		initialize:function(name){
+			this.name = name;
+		},
+		getName:function(){
+			return this.name;
+		}
+	});
+	
+	var User=Class.create();
+	
+	User.prototype = Object.extend(new Person(),{
+		initialize:function(name,password){
+			this.name = name;
+			this.password = password;
+		},
+		getPassword:function(){
+			return this.password;
+		}
+	});
+	
+	var user = new User("jeperc","80132010");
+	alert(user.gerName()+' '+user.getPassword);
+</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Generating CSS Content</title>
+    <style>
+    .inner{margin:30px auto;width:1000px}
+    
+    .arrow-hollow{position:relative;background-color:#fff}
+    .arrow-hollow:before,.arrow-hollow:after{content:''; position:absolute;width:0;height:0;border:solid transparent;}
+    
+    .arrow-hollow-top:before,
+    .arrow-hollow-left:before,
+    .arrow-hollow-right:before,
+    .arrow-hollow-bottom:before{border-width:10px;}
+    
+    .arrow-hollow-top:after,
+    .arrow-hollow-left:after,
+    .arrow-hollow-right:after,
+    .arrow-hollow-bottom:after{border-width:9px}
+    
+    .arrow-hollow-top:before,
+    .arrow-hollow-top:after{left:50%;bottom:100%}
+    .arrow-hollow-top:before{border-bottom-color:#000;margin-left:-10px}
+    .arrow-hollow-top:after{border-bottom-color:#fff;margin-left:-9px}
+    
+    .arrow-hollow-left:before,
+    .arrow-hollow-left:after{right:100px;top:50%}
+    .arrow-hollow-left:before{border-right-color:#000;margin-top:-10px;}
+    .arrow-hollow-left:after{border-right-color:#fff;margin-top:-9px;}
+    
+    .arrow-hollow-right:before,
+    .arrow-hollow-right:after{left:100%;top:50%}
+    .arrow-hollow-right:before{border-left-color:#000;margin-top:-10px;}
+    .arrow-hollow-right:after{border-left-color:#fff;margin-top:-9px;}
+    
+    .arrow-hollow-bottom:before,
+    .arrow-hollow-bottom:after{left:50%;top:100%}
+    .arrow-hollow-bottom:before{border-top-color:#000;margin-left:-10px}
+    .arrow-hollow-bottom:after{border-top-color:#fff;margin-left:-9px}
+    
+    </style>
+</head>
+<body>
+    <div class="inner">
+        <div class="arrow-hollow arrow-hollow-top"></div><br>
+        <div class="arrow-hollow arrow-hollow-left"></div><br>
+        <div class="arrow-hollow arrow-hollow-right"></div><br>
+        <div class="arrow-hollow arrow-hollow-bottom"></div>
+    </div>
+</body>
+</html>

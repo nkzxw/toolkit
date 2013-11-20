@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>获取和设置元素特性的值的通用函数---ifan</title>
+<link rel="stylesheet" type="text/css" href="../css/i-base.css" />
+</head>
+<body>
+<div class="wrapper">
+       <img src="123.gif" />
+</div>
+<script>
+	//Get and set element value of the property.
+	function attr(elem, name, value){
+		//Ensure that the 'name' is correct.
+		if(!name || name.constructor != String) return '';
+		
+		//Check whether name is named in a strange case.
+		name = {'for': 'htmlFor', 'class': 'className'}[name] || name;
+		
+		//If you pass the 'value' parameter, then set the 'name' value.
+		if(typeof value != 'undefined'){
+			//Shortcuts.
+			elem[name] = value;
+			//use setAttribute.
+			if(elem.setAttribute) elem.setAttribute('name','value');
+		}
+		
+		//Return value of the property.
+		return elem[name] || elem.getAttribute(name) || '' ;
+	}
+</script>
+<script>
+	var imgs=document.getElementsByTagName('img');
+	alert(attr(imgs,'src','456.gif'));
+</script>
+</body>
+</html>

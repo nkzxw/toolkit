@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>MultiTemplate</title>
+    <style>
+        table{margin-bottom:30px;border-collapse:collapse; border-spacing:0}
+        thead{font-weight: bold; }
+        td{padding:5px 10px;border: 1px solid #ccc;}
+        .bcEEC {background: #EEC;}
+        .bcCEE {background: #CEE;}
+    </style>
+</head>
+<body>
+
+<div id="result"></div>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+<script type="text/javascript" src="jQuery.jTemplates.js"></script>
+<script>
+    $(function(){
+        //data for testing
+        var data = ({
+            name : 'User list',
+            list_id : 4,
+            table : [
+                {id: 1, name: 'Anne', age: 22, mail: 'anne@domain.com'},
+                {id: 2, name: 'Amelie', age: 24, mail: 'amelie@domain.com'},
+                {id: 3, name: 'Polly', age: 18, mail: 'polly@domain.com'},
+                {id: 4, name: 'Alice', age: 26, mail: 'alice@domain.com'},
+                {id: 5, name: 'Martha', age: 25, mail: 'martha@domain.com'}
+            ]
+        });
+
+        //attach the template
+        $('#result').setTemplateURL('multitemplate1.tpl');
+
+        //process the template
+        $('#result').processTemplate(data);
+
+    })
+</script>
+</body>
+</html>

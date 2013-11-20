@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>特权方法2（动态生成方法）---ifan</title>
+<link rel="stylesheet" type="text/css" href="../css/i-base.css" />
+</head>
+<body>
+<div class="wrapper">
+
+</div>
+<script>
+	//Creating a 'User' object, receiving a number of properties of objects as a parameter
+	function User(properies){
+		//Through "properies" all the attributes of an object
+		for(var i in properies){
+			(function(which){
+				var p = i;
+				//For the current property to create a new getter (getter)
+				which["get" + p] = function(){
+					return properies[p];
+				};
+				
+				//For the current property to create a new setter (setter)
+				which["set" + p] = function(val){
+					properies[p] = val;
+				};
+			})(this)
+		}
+	}
+	
+	////Create a 'User' object with two properies('name' and 'age')
+	var user = new User({
+		name:"jeperc",
+		age:"27"
+	});
+	
+	//'name' attribute does not exist
+	alert(user.name);
+	
+	//But can use the "getname ()" method to get the 'name' value
+	alert(user.getname()+" "+user.getage());
+	
+	//Set up a new 'age' value.
+	user.setage(22);
+	alert(user.getage());
+
+</script>
+</body>
+</html>

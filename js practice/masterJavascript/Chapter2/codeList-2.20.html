@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>create Object---ifan</title>
+<link rel="stylesheet" type="text/css" href="../css/i-base.css" />
+</head>
+<body>
+<div class="wrapper">
+
+</div>
+<script>
+	//create a new object.
+	var obj = new Object();
+	
+	//Set some properties to this object.
+	obj.val = 5;
+	obj.click=function(){
+		alert('hello');
+	}
+	
+	//Equivalent way,With {...} shorthand, with key-value pair (key / val pair) to define the attributes
+	var obj={
+		val:5,
+		click:function(){
+			alert('hello');
+		}
+	};
+</script>
+</body>
+</html>

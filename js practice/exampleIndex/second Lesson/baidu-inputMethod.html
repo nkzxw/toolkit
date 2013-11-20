@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <link rel="shortcut icon" href="" type="image/x-icon"/>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="../styles/base.css"/>
+    <style>
+        .wrapper { }
+        button{border:1px solid green;background:#f7f7f7;padding:5px;}
+        #tipList{border:1px solid green;width:100px;}
+        #tipList li{list-style:none;padding:5px 0;cursor:pointer}
+        #tipList #close{border-top:1px solid green;}
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <p><button>google输入法</button></p>
+    <div id="tipList" style="display:none;">
+        <ul>
+            <li>拼音</li>
+            <li>五笔</li>
+            <li id="close">关闭</li>
+        </ul>
+    </div>
+</div>
+<script>
+    window.onload = function(){
+        var button = document.getElementsByTagName('button')[0];
+        var tip = document.getElementById('tipList');
+        var close = document.getElementById('close');
+        button.onclick = function(){
+           tip.style.display = tip.style.display == 'none'?'block':'none';
+        };
+        close.onclick = function(){
+            tip.style.display = 'none';
+        };
+    }
+</script>
+</body>
+</html>

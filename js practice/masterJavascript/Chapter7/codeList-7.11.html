@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>获取鼠标相对于当前元素位置的函数---ifan</title>
+<link rel="stylesheet" type="text/css" href="../css/i-base.css" />
+</head>
+<body>
+<div class="wrapper">
+    <div id="df" style="width:100px;height:100px;background:red;"></div>
+</div>
+<script src="../js/i-base.js"></script>
+<script>
+	function getElementX(e){
+		return (e && e.layerX) || window.event.offsetX;
+	}
+	
+	function getElementY(e){
+		return (e && e.layerY) || window.event.offsetY;
+	}
+</script>
+<script>
+	addEvent(ID('df'),'click',function(){
+		alert("当前鼠标的相对于当前元素的位置： "+getElementX()+' : '+getElementY());
+	});
+	addEvent(window,'click',function(){
+		alert("当前鼠标的相对于当前元素的位置： "+getElementX()+' : '+getElementY());
+	});
+</script>
+</body>
+</html>

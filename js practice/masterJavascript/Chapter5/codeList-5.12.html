@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>注入html到DOM---ifan</title>
+<link rel="stylesheet" type="text/css" href="../css/i-base.css" />
+</head>
+<body>
+<div class="wrapper">
+     <ol>
+     	<li id="last">df</li>
+     </ol>
+</div>
+<script src="../js/i-base.js"></script>
+<script>
+	function before(parent, before, elem){
+		//Check providing parent node parameters.
+		if(elem == null){
+			elem = before;
+			before = parent;
+			parent = before.parentNode;
+		}
+		
+		//Obtain a new array of elements.
+		var elems = checkElem(elem);
+		
+		//Backward through the array.
+		//Because forward into Elements.
+		for(var i=elems.length-1; i>=0; i--){
+		parent.insertBefore(elems[i], before);
+		}
+	}
+	
+	function append(parent, elem){
+		//Obtain a new array of elements.
+		var elems = checkElem(elem);
+		//All elements are appended to.
+		for(var i=0; i<elems.length; i++){
+		parent.appendChild(elems[i]);
+		}
+	}
+	
+	function checkElem(elem){
+		var r = [];
+		//If the parameter is not an array, then the cast.
+		if(elem.constructor != Array){ elem = [elem];}
+		
+		for(var i=0; i<elem.length;i++){
+			//If a string.
+			if(elem[i].constructor == String){
+				//A temporary storage element to HTML.
+				var div = document.createElement('div');
+				//Into HTML, convert the DOM structure.
+				div.innerHTML = elem[i];
+				for(var j=0; j<div.childNodes.length; j++){
+					r[r.length] = div.childNodes[j];
+				}
+			}else if(elem[i].length){
+				//Assumption is that an array of DOM nodes.
+				for(var j=0; j<elem[i].length; i++){
+					r[r.length] = elem[i][j];
+				}
+			}else{
+				//Otherwise, assume that is a DOM node.
+				r[r.length] = elem[i];
+			}
+		}
+		return r;
+	}
+</script>
+<script>
+	window.onload=function(){
+		append(tag('ol')[0],"<li>Mouse trap</li>");
+		before(tag('ol')[0].last(),"<li><strong>I'm here!</strong></li>");
+	}
+</script>
+</body>
+</html>

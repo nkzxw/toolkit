@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Utility Functions</title>
+</head>
+<body>
+<script src="underscore.js"></script>
+<script>
+    /*--
+        _.noConflict()
+    --*/
+//    var underscore = _.noConflict();
+//    console.log(_);
+//    console.log(underscore.functions(underscore));
+
+    /*--
+        _.identity(value)
+    --*/
+//    var moe = {name : 'moe'};
+//    console.log(moe === _.identity(moe));
+
+    /*--
+        _.times(n, iterator, [context])
+    --*/
+//    _.(3).times(function(n){ genie.grantWishNumber(n); });
+
+    /*--
+        _.random(min, max)
+    --*/
+//    console.log(_.random(0,100));
+
+    /*--
+        _.mixin(object)
+    --*/
+//    _.mixin({
+//        capitalize : function(string){
+//            return string.charAt(0).toUpperCase() + string.substring(1).toLowerCase();
+//        }
+//    });
+//    console.log(_('ifany').capitalize());
+
+    /*--
+        _.uniqueId([prefix])
+    --*/
+//    console.log(_.uniqueId('contact_'));
+
+    /*--
+        _.escape(string)
+    --*/
+//    console.log(_.escape('name, age & career'));
+
+    /*--
+        _.unescape(string)
+    --*/
+//    console.log(_.unescape('name, age &amp; career'));
+
+    /*--
+        _.result(object, property)
+    --*/
+//    var object = {name : 'ifany', career : function(){ return 'Soft Engineer' }};
+//    console.log(_.result(object, 'name'));
+//    console.log(_.result(object, 'career'));
+
+    /*--
+        _.template(templateString, [data], [settings])
+    --*/
+    //变量 <%= %>
+//    var compliled = _.template("Hello, <%= name %>");
+//    console.log(compliled({name : 'ifany'}));
+
+    //javascript代码 <% %>
+//    var list = "<% _.each(people, function(name){ %> <li><%= name %></li> <% }) %> ";
+//    console.log(_.template(list, {people : ['jeperc', 'ifany', 'qingyong']}));
+
+    //html转义 <%- %>
+//    var template = _.template('<b><%- value %></b>')
+//    console.log(template({value : '<script>'}));
+
+    //print
+//    var compliled = _.template('<% print("Hello " + epithet) %>');
+//    console.log(compliled({epithet : 'stooge'}));
+
+    //templateSettings
+//    _.templateSettings = {
+//        interpolate : /\{\{(.+?)\}\}/g
+//    };
+//    var template = _.template('Hello {{ name }} !');
+//    console.log(template({name : 'ifany'}));
+
+//    console.log(_.template("Using 'with': <%= data.answer %>", {answer: 'no'}, {variable: 'data'}));
+</script>
+</body>
+</html>

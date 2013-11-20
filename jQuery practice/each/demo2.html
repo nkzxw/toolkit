@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="../../css/reset.css"/>
+    <script src="http://code.jquery.com/jquery.min.js"></script>
+    <style>
+        .div { color:red; text-align:center; cursor:pointer; font-weight:bolder; width:300px; }
+    </style>
+</head>
+<body>
+<div class="layout-inner">
+    <div class="div">Click here</div>
+    <div class="div">to iterate through</div>
+    <div class="div">these divs.</div>
+</div>
+<script>
+        $(document.body).click(function(){
+            $('.div').each(function(i){
+                if(this.style.color != 'blue' ){
+                    this.style.color = 'blue';
+                }else{
+                    this.style.color = '';
+                }
+            })
+        })
+
+</script>
+</body>
+</html>

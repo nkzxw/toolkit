@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <link rel="shortcut icon" href="" type="image/x-icon"/>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="../styles/base.css"/>
+    <style>
+        .wrapper {text-align:center;}
+        button{border:1px solid #666;background-color:#999;padding:3px 5px;margin:5px;}
+        span{display:inline-block;width:100px;height:100px;background-color:#333333;margin-right:10px;}
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <p><button>同时将下面三个容器变成红色</button></p>
+    <p><span></span><span></span><span></span></p>
+</div>
+</body>
+<script>
+    window.onload = function(){
+        var button = document.getElementsByTagName('button')[0];
+        var span = document.getElementsByTagName('span');
+
+        button.onclick = function(){
+            for(var i=0;i<span.length;i++){
+                 span[i].style.backgroundColor = 'red';
+            }
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<!--[if lt IE 7]><html class="no-js ie ie6 lte9 lte8 lte7"> <![endif]-->
+<!--[if IE 7]><html class="no-js ie ie7 lte9 lte8 lte7"> <![endif]-->
+<!--[if IE 8]><html class="no-js ie ie8 lte9 lte8"> <![endif]-->
+<!--[if IE 9]><html class="no-js ie ie9 lte9"> <![endif]-->
+<!--[if gt IE 9]><html class="no-js"><![endif]-->
+<!--[if !IE]><!-->
+<html><!--<![endif]-->
+<head>
+    <meta charset="utf-8"/>
+    <title></title>
+    <meta name="description" content="SEO相关的页面介绍文字"/>
+    <meta name="keywords" content=""/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link type="image/x-icon" href="" rel="shortcut icon"/>
+    <style type="text/css">
+    </style>
+    <!--[if lt IE 9]><script src="/ifanyTools/js/html5shiv.js"></script><script src="/ifanyTools/js/modernizr-v2.5.3.js"></script><![endif]--><!--[if gte IE 9]><script src="/ifanyTools/js/modernizr-v2.5.3.js"></script><![endif]-->
+    <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+</head>
+<body>
+    <textarea>
+
+    </textarea>
+    <input />
+<script type="text/javascript">
+    var W3CDOM = document.createElement && document.getElementsByTagName;
+
+    window.onload = setMaxLength;
+
+    function setMaxLength() {
+    	if (!W3CDOM) return;
+    	var textareas = document.getElementsByTagName('textarea');
+    	var counter = document.createElement('div');
+    	counter.className = 'counter';
+    	for (var i=0;i<textareas.length;i++) {
+    		if (textareas[i].getAttribute('maxlength')) {
+    			var counterClone = counter.cloneNode(true);
+    			counterClone.innerHTML = '<span>0</span>/'+textareas[i].getAttribute('maxlength');
+    			textareas[i].parentNode.insertBefore(counterClone,textareas[i].nextSibling);
+    			textareas[i].relatedElement = counterClone.getElementsByTagName('span')[0];
+    			textareas[i].onkeyup = textareas[i].onchange = checkMaxLength;
+    			textareas[i].onkeyup();
+    		}
+    	}
+    }
+
+    function checkMaxLength() {
+    	var maxLength = this.getAttribute('maxlength');
+    	var currentLength = this.value.length;
+    	if (currentLength > maxLength)
+    		this.relatedElement.className = 'toomuch';
+    	else
+    		this.relatedElement.className = '';
+    	this.relatedElement.firstChild.nodeValue = currentLength;
+    }
+</script>
+</body>
+</html>

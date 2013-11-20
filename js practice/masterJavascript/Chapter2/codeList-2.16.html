@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>使用匿名函数来隐藏全局作用域变量---ifan</title>
+<link rel="stylesheet" type="text/css" href="../css/i-base.css" />
+</head>
+<body>
+<div class="wrapper">
+
+</div>
+<script>
+	//Create a new anonymous function as a packaging
+	(function(){
+		
+		//Variable should be the global,but here...
+		var msg="Thanks for visiting!";
+		
+		//A new function to bind to the global object
+		window.onunload = function(){
+			//Here the use of "hidden" msg variable
+			alert(msg);
+		}
+		
+		//Close anonymous function and implementation of
+	})();
+</script>
+</body>
+</html>

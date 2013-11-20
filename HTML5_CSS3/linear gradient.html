@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>css3实现背景颜色线性渐变--linear gradient</title>
+    <style>
+        pre{color:#333;font-size:18px}
+        .grad {
+
+           background-color: #F07575; /* fallback color if gradients are not supported */
+           background-image: -webkit-gradient(linear, left top, left bottom, from(hsl(0, 80%, 70%)), to(#BADA55));
+           background-image: -webkit-linear-gradient(top, hsl(0, 80%, 70%), #BADA55);
+           background-image:    -moz-linear-gradient(top, hsl(0, 80%, 70%), #BADA55);
+           background-image:     -ms-linear-gradient(top, hsl(0, 80%, 70%), #BADA55);
+           background-image:      -o-linear-gradient(top, hsl(0, 80%, 70%), #BADA55);
+           background-image:         linear-gradient(to bottom, hsl(0, 80%, 70%), #BADA55);/* current standard, but unimplemented and subject to change */
+
+        }
+        .moz1{
+            background-color: #F07575;
+            background-image:-webkit-gradient(linear,100% 0%,0% 0%,from(#F07575),to(#BADA55));
+            background-image:-webkit-linear-gradient(left,#F07575,#BADA55);
+            background-image:-moz-linear-gradient(left,#F07575,#BADA55);
+            background-image:-ms-linear-gradient(left,#F07575,#BADA55);
+            background-image:-o-linear-gradient(left,#F07575,#BADA55);
+            background-image:linear-gradient(to right,#F07575,#BADA55);
+        }
+        .moz2{
+            background-color: #F07575;
+            background-image:-webkit-gradient(linear,0% 0%,100% 0%,from(#F07575),to(#BADA55));
+            background-image:-webkit-linear-gradient(right,#F07575,#BADA55);
+            background-image:-moz-linear-gradient(right,#F07575,#BADA55);
+            background-image:-ms-linear-gradient(right,#F07575,#BADA55);
+            background-image:-o-linear-gradient(right,#F07575,#BADA55);
+            background-image:linear-gradient(to left,#F07575,#BADA55);
+        }
+        .moz3{
+            background-color: #F07575;
+            background-image:-webkit-gradient(linear,0% 0%,0% 100%,from(#F07575),to(#BADA55));
+            background-image:-webkit-linear-gradient(top,#F07575,#BADA55);
+            background-image:-moz-linear-gradient(top,#F07575,#BADA55);
+            background-image:-ms-linear-gradient(top,#F07575,#BADA55);
+            background-image:-o-linear-gradient(top,#F07575,#BADA55);
+            background-image:linear-gradient(to bottom,#F07575,#BADA55);
+        }
+        .moz4{
+            background-color: #F07575;
+            background-image:-webkit-gradient(linear,0% 100%,0% 0%,from(#F07575),to(#BADA55));
+            background-image:-webkit-linear-gradient(bottom,#F07575,#BADA55);
+            background-image:-moz-linear-gradient(bottom,#F07575,#BADA55);
+            background-image:-ms-linear-gradient(bottom,#F07575,#BADA55);
+            background-image:-o-linear-gradient(bottom,#F07575,#BADA55);
+            background-image:linear-gradient(to top,#F07575,#BADA55)
+        }
+        .moz5{
+            background-color: #F07575;
+            background-image:-webkit-gradient(linear,90deg,from(#F07575),to(#BADA55));
+            background-image:-webkit-linear-gradient(90deg,#F07575,#BADA55);
+            background-image:-moz-linear-gradient(90deg,#F07575,#BADA55);
+            background-image:-ms-linear-gradient(90deg,#F07575,#BADA55);
+            background-image:-o-linear-gradient(90deg,#F07575,#BADA55);
+            background-image:linear-gradient(90deg,#F07575,#BADA55);
+        }
+        .moz6{
+            background-color: #F07575;
+            background-image:-webkit-gradient(linear,270deg,from(#F07575),to(#BADA55));
+            background-image:-webkit-linear-gradient(270deg,#F07575,#BADA55);
+            background-image:-moz-linear-gradient(270deg,#F07575,#BADA55);
+            background-image:-ms-linear-gradient(270deg,#F07575,#BADA55);
+            background-image:-o-linear-gradient(270deg,#F07575,#BADA55);
+            background-image:linear-gradient(270deg,#F07575,#BADA55);
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <pre class="grad">
+          background-color: #F07575; /* fallback color if gradients are not supported */
+          background-image: -webkit-gradient(linear, left top, left bottom, from(hsl(0, 80%, 70%)), to(#BADA55));
+          background-image: -webkit-linear-gradient(top, hsl(0, 80%, 70%), #BADA55);
+          background-image:    -moz-linear-gradient(top, hsl(0, 80%, 70%), #BADA55);
+          background-image:     -ms-linear-gradient(top, hsl(0, 80%, 70%), #BADA55);
+          background-image:      -o-linear-gradient(top, hsl(0, 80%, 70%), #BADA55);
+          background-image:         linear-gradient(to bottom, hsl(0, 80%, 70%), #BADA55); /* current standard, but unimplemented and subject to change */
+    </pre>
+    <pre class="moz1">
+        background-color: #F07575;
+        background-image:-webkit-gradient(linear,100% 0%,0% 0%,from(#F07575),to(#BADA55));
+        background-image:-webkit-linear-gradient(left,#F07575,#BADA55);
+        background-image:-moz-linear-gradient(left,#F07575,#BADA55);
+        background-image:-ms-linear-gradient(left,#F07575,#BADA55);
+        background-image:-o-linear-gradient(left,#F07575,#BADA55);
+        background-image:linear-gradient(to right,#F07575,#BADA55);
+    </pre>
+    <pre class="moz2">
+        background-color: #F07575;
+        background-image:-webkit-gradient(linear,0% 0%,100% 0%,from(#F07575),to(#BADA55));
+        background-image:-webkit-linear-gradient(right,#F07575,#BADA55);
+        background-image:-moz-linear-gradient(right,#F07575,#BADA55);
+        background-image:-ms-linear-gradient(right,#F07575,#BADA55);
+        background-image:-o-linear-gradient(right,#F07575,#BADA55);
+        background-image:linear-gradient(to left,#F07575,#BADA55);
+    </pre>
+    <pre class="moz3">
+        background-color: #F07575;
+        background-image:-webkit-gradient(linear,0% 0%,0% 100%,from(#F07575),to(#BADA55));
+        background-image:-webkit-linear-gradient(top,#F07575,#BADA55);
+        background-image:-moz-linear-gradient(top,#F07575,#BADA55);
+        background-image:-ms-linear-gradient(top,#F07575,#BADA55);
+        background-image:-o-linear-gradient(top,#F07575,#BADA55);
+        background-image:linear-gradient(to bottom,#F07575,#BADA55);
+    </pre>
+    <pre class="moz4">
+        background-color: #F07575;
+        background-image:-webkit-gradient(linear,0% 100%,0% 0%,from(#F07575),to(#BADA55));
+        background-image:-webkit-linear-gradient(bottom,#F07575,#BADA55);
+        background-image:-moz-linear-gradient(bottom,#F07575,#BADA55);
+        background-image:-ms-linear-gradient(bottom,#F07575,#BADA55);
+        background-image:-o-linear-gradient(bottom,#F07575,#BADA55);
+        background-image:linear-gradient(to top,#F07575,#BADA55)
+    </pre>
+    <pre class="moz5">
+        background-color: #F07575;
+        background-image:-webkit-gradient(linear,90deg,from(#f07575),to(#bada55));
+        background-image:-webkit-linear-gradient(90deg,#f07575,#bada55);
+        background-image:-moz-linear-gradient(90deg,#f07575,#bada55);
+        background-image:-ms-linear-gradient(90deg,#f07575,#bada55);
+        background-image:-o-linear-gradient(90deg,#f07575,#bada55);
+        background-image:linear-gradient(90deg,#f07575,#bada55);
+    </pre>
+    <pre class="moz6">
+       background-color: #F07575;
+       background-image:-webkit-gradient(linear,270deg,from(#F07575),to(#BADA55));
+       background-image:-webkit-linear-gradient(270deg,#F07575,#BADA55);
+       background-image:-moz-linear-gradient(270deg,#F07575,#BADA55);
+       background-image:-ms-linear-gradient(270deg,#F07575,#BADA55);
+       background-image:-o-linear-gradient(270deg,#F07575,#BADA55);
+       background-image:linear-gradient(270deg,#F07575,#BADA55);
+    </pre>
+</div>
+</body>
+</html>

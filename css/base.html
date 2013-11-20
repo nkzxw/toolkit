@@ -1,0 +1,237 @@
+<!DOCTYPE HTML>
+<!--[if lt IE 7]><html class="no-js ie ie6 lte9 lte8 lte7"> <![endif]-->
+<!--[if IE 7]><html class="no-js ie ie7 lte9 lte8 lte7"> <![endif]-->
+<!--[if IE 8]><html class="no-js ie ie8 lte9 lte8"> <![endif]-->
+<!--[if IE 9]><html class="no-js ie ie9 lte9"> <![endif]-->
+<!--[if gt IE 9]><html class="no-js"><![endif]-->
+<!--[if !IE]><!--><html><!--<![endif]-->
+<head>
+    <meta charset="utf-8"/>
+   	<title></title>
+   	<meta name="description" content="SEO相关的页面介绍文字" />
+    <meta name="keywords" content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link type="image/x-icon" href="http://www.taobao.com/favicon.ico" rel="shortcut icon" />
+    <link rel="stylesheet" type="text/css" href="base.css" />
+    <style>
+    #wrapper{margin: 0 auto;width:1000px;}
+    .modular{padding:10px 0;background:#f7f7f7;border-bottom:1px dotted #ccc;}
+    .modular h3{margin:5px 0;color:green;font-weight:700}
+    .modular blockquote{margin:10px 0;padding:10px;background:#ddd;border:1px solid #aaa;}
+    .modular blockquote h5{font-weight:600;padding:5px 0;color:#222}
+    .modular blockquote p,.modular blockquote .demo{padding:8px 10px;background:#fff}
+    .modular blockquote .high{background:#333;color:#fff;font-size:15px;}
+    </style>
+</head>
+<body>
+<div id="wrapper">
+	<div class='modular'>
+		<h3>单选框复选框与文字对齐问题</h3>
+		<blockquote>
+			<h5>效果</h5>
+			<div class="demo">
+    	       <label><input type="radio" class="rc-align" />单选框</label>
+		       <label><input type="checkbox" class="rc-align" />复选框</label>
+	        </div>
+            <h5>html</h5>
+            <p class="high">在input上添加class="rc-align"</p>
+            <h5>css</h5>
+            <p class="high">.rc-align{ vertical-align:middle; margin-top:-2px; margin-bottom:1px; }</p>
+		</blockquote>
+	</div>
+	<div class='modular'>
+		<h3>关于文字内容溢出用点点点(...)省略号表示</h3>
+		<blockquote>
+			<h5>效果</h5>
+			<p class="js-textOf">关于文字内容溢出用点点点省略号表示关于文字内容溢出用点点点省略号表示关于文字内容溢出用点点点省略号表示关于文字内容溢出用点点点省略号表示关于文字内容溢出用点点点省略号表示关于文字内容溢出用点点点省略号表示关于文字内容溢出用点点点省略号表示</p>
+            <h5>html</h5>
+            <p class="high">在p,span,em,...元素上添加 ：class="js-textOf"</p>
+            <h5>jquery</h5>
+            <p class="high">
+                $(".js-textOf").each(function() {<br/>
+                    var maxwidth = 18;<br/>
+                    if ($(this).text().length > maxwidth) {<br/>
+                    $(this).text($(this).text().substring(0, maxwidth));<br/>
+                    $(this).html($(this).html() + '...');<br/>
+                    }<br/>
+                 });<br/>
+            </p>
+		</blockquote>
+	</div>
+	<div class='modular'>
+		<h3>人民币符号的现示问题</h3>
+        <p>
+    	 <del></del><span></span>
+	    </p>
+		<blockquote>
+			<h5>效果</h5>
+			<p><span class="money">¥225.00</span></p>
+            <h5>html</h5>
+            <p class="high">在元素span,em上添加class="money"</p>
+            <h5>CSS</h5>
+            <p class="high">.money{ font-family:Arial; font-weight:900; font-size:14px;color:#DC442F;}</p>
+		</blockquote>
+	</div>
+    <div class='modular'>
+		<h3>去除IE和Firefox中链接的虚线框</h3>
+		<blockquote>
+            <h5>效果</h5>
+            <div class="demo"><a href="#">我是没有虚线框的</a></div>
+            <h5>CSS</h5>
+            <p class="high">
+                a{outline:none;/*移除超链的虚线框  IE8,FF有用*/
+               hide-focus:expression(this.hideFocus=true); /*IE6、IE7*/}
+            </p>
+		</blockquote>
+	</div>
+    <div class='modular'>
+		<h3>button样式统一化</h3>
+		<blockquote>
+            <h5>效果</h5>
+            <div class="demo">
+              <p><a class="btn-icon green-btn" href=""><em>我是绿色按钮</em></a></p>
+              <p><a class="btn-icon gray-btn" href=""><em>我是灰色按钮</em></a></p>
+            </div>
+            <h5>html</h5>
+            <p class="high">
+                 #a class="btn-icon green-btn" href=""# #em#我是绿色按钮#/em# #/a#
+                 <br/><br/>
+                 #a class="btn-icon gray-btn" href=""# #em#我是绿色按钮#/em# #/a#
+            </p>
+            <h5>CSS</h5>
+               <p class="high">.btn-icon,.btn-icon em{background:transparent url("../images/sprite_btn.png") no-repeat left top}</p>
+               <p class="high">.btn-icon{display:inline-block;overflow:hidden;height:26px;line-height:26px;padding-left:10px;vertical-align:middle;outline:medium none;color:#fff;text-decoration:none}</p>
+               <p class="high">.btn-icon:hover{text-decoration:none;}</p>
+               <p class="high">.btn-icon em{display:inline-block;height:26px;padding:0 15px 0 5px;font-style:normal;cursor:pointer;overflow:hidden;}</p>
+               <p class="high">.btn-icon,.btn-icon em{height:27px;line-height:27px;}</p>
+               <br/>
+               <p class="high">.green-btn{background-position:0 0}</p>
+               <p class="high">.green-btn em{background-position:right -32px;}</p>
+               <p class="high">.green-btn:hover{background-position:0 -64px}</p>
+               <p class="high">.green-btn:hover em{background-position:right -96px;}</p>
+               <p class="high">.green-btn:active{background-position:0 -128px}</p>
+               <p class="high">.green-btn:active em{background-position:right -160px;}</p>
+               <br/>
+               <p class="high">.gray-btn{background-position:0 -192px}</p>
+               <p class="high">.gray-btn em{background-position:right -224px;}</p>
+               <p class="high">.gray-btn:hover{background-position:0 -256px}</p>
+               <p class="high">.gray-btn:hover em{background-position:right -288px;}</p>
+               <p class="high">.gray-btn:active{background-position:0 -320px}</p>
+               <p class="high">.gray-btn:active em{background-position:right -352px;}</p>
+		</blockquote>
+	</div>
+    <div class='modular'>
+    <h3>code,pre,var的用法</h3>
+    <blockquote>
+            <h5>效果</h5>
+            <div class="demo">CSS3实现圆角效果<code class="radius">border-radius:3px</code><br/><pre class="radius">border-radius:3px</pre><br/><var class="radius">border-radius:3px</var></div>
+            <h5>CSS</h5>
+            <p class="high">
+                code,pre,var{padding:2px;border:1px solid #eee;font:normal 93%/138% courier new,courier,monospace;background: #f8f8f8;}
+            </p>
+    </blockquote>
+  </div>
+    <div class='modular'>
+        <h3>box-shadow的兼容性写法</h3>
+        <blockquote>
+            <h5>效果</h5>
+            <div class="demo">
+              <div class="shadow" style="width:100px;height:100px;border: 1px solid red;background: #fff;">&nbsp;</div>
+            </div>
+            <h5>CSS</h5>
+            <p class="high">
+                .shadow {<br/>
+                  -webkit-box-shadow: 0 0 10px rgba(50, 50, 50, 0.8);<br/>
+                  -moz-box-shadow: 0 0 10px rgba(50, 50, 50, 0.8);<br/>
+                  box-shadow: 0 0 10px rgba(50, 50, 50, 0.5);<br/>
+                  filter:progid:DXImageTransform.Microsoft.glow(Strength=5, Color='gray');<br/>
+                  -ms-filter:"progid:DXImageTransform.Microsoft.glow(Strength=3, Color='gray')";<br/>
+                }
+            </p>
+        </blockquote>
+    </div>
+    <div class='modular'>
+        <h3>CSS3实现渐变的backgroun-image</h3>
+        <blockquote>
+            <h5>效果</h5>
+            <div class="demo">
+              <div class="gradient" style="width:100px;height:100px;">&nbsp;</div>
+            </div>
+            <h5>CSS</h5>
+            <p class="high">
+            .gradient {<br/>
+                background-image: -moz-linear-gradient(top, #641d1c, #f00);<br/>
+                background-image: -webkit-gradient(linear, left top, left bottom, from(#641d1c), to(#f00));<br/>
+                filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#ff641d1c,endColorstr=#ffff0000);<br/>
+                -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#ff641d1c,endColorstr=#ffff0000)";<br/>
+            }
+            </p>
+        </blockquote>
+    </div>
+    <div class='modular'>
+        <h3>CSS3实现半透明层</h3>
+        <blockquote>
+            <h5>效果</h5>
+            <div class="demo" style="background:green">
+              <div class="rgba" style="width:100px;height:100px;">&nbsp;</div>
+            </div>
+            <h5>CSS</h5>
+            <p class="high">
+            .rgba {<br/>
+                background-color: transparent;<br/>
+                background-color: rgba(200,200,200,0.5);<br/>
+                filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#7edddddd,endColorstr=#7edddddd);<br/>
+                -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#7edddddd,endColorstr=#7edddddd)";<br/>
+            }
+            </p>
+        </blockquote>
+    </div>
+    <div class='modular'>
+        <h3>CSS3实现图片旋转rotate</h3>
+        <blockquote>
+            <h5>效果</h5>
+            <div class="demo clearfix">
+                <!--<span class="arrow">&nbsp;</span>-->
+                <span class="arrow right">&nbsp;</span>
+                <span class="arrow top">&nbsp;</span>
+                <span class="arrow bottom">&nbsp;</span>
+                <span class="arrow left">&nbsp;</span>
+            </div>
+            <h5>CSS</h5>
+            <p class="high">
+            .arrow {background: url(images/arrow.png) no-repeat; display: block; float: left; width: 11px; height: 20px;}<br/>
+            .right{ /* this is the original image*/ }<br/>
+            .left {<br/>
+              -moz-transform: rotate(180deg);-webkit-transform: rotate(180deg); -o-transform: rotate(180deg);<br/>
+              filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);<br/>
+              -ms-filter:"progid:DXImageTransform.Microsoft.BasicImage(rotation=2)";}<br/>
+            .up {<br/>
+              -moz-transform: rotate(270deg);-webkit-transform: rotate(270deg); -o-transform: rotate(270deg);<br/>
+              filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);<br/>
+              -ms-filter:"progid:DXImageTransform.Microsoft.BasicImage(rotation=3)";}<br/>
+            .down {<br/>
+              -moz-transform: rotate(90deg);-webkit-transform: rotate(90deg); -o-transform: rotate(90deg);<br/>
+              filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);<br/>
+              -ms-filter:"progid:DXImageTransform.Microsoft.BasicImage(rotation=1)";<br/>
+            }
+            </p>
+        </blockquote>
+    </div>
+</div>
+<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script>
+$(function(){
+     //限制字符个数
+    $(".js-textOf").each(function() {
+        var maxwidth = 18;
+        if ($(this).text().length > maxwidth) {
+            $(this).text($(this).text().substring(0, maxwidth));
+            $(this).html($(this).html() + '...');
+        }
+    });
+})
+</script>
+</body>
+</html>

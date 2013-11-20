@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>()---ifan</title>
+<style>
+h1{padding:30px;background:#333;color:#fff;}
+</style>
+</head>
+<body>
+<div class="wrapper">
+   <h1 id="test">全部兼容的.innerText(),.prev(),.next(),.first(),...</h1>
+</div>
+<script>
+	function setOpacity(node, level){
+		node = typeof node == "string" ? document.getElementById(node) : node;
+		if (document.all){ 
+			 node.style.filter = 'alpha(opacity = ' + level + ')';
+		} else { 
+			 node.style.opacity = level / 100; 
+		}
+	}
+	var ele=document.getElementById('test');
+	setOpacity(ele,50);
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>事件的亲和力---ifan</title>
+<link rel="stylesheet" type="text/css" href="../css/i-base.css" />
+</head>
+<body>
+<div class="wrapper">
+	<h3 tabindex='1'>为元素绑定事件配对以增加网页的可访问性</h3>
+     <ul>
+     	<li tabindex='2'>Dogs</li>
+		<li tabindex='3'>Cats</li>
+		<li tabindex='4'>Mice</li>
+     </ul>
+</div>
+<script src="../js/i-base.js"></script>
+<script>
+	var all = tag('li');
+	for(var i=0; i<all.length; i++){
+		all[i].onmouseover = all[i].onfocus = function(){
+			this.style.backgroundColor='green';
+		}
+		all[i].onmouseout = all[i].onblur = function(){
+			this.style.backgroundColor='#fff';
+		}
+	}
+	
+</script>
+</body>
+</html>

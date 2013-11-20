@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <title></title>
+    <link rel="shortcut icon" href="" type="image/x-icon"/>
+    <link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+    <style type="text/css">
+        body { font-size:16px; line-height:1.5; color:#444; background-color:#f5f5f5; }
+        .wrapper { width:460px; margin:0 auto; overflow:hidden; }
+        h1 { margin-top:24px; font-weight:bold; font-size:24px; }
+        hgroup h1 { color:#222; font-size:28px; }
+        hgroup h2 { font-size:24px; color:#666; }
+
+        #main-nav-holder { height:30px; }
+        #main-nav ul { width:500px; height:30px; line-height:30px; margin-left:-20px; text-align:center; font-size:14px; color:#ddd; background-color:#333; }
+        #main-nav li { display:inline; padding:0 15px; border-left:1px solid #555; }
+        #main-nav li:first-child { border-left:0; }
+        .sticky #main-nav { position:fixed; top:0; left:0; width:100%; }
+        .sticky #main-nav ul { margin:0 auto; }
+
+        #container { margin-bottom:50px; }
+        .article { padding:16px 0; border-top:1px solid #ddd; }
+        p { margin:8px 0 24px 0; }
+        footer { padding-bottom:24px; }
+
+        .top { position:fixed; right:15px; bottom:15px; display:block; width:50px; height:25px; line-height:25px; padding-top:25px; text-align:center; font-size:14px; color:#888; background-color:#333; -webkit-border-radius:10px; -moz-border-radius:10px; border-radius:10px; }
+        .top:before { position:absolute; top:11px; left:14px; content:""; border-bottom:11px solid #888; border-left:11px solid transparent; border-right:11px solid transparent; }
+        .top:hover { color:#eee; }
+        .top:hover:before { border-bottom-color:#eee; }
+        .opacity .top { opacity:1; -webkit-transition:opacity 700ms linear; -moz-transition:opacity 700ms linear; transition:opacity 700ms linear; }
+        .opacity .top.hidden { opacity:0; }
+        .top.hidden { display:none; }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <hgroup>
+        <h1>Sticky Elements</h1>
+
+        <h2>An example of scroll context sticky nav and back to top links using <a href="">Waypoints</a></h2>
+    </hgroup>
+    <div id="main-nav-holder">
+        <nav id="main-nav">
+            <ul>
+                <li>Section 1</li>
+                <li>Section 2</li>
+                <li>Section 3</li>
+                <li>Section 4</li>
+                <li>Section 5</li>
+            </ul>
+        </nav>
+    </div>
+    <section id="container">
+        <div class="article">
+            <h1>Lorem Ipsum Dolor</h1>
+
+            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
+        </div>
+        <div class="article">
+            <h1>Sit Amet</h1>
+
+            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+        </div>
+        <div class="article">
+            <h1>Consectetuer Adipiscing Elit</h1>
+
+            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+        </div>
+        <div class="article">
+            <h1>Aenean</h1>
+
+            <p>Pellentesque fermentum dolor. Aliquam quam lectus, facilisis auctor, ultrices ut, elementum vulputate, nunc.</p>
+        </div>
+        <div class="article">
+            <h1>Vestibulum</h1>
+
+            <p>Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.</p>
+
+            <p>Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate sem tristique cursus. Nam nulla quam, gravida non, commodo a, sodales sit amet, nisi.</p>
+        </div>
+        <div class="article">
+            <h1>Lorem Ipsum Dolor</h1>
+
+            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
+        </div>
+        <div class="article">
+            <h1>Sit Amet</h1>
+
+            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+        </div>
+        <div class="article">
+            <h1>Consectetuer Adipiscing Elit</h1>
+
+            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+        </div>
+        <div class="article">
+            <h1>Aenean</h1>
+
+            <p>Pellentesque fermentum dolor. Aliquam quam lectus, facilisis auctor, ultrices ut, elementum vulputate, nunc.</p>
+        </div>
+        <div class="article">
+            <h1>Vestibulum</h1>
+
+            <p>Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.</p>
+
+            <p>Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate sem tristique cursus. Nam nulla quam, gravida non, commodo a, sodales sit amet, nisi.</p>
+        </div>
+    </section>
+    <footer>
+        <nav>
+            <ul>
+                <li><a class="top hidden" href="#" title="Back to top">Top</a></li>
+            </ul>
+        </nav>
+    </footer>
+</div>
+<script src="http://ajax.microsoft.com/ajax/jquery/jquery-1.4.4.min.js"></script>
+<script src="waypoints.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.top').addClass('hidden');
+        $.waypoints.settings.scrollThrottle = 30;
+        $('.wrapper').waypoint(
+                function(event, direction) {
+                    $('.top').toggleClass('hidden', direction === "up");
+                }, {        offset: '-100%'    }).find('#main-nav-holder').waypoint(function(event, direction) {
+                    $(this).parent().toggleClass('sticky', direction === "down");
+                    event.stopPropagation();
+                });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>()---ifan</title>
+<link rel="stylesheet" type="text/css" href="../css/i-base.css" />
+</head>
+<body>
+<div class="wrapper">
+
+</div>
+<script>
+	Function.prototype.method = function(name,func){
+		this.prototype[name] = func;
+		return this;
+	}
+	
+	Function.method('inherits',function(parent){
+		var depth = 0;
+		
+		var proto = this.prototype = new parent();
+		
+		this.method('uber',function uber(name){
+			var func, ret, v = parent.prototype;
+			if(depth){
+				for(var i = depth; i>0; i+=1){
+					v = v.constructor.prototype;
+				}
+			 func = v[name];	
+			}else{
+				func = proto[name];
+				if(func == this[name]){
+					func = v[name];
+				}
+			}
+			depth += 1;
+			ret = func.apply(this, Array.prototype.slice.apply(arguments, [1]));
+			depth -= 1;
+			return ret;
+		});
+		return this;
+	});
+	
+	Function.method('Swiss',function(parent){
+		for(var i=1; i<arguments.length; i+=1){
+			var name = arguments[i];
+			this.prototype[name] = parent.prototype[name];
+		}
+		return this;
+	})
+	
+	//To application.
+	
+	function Person(name){
+		this.name = name;
+	}
+	
+	Person.method('getName',function(){
+		return this.name;
+	});
+	
+	function User(name,password){
+		this.name = name;
+		this.password = password;
+	}
+	
+	User.inherits(Person);
+	
+	User.method('getPassword',function(){
+		return this.password;
+	});
+	
+	var user = new User('jeperc','80132010');
+	alert(user.getName()+' '+user.getPassword())
+</script>
+</body>
+</html>

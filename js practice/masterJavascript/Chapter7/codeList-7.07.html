@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>元素的可见性---ifan</title>
+<link rel="stylesheet" type="text/css" href="../css/i-base.css" />
+<style>
+	body{background:#333;}
+	h1,h2,h3{background:green;color:#fff;}
+	h2 b{visibility:hidden;}
+	h3 b{display:none;}
+</style>
+</head>
+<body>
+<div class="wrapper">
+    <h1>Hello John, how are you today?</h1>  
+	<h2>Hello <b>John</b>, how are you today?</h2>
+	<h3>Hello <b>John</b>, how are you today?</h3> 
+</div>
+<script src="../js/i-base.js"></script>
+<script>
+	//Use display to hide element function.
+	function hide(elem){
+		//Identify the elements of the display property's current value.
+		var curDisplay = getStyle(elem, 'display');
+		if(curDisplay != 'none'){
+			elem.$oldDisplay = curDisplay;
+		}
+		//hide element.
+		elem.style.display = 'none';
+	}
+	
+	//Use display to show element function.
+	function show(elem){
+		//Recovery element of the property "display" of the original value, 
+		//if not record the original value, use the "block" value.
+		elem.style.display = elem.$oldDisplay || 'block';
+	}
+	//Set the transparency of elements (level values ​​range from 0-100).
+	function setOpacity(node, level){
+		node = typeof node == "string" ? document.getElementById(node) : node;
+		if (document.all){ 
+			 node.style.filter = 'alpha(opacity=' + level + ')';
+		} else { 
+			 node.style.opacity = level / 100; 
+		}
+	}
+</script>
+<script>
+	var h1 = tag('h1')[0];
+	hide(h1);
+	show(h1);
+	var b = tag('b')[1];
+	show(b);
+	
+	setOpacity(h1,50);
+</script>
+</body>
+</html>

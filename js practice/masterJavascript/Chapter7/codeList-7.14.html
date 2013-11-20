@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>视口尺寸---ifan</title>
+<link rel="stylesheet" type="text/css" href="../css/i-base.css" />
+</head>
+<body>
+<div class="wrapper">
+
+</div>
+<script src="../js/i-base.js"></script>
+<script>
+	//Get the width of the viewport.
+	function windowWidth(){
+		//A shortcut, use the IE6 / 7 strict mode.
+		var de = document.documentElement;
+		return self.innerWidth || (de && de.clientWidth) || document.body.clientWidth;
+	}
+	
+	//Get the height of the viewport.
+	function windowHeight(){
+		//A shortcut, use the IE6 / 7 strict mode.
+		var de = document.documentElement;
+		return self.innerHeight || (de && de.clientHeight) || document.body.clientHeight;
+	}
+	
+</script>
+<script>
+	addEvent(window,'load',function(){
+		alert(windowHeight());
+		alert(windowWidth());
+	});
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>延时触发函数---ifan</title>
+<link rel="stylesheet" type="text/css" href="../css/i-base.css" />
+</head>
+<body>
+<div class="wrapper">
+
+</div>
+<script>
+	//Displays a warning message for the delay generic function
+	function delayedAlert(func,time){
+		//Initiates a callback package
+		setTimeout(function(){
+			//By his own peripheral function parameters passed msg
+			func();
+		},time)
+	}
+	
+	function popup(){
+		alert("This is a popupLayer!");
+	};
+	
+	//Function with two arguments delayedAlert
+	delayedAlert(popup,2000);
+</script>
+</body>
+</html>

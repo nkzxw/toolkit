@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Parameters</title>
+</head>
+<body>
+
+<!--Output Template-->
+<div id="result1"></div>
+<div id="result2"></div>
+<br/>
+<div id="result11"></div>
+<div id="result22"></div>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+<script type="text/javascript" src="jQuery.jTemplates.js"></script>
+<script>
+    $(function(){
+        //attach the template
+        $('#result1').setTemplate('{$P.param1}');
+        //set parameters
+        $('#result1').setParam('param1',888);
+        //process the template
+        $('#result1').processTemplate();
+
+        //attach the template
+        $('#result2').setTemplate('{$P.params[0] + $P.params[1] + $T}');
+        //set parameters
+        $('#result2').setParam('params',[3,4]);
+        //process the template
+        $('#result2').processTemplate(2);
+
+        // Set parameters 'name' to value 'value':
+        // {#param name=|NAME| value=|CODE|}
+        $('#result11').setTemplate('{#param name=x value="ddd"}{$P.x}').processTemplate();
+        $('#result22').setTemplate('{#param name=x value=$P.x+1}{$P.x}').setParam('x',666).processTemplate();
+
+    })
+</script>
+</body>
+</html>

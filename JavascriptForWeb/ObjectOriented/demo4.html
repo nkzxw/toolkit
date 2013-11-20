@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>原型模式</title>
+</head>
+<body>
+<script type="text/javascript">
+    function Person(){
+
+    }
+    Person.prototype.name = 'Ifany';
+    Person.prototype.age = 28;
+    Person.prototype.job = 'Software engineer';
+    Person.prototype.sayName = function(){
+        console.log(this.name);
+    }
+
+    var person1 = new Person();
+    person1.sayName();
+    var person2 = new Person();
+    person2.sayName();
+
+    person1.name = 'Jeperc';
+    console.log(person1.name);
+    console.log(person2.name);
+
+    //使用delete操作符则可以完全删除实例属性，从而让其重新访问原型中的属性：
+    delete person1.name;
+    console.log(person1.name);
+
+    //使用hasOwnProperty()方法检测一个属性是否存在于实例中：
+    console.log(person1.hasOwnProperty('name'));
+    person1.name = 'Jeperc';
+    console.log(person1.hasOwnProperty('name'));
+    delete person1.name;
+    console.log(person1.hasOwnProperty('name'));
+
+    //同时使用hasOwnProperty()与in操作符，就可确认该属性到底是存在于实例中还是原型对象中：
+    function hasPrototypeProperty(object,name){
+        return !object.hasOwnProperty(name) && name in object;
+    }
+    console.log(person1.name);
+    console.log(hasPrototypeProperty(person1,'name'));
+    person1.name = 'Jeperc';
+    console.log(hasPrototypeProperty(person1,'name'));
+
+    //更简单的原型语法：
+    function Person(){
+
+    }
+    Person.prototype = {
+        //constructor : Person,
+        name : 'Ifany',
+        age : 29,
+        job : 'Software engineer',
+        sayName : function(){
+            console.log(this.name);
+        }
+    }
+
+    //原型对象的问题：
+    function Person(){
+
+    }
+    Person.prototype = {
+        constructor : Person,
+        name : 'Ifany',
+        age : 28,
+        job : 'Software engineer',
+        friends : ['Jeperc','Emeily'],
+        sayFriends : function(){
+            console.log(this.friends);
+        }
+    }
+
+    var person1 = new Person();
+    var person2 = new Person();
+
+    person1.friends.push('Ada');
+
+    person1.sayFriends();
+    person2.sayFriends();
+</script>
+</body>
+</html>

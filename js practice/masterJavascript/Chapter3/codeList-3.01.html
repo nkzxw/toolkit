@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>原型式的继承---ifan</title>
+<link rel="stylesheet" type="text/css" href="../css/i-base.css" />
+</head>
+<body>
+<div class="wrapper">
+
+</div>
+<script>
+	function Person(name){
+		this.name = name;
+	}
+	Person.prototype.getName = function(){
+		return this.name;
+	}
+	function User(name,password){
+		this.name = name;
+		this.password = password;
+	}
+	User.prototype = new Person();
+	User.prototype.getPassword = function(){
+		return this.password;
+	}
+	
+	var user = new User('jeperc','80132010');
+	alert(user.getName()+' '+user.getPassword())
+</script>
+</body>
+</html>

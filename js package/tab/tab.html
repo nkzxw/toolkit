@@ -1,0 +1,116 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>setTab()---ifan</title>
+<link rel="stylesheet" type="text/css" href="../../css/base.css" />
+<style>
+/*setTab.css*/	
+.J_tab{margin:10px 0 0}
+.tab-menu li{list-style:none;float:left;text-align:center;border:1px solid #B6D2E9;border-bottom:none;border-radius:3px 3px 0 0;padding:5px 20px;margin-right:2px;cursor:pointer;background:#EEF6FB;}
+.tab-menu .cur{background:#fff;position:relative;z-index:1000;}
+.tab-content{border:1px solid #B6D2E9;padding:5px 10px;position:relative;top:-1px;z-index:998;}
+</style>
+</head>
+<body>
+<div class="wrapper">
+   <div class="J_tab">
+     <div class="tab-menu">
+     	<ul class='cf'>
+     		<li class="J_tab-menu cur">tabMenu-1</li>
+			<li class="J_tab-menu">tabMenu-2</li>
+			<li class="J_tab-menu">tabMenu-3</li>
+			<li class="J_tab-menu">tabMenu-4</li>
+			<li class="J_tab-menu">tabMenu-5</li>
+     	</ul>
+     </div>
+	 <div class="tab-content">
+     	<div class="J_tab-box">tabBox-1<div>tabBox</div></div>
+		<div class="J_tab-box" style="display:none;">tabBox-2<div>tabBox</div></div>
+		<div class="J_tab-box" style="display:none;">tabBox-3<div>tabBox</div></div>
+		<div class="J_tab-box" style="display:none;">tabBox-4<div>tabBox</div></div>
+		<div class="J_tab-box" style="display:none;">tabBox-5<div>tabBox</div></div>
+     </div>
+   </div> <!--J_tab end-->
+   <div class="J_tab">
+     <div class="tab-menu">
+     	<ul class='cf'>
+     		<li class="J_tab-menu">tabMenu-1</li>
+			<li class="J_tab-menu cur">tabMenu-2</li>
+			<li class="J_tab-menu">tabMenu-3</li>
+			<li class="J_tab-menu">tabMenu-4</li>
+     	</ul>
+     </div>
+	 <div class="tab-content">
+     	<div class="J_tab-box">tabBox-1<div>tabBox</div></div>
+		<div class="J_tab-box" style="display:none;">tabBox-2<div>tabBox</div></div>
+		<div class="J_tab-box" style="display:none;">tabBox-3<div>tabBox</div></div>
+		<div class="J_tab-box" style="display:none;">tabBox-4<div>tabBox</div></div>
+     </div>
+   </div> <!--J_tab end-->
+    <div class="J_tab">
+     <div class="tab-menu">
+     	<ul class='cf'>
+     		<li class="J_tab-menu">tabMenu-1</li>
+			<li class="J_tab-menu">tabMenu-2</li>
+			<li class="J_tab-menu cur">tabMenu-3</li>
+     	</ul>
+     </div>
+	 <div class="tab-content">
+     	<div class="J_tab-box">tabBox-1<div>tabBox</div></div>
+		<div class="J_tab-box" style="display:none;">tabBox-2<div>tabBox</div></div>
+		<div class="J_tab-box" style="display:none;">tabBox-3<div>tabBox</div></div>
+     </div>
+   </div> <!--J_tab end-->	 
+</div>
+<script src="../../js/i-base.js"></script>
+<script>
+domReady(function(){
+	//root为tab的根节点挂钩
+	//trigger为触发tab事件类型
+	//handler为tab事件触发后的回调函数
+   	function setTab(root,trigger,handler){
+		//获取tabMenus元素集合
+		var tabMenus = getByClass('J_tab-menu',root);
+		//获取tabContents元素集合
+		var tabContents = getByClass('J_tab-box',root);
+		//定义事件类型
+		trigger = trigger || 'click';
+		//遍历tabMenus元素集合
+		for (var i = 0; i < tabMenus.length; i++) {
+			tabMenus[i]._index = i;
+			addEvent(tabMenus[i], trigger, function(){
+				//遍历tabContents元素集合
+				for (var j = 0; j < tabContents.length; j++) {
+					//移除所有tabMenus元素的高亮class
+					removeClass(tabMenus[j], 'cur');
+					//隐藏所有tabContents元素
+					tabContents[j].style.display = 'none';					
+				}
+				//给当前的触发的tabMenus元素添加高亮class
+				addClass(tabMenus[this._index], 'cur');
+				//显示对应的tabContents元素
+				tabContents[this._index].style.display = 'block';
+				//判断是否存在回调函数handler
+				if(handler){
+					//执行回调函数
+					handler(this._index);
+				}
+			})
+		}
+	}
+	//tab的根节点集合
+	var tabs = getByClass('J_tab');
+	
+	//for(var i=0; i<tabs.length; i++){
+		//setTab(tabs[i],'mouseover');
+	//}
+	 
+	//调用setTab()函数
+	setTab(tabs[0],'mouseover'); 
+	setTab(tabs[1], '', function(){alert(123)});
+	setTab(tabs[2],'mouseover');
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>获取元素的真实·最终的CSS样式属性值的函数---ifan</title>
+<link rel="stylesheet" type="text/css" href="../css/i-base.css" />
+<style>p{height:100px;}</style>
+</head>
+<body>
+<div class="wrapper">
+   <p>I should be 100 pixels tall.</p>
+</div>
+<script src="../js/i-base.js"></script>
+<script>
+	//Gets the specified element (elem) style attributes (name).
+	function getStyle(elem, name){	
+		if(elem.style[name]){
+			//If the property exists in the style [], then return its value directly.
+			return elem.style[name];
+		}else if(elem.currentStyle){
+			//IE 
+			return elem.currentStyle[name];
+		}else if(document.defaultView && document.defaultView.getComputedStyle){
+			//W3C
+			//
+			name = name.replace(/([A-Z])/g,"-$1");
+			name = name.toLowerCase();
+			var s = document.defaultView.getComputedStyle(elem, '');
+			return s && s.getPropertyValue(name);
+		}else{
+			//Other browsers.
+			return null;
+		}
+	}
+</script>
+<script>
+	domReady(function(){
+		var p = tag('p')[0];
+		
+		//Use the traditional way to check.
+		alert(p.style.height+ " Should be null");
+		
+		//Check the value of the final height.
+		alert(getStyle(p, "height")+ " Should be 100px");
+	});
+</script>
+</body>
+</html>

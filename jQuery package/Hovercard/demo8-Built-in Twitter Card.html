@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Built-in Twitter Card</title>
+</head>
+<body>
+<label id="demo-twitter" data-hovercard="jeresig" >John Resig</label>
+<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.10.1.min.js"></script>
+<script src="jquery.hovercard.js"></script>
+<script>
+$(function(){
+    $('#demo-twitter').hovercard({
+        showTwitterCard: true,
+        width: 400
+    })
+})
+</script>
+</body>
+</html>

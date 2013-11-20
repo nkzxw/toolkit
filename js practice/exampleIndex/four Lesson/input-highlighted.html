@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <link rel="shortcut icon" href="" type="image/x-icon"/>
+    <title>当前输入框高亮显示</title>
+    <link rel="stylesheet" type="text/css" href="../styles/base.css"/>
+    <style>
+        .text,.high-text{width:203px;padding:5px;background:#fffdec;border:1px solid #ccc;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;}
+        .high-text{background:#ffe7fe;border-color:#ffe7fe}
+        .login{width:400px;margin:0 auto;padding-bottom:10px;border:2px solid #f60;background:#FEF4EB;}
+        .login h2{padding:10px;color:#FE791E;font-size:16px;border-bottom:1px solid #f60;}
+        .login p{padding:10px 0 0;}
+        .login p label{display:inline-block;width:100px;text-align:right;}
+        .login p button{cursor:pointer;width:104px;font-size:16px;color:#fff;background:#f60;border-color:#f60;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;}
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <div class="login">
+        <form action="">
+            <h2>用户登录</h2>
+            <p><label for="username">用户名：</label><input class="text" id="username" type="text" />
+            </p>
+            <p><label for="password">密码：</label><input class="text" id="password" type="text" />
+            </p>
+            <p><label></label>
+                <button>登录</button>
+            </p>
+        </form>
+    </div>
+</div>
+<script type="text/javascript">
+    window.onload = function(){
+        var txtInput = document.getElementsByTagName('input');
+        for(var i=0;i<txtInput.length;i++){
+            txtInput[i].onfocus = function(){
+
+                this.className = 'high-text';
+            };
+            txtInput[i].onblur = function(){
+                this.className = 'text';
+            }
+        }
+    }
+</script>
+</body>
+</html>

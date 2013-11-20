@@ -1,0 +1,230 @@
+规范目的：
+	为提高团队协作效率, 便于后台人员添加功能及前端后期优化维护。
+
+基本准则：
+	符合web标准, 语义化html, 结构表现行为分离, 兼容性优良. 页面性能方面, 尽可能的减小服务器负载, 保证最快的解析速度。
+
+通用约定：
+	1.统一采用utf-8编码。
+	2.文件名一律小写, 必须是英文单词或产品名称的拼音, 多个单词用连字符(-)连接。
+	3.文件出现版本号时,大小版本号用点号(.)隔开, 比如 jquery-1.8.3.js。
+	4.JS和CSS压缩文件,统一以-min结尾, 比如源码文件为kissy.js,压缩后为 kissy-min.js。
+	5.该通用约定适用于html,css,js,swf,xml,png,gif,jpg,ico等前端维护的所有文件类型和相关目录。
+
+........................................................................................................................
+HTML规范：
+
+1.文件名后缀应统一是html，而不使用htm 。
+
+2.使用html5的规范<!DOCTYPE html> 。
+
+3.务必在<html>中指明元素中内容的语言代码，如果是中文站，则使用<html lang="zh-CN">;如果是英文站，则使用<html lang="en"> 。
+  {lang,charset和font-family都会对默认字体产生影响，规律很复杂}
+
+4.采用utf-8编码，文档中加入<meta charset="utf-8" /> 。
+
+5.base可用场景：首页、频道等大部分链接都为新窗口打开的页面，如：<base target="_blank" /> 。
+
+书写：
+
+6.代码书写严格参照xhtml规范，标签必须全是小写，所有标签都要关闭,如:<br/>,<img src="" alt="" /> 。
+
+7.标签的命名，多个单词使用中划线分隔，因为中划线会将长ID拆分为独立的单词，而下划线则将长ID显示成一个单词，中划线利于搜索引擎搜索 。
+
+8.属性全都使用小写，所有属性需要有属性值，属性值必须使用".."括起，没有属性值的应该像这样写：disabled = “disabled” 。
+
+9.标签缩进统一为四个空格，使用Tab键需要设置软件的Tab键缩进4个空格，去除不必要的空格 。
+
+10.建议对超过10行的页面模块进行注释, 以降低开发人员的嵌套成本和后期的维护成本 。
+
+11.尽可能减少html标签的嵌套,提升DOM tree的渲染速度 。
+
+12.书写a,img等地址时,必须避免重定向并忽略（Omit）协议，如：href="http://www.jspython.com",应该书写为href="//www.jspython.com/" 。
+
+13.多媒体标签保持向后兼容,记得加上alt属性,如果没有的话也要写上空的alt="",如:<img src="" alt="图片" /> 。
+
+14.给重要的元素和截断的元素加上title。
+
+语义：
+
+15.语义化标签，尽量使用html含样式标签替代div,span等无意义的标签，使用h1-h6作页面的标题，使用ul，ol，dl作列表 。
+
+16.h1用于表示当前页面最重要的内容的标题，一个页面只能出现一个h1标签 。
+
+17.em表示句意强调,加与不加会引起语义变化,可用于表示不同的心情或语调 。
+
+18.strong表示重要性强调,可用于局部或全局,strong强调的是重要性,不会改变句意 。
+
+
+html实体：
+
+19.特殊符号尽可能使用html实体替代。如空格使用html实体&nbsp;表示。
+   <1>.HTML实体常用于生成那些键盘上没有的印刷字符，比如TM、†、©，等等。HTML实体以一个和号（&）开头，一个分号（;）结尾，二者之间是表示实体的字符串;
+   <2>.在HTML标记中，必须把所有和号（&）和小于号（<）都替换成相应的HTML实体，也就是&amp;和&lt;
+
+表单：
+
+20.推荐使用fieldset,legend组织表单 。
+
+21.表单元素的name不能设定为action,enctype,method,novalidate,target,submit，否则会导致表单提交混乱 。
+
+22.必须为含有描述性表单元素input,textarea添加label,如:<label for="userName">userName:</label><input type="text" id="userName" /> 。
+
+22.推荐使用 button 代替 input, 但必须声明 type 。
+
+其他:
+
+24.通过给元素设置自定义属性来存放与JavaScript交互的数据, 属性名格式为data-xx，如：data-lazyload-url="url" 。
+
+25.仅在JavaScript代码中当作hook{钩子}用的id或class,命名规则为J_UpperCamelCase，注意：如果在JavaScript和CSS中都需要用到,则不用遵守本约定 。
+
+26.在自动化测试脚本中当作hook{钩子}用的id或class,命名规则为T_UpperCamelCase,其中字母T代表test 。
+
+27.不要使用标签的type属性！因为HTML5中已经规定为默认，如<style>...</style>，<script>...</script>,... 。
+
+28.正常情况下，<link rel="stylesheet" href="url.css" />必须放在<head>...</head>最后；<script src="url.js"></script>必须放在<body>...</body>的最后 。
+
+29.引入JS库文件,文件名须包含库名称及版本号及是否为压缩版,比如jquery-1.8.1.min.js;引入插件文件,文件名格式为库名称+插件名称,比如jquery.cookie.js 。
+
+30.在用户代理不支持JavaScript的情况下使用<noscript>...</noscript>提供说明 。
+
+........................................................................................................................
+
+CSS最佳实践：
+
+1.命名：
+	1.1、采用通俗易懂的英文单词并按内容/功能命名;
+		 {常用命名英文：page、wrap、layout、header(head)、footer(foot、ft)、content(cont)、menu、nav、main、submain、sidebar(side)、logo、banner、	  	 	  title(tit)、popo(pop)、icon、note、btn、txt、iblock、window(win)、tips等}。
+	1.2、一律采用小写中划线方式命名，如：widget-title，widget-bd ;
+	1.3、除布局、唯一独立模块外建议少用id，必须保证id唯一性;
+	1.4、尽可能提高代码模块的复用{外观和感觉可以通用，而位置不可以}，给模块进行命名空间，如：.widget{...};.widget-title{...};.widget-bd{...};
+	1.5、为了保证性能，请避免元素选择器和类选择器以及id选择器混用;例如ul#nav{}；div.error{}；
+
+2.CSS书写：
+	2.1、顺序：
+	  <1>显示属性： display | position| z-index  | list-style|float | clear | overflow | zoom| cursor | ... ；
+	  <2>盒模型：margin | padding | width | height | border ；
+	  <3>文本属性:vertical-align | white-space | text-decoration | text-align | color | font | content | ... ;
+	  <4>背景：background ；
+
+	2.2、属性能缩写的尽量缩写，如margin、padding、font{font-style font-variant font-weight font-size/line-height font-family}、border{border-width 			 border-style border-color}、background(background-color background-image background-repeat background-attachment background-position)等。
+
+	2.3、a标签伪类书写要严格按照a:link，a:visited，a:hover，a:active的顺序,否则在某些浏览器中会失效。
+
+3.编码：
+	3.1、采用utf-8编码。在样式文件的第一行加入：@charset "utf-8";
+	3.2、为了防止文件合并及编码转换时造成问题，建议将样式中文字体名字改成对应的英文名字，如：黑体(SimHei) 宋体(SimSun) 微软雅黑(Microsoft Yahei，几个单词中间有空格组成的必须加引号)。
+
+4.重置：
+	4.1、重置标签的默认样式,获得跨浏览器一致的效果，如：body,h1-h6,p,ul,ol,li,dl,dt,dd,...{margin:0;padding:0}。
+	4.2、body元素一定要设置background-color,避免用户修改默认值后引起兼容性问题，如：background-color:"#ffffff"。
+	4.3、如果字体大小要使用em，可以设定body{font-size:62.5%}，这就等于把基准大小从16像素改为10像素（16×62.5%=10）,如：1em等于10像素，1.5em等于15像素；
+	4.3、推荐根据Eric Meyer's reset.css 或 YUI's reset.css进行扩展。
+
+5.布局：
+	5.1、减少使用影响性能的属性, 比如position:absolute || float ;
+	5.2、浮动非图片元素时，必须给它设定宽度，否则后果难以预料;图片无所谓，因为它本身有默认的宽度 ;
+	5.3、{overflow:hidden}的2个作用:<1>.防止包含元素被超大内容撑大;<2>.可靠地迫使父元素包含其浮动的子元素 ;
+	5.4、z-index必须清晰明确，页面弹窗为最顶层{取值范围900~999,如showWin、pop等};气泡为中间层级{取值范围100~899};普通区块为最底层{取值范围为1~99} ;
+	5.5、应该给所有栏的外包装元素应用word-wrap:break-word声明，以便所有栏及其内容继承这个设定,以解决潜在换行的问题 ;
+
+6.图片：
+	6.1、命名全部用小写英文字母、数字、_的组合，命名分头尾两部分,用下划线隔开,如:ad_banner.jpg, btn_submit.png ;
+	6.2、图片格式仅限于 gif || png || jpg ;
+	6.3、在保证视觉效果的情况下选择最小的图片格式与图片质量, 以减少加载时间{PS中保存图片一定要使用"文件--存储为Web所有格式..."或者快捷键Alt+Shift+Ctrl+S} ;
+	6.4、用png格式的图片时,要求图片格式为png-8格式,若png-8实在影响图片质量或其中有半透明效果, 请为ie6单独定义背景图片 ;
+	6.5、背景图片请尽可能使用sprite技术{按模块制作},减小http请求，{注意,请务必备份你的sprite psd源文件} ;
+	6.6、所有页面元素类图片均放入img文件夹,测试用图片放于img/demo/文件夹中 ;
+
+
+7.0后面不要加上单位;小数前不要加上0 。
+
+8.字体粗细采用具体数值,粗体bold写为700,正常normal写为400 。
+
+9.设置颜色时统一使用十六进制的颜色单位,使用color:#ff0000替代color:red 。
+
+10.能不用时尽量不用CSS Hack,出现兼容性问题时，首先检查自己的代码是符合标准 。
+
+11.除了CSS Hack和浏览器私有属性,推荐使用w3c css validator 或 csslint 校验代码 。
+
+
+Javascript规范：
+
+	1.文件命名统一使用小写字母"abc.js"，多个单词用连字符(-)连接,使用<script src=“abc.js”></script>引入，避免在html文件中直接写js代码 。
+
+	3.每行语句结束时必须使用分号";"结束，这样能提高解析的速度,同时能避免代码压缩时出错 。
+
+	4.一行语句的字符数不能太长，一般不超过80个字符，多出的应该换行显示 。
+
+	5.代码统一缩进四个空格，不要使用软件自带的Tab键，因为每个软件的Tab键的缩进可能会不一致，如果需要使用，应将软件的Tab键设置为四个空格 。
+
+	5.注释，分为行注释和块注释，根据需要选择。代码中应该合理使用注释，一般较复杂的功能性函数都需要注释说明作用及用途，以便阅读和维护。
+
+	2.永远要为项目添加一个命名空间,不要为外部引入的代码再引入自定义的成员,如果必要则应该使用外部代码暴露的api。
+
+	6.变量声明:
+	  <1>.所有变量使用前必须使用var关键字声明，否则默认声明的为全局变量;尽量集中声明多个变量，如：var a,b,c,...; 。
+	  <2>.变量名统一使用小写字母{英文字母,数字,下划线"_",美元符号"$"组成,首字母不能是数字},多个单词时使用驼峰式命名,即后面的单词首字母大写,如: var userName = "xxx";。
+
+	7.常量名应全为大写，单词与单词之间使用下划线“_”连接，如：PAGE_SIZE=“20”;。
+
+	8.代码中不要直接使用数字，而是事先将数字保存至一个变量或常量中，这样更便于理解及维护，如：var RELOAD_DELAY="3000"。
+
+	9.不要使用with。
+
+    11.不要在如delete，typeof，void或是return，throw后面添加使用括号 。
+
+	15.尽量不要使用eval()函数，因为eval()涉及安全问题，如代码注入 。
+
+    9.不要改变内置对象的prototype。
+
+	10.for in不要用在遍历数组Array上，只能用在对象Object上。
+
+	11.关联数组{如hash，map}应该使用对象Object实现而不是数组Array。
+
+	13.Array与Object创建使用字面量而不是包装构造函数。
+	  <1>.声明数组Array直接使用var newArray = [];替代var newArray=new Array();
+	  <2>.声明对象Object直接使用var obj = {};替代var obj=new Object();
+
+	16.所有对象的最后一项不要加逗号",",避免IE6中不识别出错。
+
+	12.多行的字符串字面量，应该使用"+"进行字符串拼接，而不是进行换行（不符合标准）。
+
+	12.字符串相对于双引号，推荐使用单引号。
+
+	10.函数命名一般以模块名如："news_"加上功能描述，如：news_showDetail();
+
+	13.自定义类首字母大写，与javascript内置对象保持一致。
+
+	14.不要使用document.all来判断IE浏览器，应使用其它替代，如：window.attachEvent 。
+
+	17.编码完后可以使用检查工具检查代码：JSLint (http://www.jslint.com/)
+
+	关于boolean，{ null, undefined, 空字符串'', 数字0,}这些为false;{ [], {}, 字符'0'}这些为true。
+
+	使用三目运算符(?:)取代if判断语句，充分利用&&与||运算符来缩短代码。
+
+	使用join()来连接字符串，即通过数组的join方法来连接字符串（主要是因为IE中字符串的+=操作过慢），
+	数组赋值比push方法更快
+
+    注意访问node list的length属性本身就是O(n)，即如果遍历使用length属性来进行判断会变为O(n^2)
+	var paragraphs = document.getElementsByTagName('p');
+	for (var i = 0; i < paragraphs.length; i++) {
+	  doSomething(paragraphs[i]);
+	}
+	应该写为
+	var paragraphs = document.getElementsByTagName('p');
+	for (var i = 0, paragraph; paragraph = paragraphs[i]; i++) {
+	  doSomething(paragraph);
+	}
+	这同样适用于数组的遍历（只要数组元素不会为false），对于子节点的遍历可以写作
+	var parentNode = document.getElementById('foo');
+	for (var child = parentNode.firstChild; child; child = child.nextSibling) {
+	  doSomething(child);
+	}
+
+........................................................................................................................
+
+兼容性测试：
+
+	前期开发仅测试chrome & IE6 & IE7 & IE8 , 后期优化时加入IE9, IE10, FireFox, Safari, Opera;

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>构造函数模式</title>
+</head>
+<body>
+<script type="text/javascript">
+    function Person(name,age,job){
+        this.name = name;
+        this.age = age;
+        this.job = job;
+
+        this.sayName = function(){
+            console.log(this.name);
+        }
+    }
+    var person1 = new Person('ifany',28,'Software Engineer');
+    var person2 = new Person('jeperc',26,'Doctor');
+
+    //person1,person2这两个对象都有一个contructor(构造函数)属性，指向Person
+    console.log(person1.constructor == Person);
+    console.log(person2.constructor == Person);
+
+    //person1,person2既是Object的实例，又是Person的实例
+    console.log(person1 instanceof Object);
+    console.log(person1 instanceof Person);
+    console.log(person2 instanceof Object);
+    console.log(person2 instanceof Person);
+
+    //1.当成构造函数使用
+    var person = new Person('Erich',24,'Student');
+    person.sayName();
+
+    //2.作为普通函数使用
+    Person('Emeily',25,'Beautful Girl');
+    window.sayName();
+
+    //在另一个对象的作用域中使用
+    var o = {};
+    Person.call(o,'aDa',20,'Student');
+    o.sayName();
+
+    //不同实例上的同名函数是不相等的
+    console.log(person1.sayName == person2.sayName);
+
+    function Person(name,age,job){
+        this.name = name;
+        this.age = age;
+        this.job = job;
+        this.sayName = sayName;
+    }
+
+    function sayName(){
+        console.log(this.name);
+    }
+    var person1 = new Person('Nicholas',29,'Software engineer');
+    var person2 = new Person('Greg',27,'Doctor');
+</script>
+</body>
+</html>

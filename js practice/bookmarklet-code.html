@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="../css/reset.css" />
+    <style>
+        a {
+            color: #1982d1;
+            text-decoration: none;
+        }
+        a:visited{ 
+            color: #11598F;
+        }
+        a:focus,
+        a:active,
+        a:hover {
+            text-decoration: underline;
+        }
+        .btn {
+            -moz-box-shadow:inset 0px 1px 0px 0px #fce2c1;
+            -webkit-box-shadow:inset 0px 1px 0px 0px #fce2c1;
+            box-shadow:inset 0px 1px 0px 0px #fce2c1;
+            background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ffc477), color-stop(1, #fb9e25) );
+            background:-moz-linear-gradient( center top, #ffc477 5%, #fb9e25 100% );
+            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffc477', endColorstr='#fb9e25');
+            background-color:#ffc477;
+            -moz-border-radius:6px;
+            -webkit-border-radius:6px;
+            border-radius:6px;
+            border:1px solid #eeb44f;
+            display:inline-block;
+            color:#ffffff;
+            font-family:arial;
+            font-size:15px;
+            font-weight:bold;
+            padding:6px 24px;
+            text-decoration:none;
+            text-shadow:1px 1px 0px #cc9f52;
+        }.btn:hover,.btn:focus  {
+            background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #fb9e25), color-stop(1, #ffc477) );
+            background:-moz-linear-gradient( center top, #fb9e25 5%, #ffc477 100% );
+            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fb9e25', endColorstr='#ffc477');
+            background-color:#fb9e25;
+        }.btn:active {
+            position:relative;
+            top:1px;
+        }
+    </style>
+</head>
+<body>
+    <div class="layout-inner">
+    <a href='javascript:(function(e){var d="a:not([href]) {border:3px solid red; padding:2px; }  ",f=e.getElementById("a11y-css-highlight");if(f){f.disabled=!f.disabled}else{f=e.createElement("style");f.id="a11y-css-highlight";f.type="text/css";if(f.styleSheet){f.styleSheet.cssText=d}else{f.appendChild(e.createTextNode(d))}e.getElementsByTagName("head")[0].appendChild(f)}})(document);'>检查a标签的空href</a>
+    <ul>
+        <li><a class="btn">无href的a</a></li>
+        <li><a class="btn" tabindex="0">空href但是又tabindex</a></li>
+        <li><button class="btn">button</button></li>
+        <li><a class="btn" href="#" role="button">带role=”button”的a</a></li>
+    </ul>
+    </div>
+</body>
+</html>

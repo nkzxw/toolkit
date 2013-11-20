@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>创建新DOM元素的通用函数---ifan</title>
+<link rel="stylesheet" type="text/css" href="../css/i-base.css" />
+</head>
+<body>
+<div class="wrapper">
+
+</div>
+<script>
+	//Create a new DOM elements common function.
+	function create(elem){
+		var newElem = document.createElementNS ? document.createElementNS('http://www.w3.org/1999/xhtml', elem)
+		:document.createElement(elem);
+		return newElem;
+	}
+</script>
+<script>
+window.onload = function(){
+	var header1 = create("h1");
+	document.body.appendChild(header1);
+	
+}	
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>this关键字---ifan</title>
+<link rel="stylesheet" type="text/css" href="../css/i-base.css" />
+</head>
+<body>
+<div class="wrapper">
+     <ul>
+     	<li>Dog</li>
+		<li>Cats</li>
+		<li>Mice</li>
+     </ul>
+</div>
+<script src="../js/i-base.js"></script>
+<script>
+	var li = tag('li');
+	for(var i=0; i<li.length; i++){
+		li[i].onclick = handleClick;
+	}
+	function handleClick(){
+		this.style.backgroundColor = 'green';
+		this.style.color = 'white';
+	}
+</script>
+</body>
+</html>

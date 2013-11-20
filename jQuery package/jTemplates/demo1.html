@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>jTemplate的第一个例子</title>
+</head>
+<body>
+<div id="result"></div>
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+<script type="text/javascript" src="jQuery.jTemplates.js"></script>
+<script>
+    $(function(){
+        $('#result').setTemplate('Template by {$T.bold()} version<em>{Template.version}</em>');
+        $('#result').processTemplate('jQuery.jTemplate');
+    })
+</script>
+</body>
+</html>

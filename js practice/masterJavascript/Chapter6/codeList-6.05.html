@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>监听javascript何时禁用---ifan</title>
+<link rel="stylesheet" type="text/css" href="../css/i-base.css" />
+</head>
+<body>
+	<!--如果javascript启动，先隐藏文本块，它随后会淡入。-->
+	<style>.js #fadein{display:none;}</style>
+<div class="wrapper">
+      <div id="fadein">Block of stuff to fade in...</div>
+</div>
+<script src="../js/i-base.js"></script>
+<script>
+	//一旦javascript运行，为<html>元素增加一个新的class,以此来判断javascript启用与否。
+	document.documentElement.className = 'js';
+</script>
+</body>
+</html>

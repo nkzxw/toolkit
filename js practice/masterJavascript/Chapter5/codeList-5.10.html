@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>动态切换的自定义列表---ifan</title>
+<link rel="stylesheet" type="text/css" href="../css/i-base.css" />
+<style>dd{display:none;}</style>
+</head>
+<body>
+<div class="wrapper">
+    <h1>Expandable Definition List</h1>
+	<dl>
+		<dt>Cats</dt>
+		<dd>A furry, friendly, creature.</dd>
+		<dt>Dog</dt>
+		<dd>Like to play and run around.</dd>
+		<dt>Mice</dt>
+		<dd>Cats like to eat them.</dd>
+	</dl>
+</div>
+<script src="../js/i-base.js"></script>
+<script>
+	domReady(function(){
+		var dt =tag('dt');
+		for(var i=0; i<dt.length; i++){
+			dt[i].onclick=function(){
+				var open =attr(this,'open');
+				
+				this.next().style.display = open ? 'none' : 'block';
+				
+				attr(this, 'open', open ? '' : 'yes');
+			}
+		}
+	})
+	
+</script>
+</body>
+</html>

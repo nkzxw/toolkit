@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>DOM-Drag</title>
+<link rel="stylesheet" type="text/css" href="../css/i-base.css" />
+<script src="../js/dom-drag.js"></script>
+	<script type="text/javascript">
+        var div_z_index=1;
+        function zIndexAdd(divId)
+        {
+            var divObject=document.getElementById(divId);   
+               
+            div_z_index++;
+            
+            divObject.style.zIndex=div_z_index;
+            
+            //请注意：这里是 zIndex 千万不要写成 z-index 否则会出错的
+        }
+    </script>
+
+<style>
+	#window{width:250px;height:250px;border:1px solid #DDD;border-top:15px solid #DDD;}
+</style>
+</head>
+<body>
+<div class="wrapper">
+      <div id="mydiv1" onclick="zIndexAdd('mydiv1')" style="border: #000000 1px solid;width: 168px;height: 112px; background-color: #99ccff; position: absolute;">
+    <div id="div11" style="background-color: #3366ff;cursor:move; width:100%;">点我移动图层</div>
+    <div id="div12"><br/>我是内容,点我移不动</div>
+    </div>
+   
+
+    <div id="mydiv2" onclick="zIndexAdd('mydiv2')" style="border: #000000 1px solid;width: 168px;height: 112px; background-color: #ffcc33; position: absolute;">
+    <div id="div21" style="background-color: #ff6600;cursor:move; width:100%;">标题</div>
+    <div id="div22"><br/>我是内容,点那都可以移动</div>
+    </div>
+<script type="text/javascript">
+
+    var div_root=document.getElementById("mydiv1");
+    var div_handle=document.getElementById("div11"); 
+    Drag.init(div_handle,div_root); //可是是二个参数
+    
+    
+    var div_root2=document.getElementById("mydiv2");
+    Drag.init(div_root2); //也可以是一个参数
+    
+</script>
+</body>
+</html>

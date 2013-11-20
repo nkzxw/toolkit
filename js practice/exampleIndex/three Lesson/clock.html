@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <link rel="shortcut icon" href="" type="image/x-icon"/>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="../styles/base.css"/>
+    <style>
+        .wrapper {}
+        #clock{padding:10px 30px;background-color:#333;color:#fff;font-size:14px;line-height:1.5;}
+        #clock span{padding:0 10px;}
+        #clock strong{background-color:#fff;border:1px solid #ccc;padding:3px;color:green;margin:0 3px;}
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <div id="clock">
+        
+    </div>
+</div>
+<script>
+    var getTimes = function(){
+        var Y,M,D,d,H,F,S,nummber,date = new Date();
+        Y = date.getFullYear();
+        M = date.getMonth() + 1;
+        D = date.getDate();
+        d = date.getDay();
+        H = date.getHours();
+        F = date.getMinutes();
+        S = date.getSeconds();
+
+        var dayArr = ['星期日','星期一','星期二','星期三','星期四','星期五','星期六'];
+        var checkT = function(n){
+            //nummber = n<10 ? (n = '0'+n) : n;
+            //return nummber;
+            n.toString().replace(/^(\d)$/,'0$1');
+            return n;
+        };
+
+        var clock = document.getElementById('clock');
+        clock.innerHTML = '<strong>' + Y + '</strong>年<strong>' + checkT(M) + "</strong>月<strong>" + checkT(D) + '</strong>日<span>'
+                        + dayArr[d] + '</span> ' + checkT(H) + ':' + checkT(F) + ':' + checkT(S);
+        setTimeout(getTimes,1000);
+    };
+    window.onload = function(){
+        getTimes();
+    }
+</script>
+</body>
+</html>

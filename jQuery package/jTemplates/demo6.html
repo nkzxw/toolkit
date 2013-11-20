@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Multitemplate--Valid XHTML 1.1</title>
+    <style>
+        table{margin-bottom:30px;border-collapse:collapse; border-spacing:0}
+        thead{font-weight: bold; }
+        td{padding:5px 10px;border: 1px solid #ccc;}
+        .bcEEC {background: #EEC;}
+        .bcCEE {background: #CEE;}
+    </style>
+</head>
+<body>
+<!--Template content (Valid XHTML 1.1)-->
+<p style="display: none">
+    <textarea id="template" rows="0" cols="0">
+        <!--
+        {#template MAIN}
+            {$T}
+            <table>
+                {#foreach $T.table as record}
+                    {#include ROW root=$T.record}
+                {#/for}
+            </table>
+        {#/template MAIN}
+        {#template ROW}
+            <tr class='{#cycle values=["bcEEC","bcCEE"]}'>
+                <td>{$T.id}</td>
+                <td>{$T.name}</td>
+                <td>{$T.age}</td>
+                <td>{$T.mail}</td>
+            </tr>
+        {#/template ROW}
+        -->
+    </textarea>
+</p>
+
+<!--Output Template-->
+<div id="result"></div>
+<p>
+    <a href="http://validator.w3.org/check?uri=referer">
+        <img src="http://www.w3.org/Icons/valid-xhtml11" alt="Valid XHTML 1.1" height="31" width="88" />
+    </a>
+</p>
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+<script type="text/javascript" src="jQuery.jTemplates.js"></script>
+<script>
+    $(function(){
+        //data for testing
+        var data = ({
+            name : 'User list',
+            list_id : 4,
+            table : [
+                {id: 1, name: 'Anne', age: 22, mail: 'anne@domain.com'},
+                {id: 2, name: 'Amelie', age: 24, mail: 'amelie@domain.com'},
+                {id: 3, name: 'Polly', age: 18, mail: 'polly@domain.com'},
+                {id: 4, name: 'Alice', age: 26, mail: 'alice@domain.com'},
+                {id: 5, name: 'Martha', age: 25, mail: 'martha@domain.com'}
+            ],
+            toString : function(){
+                return this.name.bold() + '(count:' + this.table.length + ')';
+            }
+        });
+
+        //attach the template
+        $('#result').setTemplateElement('template');
+
+        //process the template
+        $('#result').processTemplate(data);
+
+    })
+</script>
+</body>
+</html>

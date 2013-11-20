@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>获取元素的真实的完整的高度和宽度。---ifan</title>
+<link rel="stylesheet" type="text/css" href="../css/i-base.css" />
+<style>
+	h1{padding:30px;}
+</style>
+</head>
+<body>
+<div class="wrapper">
+     <h1>Header1</h1>
+</div>
+<script src="../js/i-base.js"></script>
+<script>
+	//get the element's complete or may height. 
+	function fullHeight(elem){
+		if(getStyle(elem, 'display') != 'none'){
+			//If the element pattern is: display: block;
+			return elem.offsetHeight || getHeight(elem);
+		}else{
+			//If the element pattern is: display: none;
+			var old =resetCSS(elem,{
+				display: '',
+				visibility: 'hidden',
+				position: 'absolute'
+			});
+			//Use 'clientHeight' to find out the full height of the element, if you do not take effect, use the 'getHeight' function.
+			var h = elem.clientHeight || getHeight(elem);
+			//Do not forget to restore the original properties of CSS.
+			resetCSS(elem, old);
+			//Back to the full height of the elements.
+			return h;
+		}
+	}
+	
+	////get the element's complete or may width.
+	function fullWidth(elem){
+		if(getStyle(elem, 'display') != 'none'){
+			//If the element pattern is: display: block;
+			return elem.offsetWidth || getWidth(elem);
+		}else{
+			//If the element pattern is: display: none;
+			var old = resetCSS(elem,{
+				display: '',
+				visibility: 'hidden',
+				position: 'absolute'
+			});
+			//Use 'clientWidth' to find out the full height of the element, if you do not take effect, use the 'getWidth' function
+			var w = elem.clientWidth || getWidth(elem);
+			//Do not forget to restore the original properties of CSS.
+			resetCSS(elem, old);
+			//Back to the full width of the elements.
+			return w;
+		}
+	}
+	
+	//Set of CSS properties of a function, it can be restored to their original settings.
+	function resetCSS(elem, prop){
+		var old = {};
+		//Through each attribute.
+		for(var i in prop){
+			//Record the old property value.
+			old[i] = elem.style[i];
+			//Set new property value.
+			elem.style[i] = prop[i];
+		}
+		//Return to the changed set of values​​, a function reserved for use restoreCSS.
+		return old;
+	}
+	
+	//Restore the original CSS property value, a function of side-effects house resetCSS function.
+	function restoreCSS(elem, prop){
+		//Reset all properties to restore their original values.
+		for(var i in prop){
+			elem.style[i] = prop[i];
+		}
+	}
+</script>
+<script>
+	alert('h1的height是:'+getHeight(tag('h1')[0])+'; width的：'+getWidth(tag('h1')[0]));
+	alert('h1的height是:'+fullHeight(tag('h1')[0])+'; width的：'+fullWidth(tag('h1')[0]));
+</script>
+</body>
+</html>

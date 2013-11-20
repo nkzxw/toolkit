@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>数组的栈方法LIFO(Last-In-First-Out)</title>
+</head>
+<body>
+<script type="text/javascript">
+    var colors = new Array();
+    var count = colors.push("red","green");
+    console.log(count);
+
+    count = colors.push("black");
+    console.log(count);
+
+    var item = colors.pop();
+    console.log(item);
+    console.log(colors.length);
+
+    var persons = ["ifany","jeperc"];
+    persons.push("emeily");
+    colors[3] = "tom";
+    colors[colors.length] = "jack";
+    console.log(colors.length);
+
+    var personItem = colors.pop();
+    console.log(personItem);
+</script>
+</body>
+</html>

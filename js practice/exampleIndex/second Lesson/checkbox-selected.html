@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <link rel="shortcut icon" href="" type="image/x-icon"/>
+    <title>复选框(checkbox)全选/全不选/反选</title>
+    <link rel="stylesheet" type="text/css" href="../styles/base.css"/>
+    <style>
+        .wrapper { }
+        input[type='checkbox']{vertical-align:middle; margin-top:-2px; margin-bottom:1px;}
+        dl{width:200px;margin:10px auto;padding:0 10px;border:1px solid #555;border-radius:5px;overflow:hidden;}
+        dl dt{padding:10px 0;border-bottom:1px solid #555;}
+        dl dd{padding:6px 0;}
+        dl dt strong{display:inline-block;width:60px;}
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <dl>
+        <dt>
+            <label><input type="checkbox"><strong>全选</strong></label>
+            <a href="javascript:;">反选</a>
+        </dt>
+        <dd>
+            <p><label><input type="checkbox">选项一</label></p>
+        </dd>
+        <dd>
+            <p><label><input type="checkbox">选项二</label></p>
+        </dd>
+        <dd>
+            <p><label><input type="checkbox">选项三</label></p>
+        </dd>
+        <dd>
+            <p><label><input type="checkbox">选项四</label></p>
+        </dd>
+        <dd>
+            <p><label><input type="checkbox">选项五</label></p>
+        </dd>
+        <dd>
+            <p><label><input type="checkbox">选项六</label></p>
+        </dd>
+        <dd>
+            <p><label><input type="checkbox">选项七</label></p>
+        </dd>
+        <dd>
+            <p><label><input type="checkbox">选项八</label></p>
+        </dd>
+        <dd>
+            <p><label><input type="checkbox">选项九</label></p>
+        </dd>
+        <dd>
+            <p><label><input type="checkbox">选项十</label></p>
+        </dd>
+    </dl>
+</div>
+<script>
+    window.onload = function(){
+        var checkBox = document.getElementsByTagName('input');
+        var AllBoxText = document.getElementsByTagName('strong')[0];
+        var cReverseBox = document.getElementsByTagName('a')[0];
+
+        var isCheckAll = function(){
+            for(var i=1,n=0;i<checkBox.length;i++){
+                checkBox[i].checked && n++;
+            }
+            checkBox[0].checked = n == checkBox.length-1;
+            AllBoxText.innerHTML = checkBox[0].checked ? '取消全选' : '全选';
+        };
+
+        //全选、取消全选
+        checkBox[0].onclick = function(){
+            for(var j = 1;j<checkBox.length;j++){
+                checkBox[j].checked = this.checked;
+            }
+            isCheckAll();
+        };
+
+        //反选
+        cReverseBox.onclick = function(){
+            for(var i=1;i<checkBox.length;i++){
+                checkBox[i].checked = !checkBox[i].checked;
+            }
+            isCheckAll();
+        };
+
+        //根据'选中复选框的个数',更新'全选框'的状态
+        for(var i=1;i<checkBox.length;i++){
+            checkBox[i].onclick = function(){
+                isCheckAll();
+            }
+        }
+    }
+</script>
+</body>
+</html>

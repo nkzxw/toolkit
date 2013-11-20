@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Basic hovercard</title>
+</head>
+<body>
+<label id="demo-basic">John Resig</label>
+<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.10.1.min.js"></script>
+<script src="jquery.hovercard.js"></script>
+<script>
+$(function(){
+    var hoverHTMLDemoBasic = '<p>' +
+                        'John Resig is an application developer at Khan Academy.He was a ' +
+                        'JavaScript tool developer for the Mozilla Corporation.He is also the' +
+                        'creator and lead developer of the jQuery JavaScript library.<p>';
+    $('#demo-basic').hovercard({
+        detailsHTML: hoverHTMLDemoBasic,
+        width: 400,
+        cardImgSrc: 'JohnResig.jpg',
+        onHoverIn: function () {
+            console.log('hoverIn')
+            //Place your callback code here. This example uses notification plugin to demonstrate
+//            $.notify('We see you just hovered over the label! <br/>Callback function <strong>"onHoverIn"</strong>. ', {
+//                background: '#ffffbb',
+//                autoHide: true,
+//                autoHideDelay: 1000,
+//                clickAnywhereToClose: true,
+//                position: "bottom-right",
+//                width: 100
+//            });
+
+        },
+        onHoverOut: function () {
+        console.log('hoverOUt')
+//            //Place your callback code here. This example uses notification plugin to demonstrate
+//            $.notify('You hovered out from the hovercard and it should have probably disappeared, right!<br/>Callback function <strong>"onHoverOut"</strong>.', {
+//                background: '#ffffbb',
+//                autoHide: true,
+//                autoHideDelay: 1000,
+//                clickAnywhereToClose: true,
+//                position: "bottom-right",
+//                width: 600
+//            });
+        }
+    })
+})
+</script>
+</body>
+</html>

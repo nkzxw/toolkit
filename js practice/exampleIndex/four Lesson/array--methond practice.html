@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <link rel="shortcut icon" href="" type="image/x-icon"/>
+    <title>数组练习：各种数组方法的使用</title>
+    <link rel="stylesheet" type="text/css" href="../styles/base.css"/>
+    <style>
+        p{padding:10px 15px;margin:12px 0;font:12px/1.5 Courier New;color:green;background:#f0f0f0;border:1px dotted #999;word-wrap:break-word;overflow:hidden;}
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <p>January(1),February(2),March(3),April(4),May(5),June(6),July(7),Aguest(8),September(9),October(10),November(11),December(12)</p>
+    <button>删除首项</button><button>删除末项</button>
+    <p>0,1,2,3,4,5,6,7,8,9</p>
+    <button>复制</button><button>还原</button>
+    <p>red,green,blue,white,yellow,black,brown</p>
+    <button>还原</button>
+    <button>删除前三项</button>
+    <button>删除第二至第三项</button>
+    <button>在第二项后插入(orange, purple)</button>
+    <button>替换第二至第三项</button>
+</div>
+<script type="text/javascript">
+    window.onload = function(){
+        var prep = document.getElementsByTagName('p');
+        var oButton = document.getElementsByTagName('button');
+        var i = 0;
+        var bS1 = bS2 = true;
+        var tmpArray = [];
+
+        //将p中的内容转换成数组
+        function getArray(str){
+            tmpArray.length = 0;
+            str = str.split(',');
+            for (var i in str)tmpArray.push(str[i]);
+            return tmpArray;
+        }
+
+
+
+
+        //删除、添加第一项
+        oButton[0].onclick = function(){
+            tmpArray = getArray(prep[0].innerHTML);
+            bS1 ? (tmpArray.shift(),this.innerHTML = '添加首项',bS1 = false)
+                 :(tmpArray.unshift('January(1)'),this.innerHTML = '删除首项',bS1 = true);
+            prep[0].innerHTML = tmpArray.join();
+        }
+
+        //删除、添加末项
+        oButton[1].onclick = function(){
+            tmpArray = getArray(prep[0].innerHTML);
+            bS2 ? (tmpArray.pop(),this.innerHTML = '添加末项',bS2 = false)
+                 :(tmpArray.push('December(12)'),this.innerHTML = '删除末项',bS2 = true);
+            prep[0].innerHTML = tmpArray.join();
+        }
+
+
+
+        //复制全部
+        oButton[2].onclick = function(){
+            tmpArray = getArray(prep[1].innerHTML);
+            prep[1].innerHTML = tmpArray.concat(tmpArray).toString().replace(/\s/g,'')
+        }
+
+        //还原 利用array.length
+        oButton[3].onclick = function(){
+            tmpArray = getArray(prep[1].innerHTML);
+            tmpArray.length = 10;
+            prep[1].innerHTML = tmpArray.join() ;
+        }
+
+
+
+
+        //还原第三组数据
+        oButton[4].onclick = function(){
+            tmpArray = ["red","green","blue","white","yellow","black","brown"];
+            prep[2].innerHTML = tmpArray.join()
+        }
+
+        //删除前三项
+        oButton[5].onclick = function(){
+            tmpArray = getArray(prep[2].innerHTML);
+            tmpArray.splice(0,3);
+            prep[2].innerHTML = tmpArray.join();
+        }
+
+        //删除第二至第三项
+        oButton[6].onclick = function(){
+            tmpArray = getArray(prep[2].innerHTML);
+            tmpArray.splice(1,2);
+            prep[2].innerHTML = tmpArray.join()
+        }
+
+        //在第二项后插入(orange, purple)
+        oButton[7].onclick = function(){
+            tmpArray = getArray(prep[2].innerHTML);
+            tmpArray.splice(1,0,'orange','purple');
+            prep[2].innerHTML = tmpArray.join()
+        }
+
+        //替换第二至第三项
+        oButton[8].onclick = function(){
+            tmpArray = getArray(prep[2].innerHTML);
+            tmpArray.splice(1,2,"#009900", "#0000ff");
+            prep[2].innerHTML = tmpArray.join()
+        }
+
+
+    }
+</script>
+</body>
+</html>

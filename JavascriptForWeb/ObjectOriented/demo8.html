@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>稳妥构造函数模式</title>
+</head>
+<body>
+<script type="text/javascript">
+    //稳妥对象最适合在一些安全的环境中(这些环境中会禁止使用this和new)
+    //或者在防止数据被其他应用程序改动时使用。
+    function Person(name,age,job){
+        //创建要返回的对象
+        var o = new Object();
+
+        //可以在这里定义私有变量和函数
+
+        //添加方法
+        o.sayName = function(){
+            console.log(name);
+        };
+
+        //返回对象
+        return o;
+    }
+
+    var friend = Person('Ifany',28,'Software Engineer');
+    friend.sayName();
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Generating CSS Content</title>
+    <style>
+    .inner{margin:30px auto;width:1000px}
+    
+    .arrow-solid{position:relative;background-color:#000}
+    .arrow-solid:after{content:''; position:absolute;width:0;height:0;border:10px solid transparent;}
+    .arrow-solid-top:after{left:50%;bottom:100%;margin-left:-10px;border-bottom-color:#000}
+    .arrow-solid-left:after{right:100%;top:50%;margin-top:-10px;border-right-color:#000}
+    .arrow-solid-right:after{left:100%;top:50%;margin-top:-10px;border-left-color:#000}
+    .arrow-solid-bottom:after{left:50%;top:100%;margin-left:-10px;border-top-color:#000}
+    </style>
+</head>
+<body>
+    <div class="inner">
+        <div class="arrow-solid arrow-solid-top"></div><br>
+        <div class="arrow-solid arrow-solid-left"></div><br>
+        <div class="arrow-solid arrow-solid-right"></div><br>
+        <div class="arrow-solid arrow-solid-bottom"></div>
+    </div>
+</body>
+</html>
+
+ 

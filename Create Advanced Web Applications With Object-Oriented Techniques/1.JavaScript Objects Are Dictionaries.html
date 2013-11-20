@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Objects Are Dictionaries</title>
+</head>
+<body>
+<!--Three ways of Object definition-->
+<script>
+
+    //1.
+    var userObject = new Object();
+
+    userObject.lastLoginTime = new Date();
+
+    console.log(userObject);
+    console.log(userObject.lastLoginTime);
+
+    //2.
+//    var userObject = {};
+//
+//    userObject["lastLoginTime"] = new Date();
+//
+//    console.log(userObject["lastLoginTime"]);
+
+    //3.
+//    var userObject = { "lastLoginTime": new Date() };
+//
+//    console.log(userObject.lastLoginTime);
+</script>
+</body>
+</html>

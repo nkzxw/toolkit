@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>修改对象的引用，同时保持完整性---ifan</title>
+<link rel="stylesheet" type="text/css" href="../css/i-base.css" />
+</head>
+<body>
+<div class="wrapper">
+
+</div>
+<script>
+	//Creating an array
+	var items=new Array('one','two','three');
+	
+	//Create a reference array.
+	var itemsRef=items;
+	
+	//Will items set a new object
+	items=new Array('new','array')
+	
+	//them point to different objects
+	alert(items!=itemsRef);
+</script>
+</body>
+</html>

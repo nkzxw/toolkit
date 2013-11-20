@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>严格维护传入函数的所有参数---ifan</title>
+<link rel="stylesheet" type="text/css" href="../css/i-base.css" />
+</head>
+<body>
+<div class="wrapper">
+
+</div>
+<script>
+	//With a list of strict checking the type of a variable argument list
+     function strict(types,args){
+	 	//To ensure the quantity and type to match the number of parameters
+	    if(types.length != args.length){
+			alert("length not equal");
+		}
+		//Through all the parameters and check their type
+		for(var i=0;i<args.length;i++){
+			if(args[i].constructor != types[i]){
+				alert("Type mismatch!");
+			}
+		}
+	 }
+	 	 
+	 //Function of a print list of users
+	 function userList(plefix,num,users){
+	 	//Ensure that 'prefix' is a string,'num' is a number and 'users' is an array
+	 	strict([String,Number,Array],arguments);
+		
+		//Traverse 'num' users
+		for(var i=0;i<num;i++){
+			alert(plefix+":"+users[i]);
+		}
+	 }	 
+	 //Execution.
+	 userList("students",3,["jeperc","yifan","Erich"])
+</script>
+</body>
+</html>

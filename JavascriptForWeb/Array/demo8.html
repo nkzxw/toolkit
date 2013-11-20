@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>数组转换方法</title>
+</head>
+<body>
+<script type="text/javascript">
+    var colors = ["red","blue","green"];
+    alert(colors.toString());
+    alert(colors.valueOf());
+    alert(colors);
+
+    console.log(colors.join("."));
+    console.log(colors.join("||"));
+    console.log(colors.join(undefined));
+
+    var person1 = {
+        toLocaleString : function(){
+            return "Nikolaos";
+        },
+
+        toString : function(){
+            return "Nikolas";
+        }
+    };
+    var person2 = {
+        toLocaleString : function(){
+            return "Nikolaos";
+        },
+
+        toString : function(){
+            return "Greg";
+        }
+    };
+    var person = [person1,person2];
+    alert(person);
+    alert(person.toString());
+    alert(person.toLocaleString());
+</script>
+</body>
+</html>

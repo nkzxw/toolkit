@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Constructor Functions but No Classes(but Prototypes)</title>
+</head>
+<body>
+<script>
+    //defining a constructor function
+    function DogConstructor (name) {
+        this.name = name;
+        this.respondTo = function(name) {
+            if(this.name === name) {
+                console.log('Woof');
+            }
+        }
+    }
+
+    var spot = new DogConstructor('Spot');
+//    var spot = {};
+//    DogConstructor.call(spot, 'Spot');
+    spot.respondTo('Rover');
+    spot.respondTo('Spot');
+
+    //Luxuriant line
+    console.log('------------------------------------------------------华丽的分割线------------------------------------------------------');
+
+    //Objects Appear to Have Their Prototype’s Properties
+
+    // DogConstructor.prototype is the prototype of spot
+    console.log(DogConstructor.prototype.isPrototypeOf(spot));
+
+    // spot inherits the constructor property from DogConstructor.prototype
+    console.log(spot.constructor === DogConstructor.prototype.constructor);
+    console.log(spot.constructor === DogConstructor);
+
+    // But constructor property doesn’t belong to spot.
+    console.log(spot.hasOwnProperty('constructor'));
+
+    // The constructor property belongs to DogConstructor.prototype
+    console.log(DogConstructor.prototype.hasOwnProperty('constructor'))
+
+    //Luxuriant line
+    console.log('------------------------------------------------------华丽的分割线------------------------------------------------------');
+
+    // Inheriting from a Prototype
+    function GreateDane() {}
+
+    var rover = new GreateDane();
+    var spot = new GreateDane();
+
+    GreateDane.prototype.getBreed = function() {
+        return 'Greate Dane';
+    }
+
+    // Works, even though at this point
+    // rover and spot are already created.
+    console.log(rover.getBreed());
+    console.log(spot.getBreed());
+
+    // this hides getBreed() in GreatDane.prototype
+    spot.getBreed = function() {
+        return 'Little Greate Bane';
+    }
+    console.log(spot.getBreed());
+
+    // but of course, the change to getBreed doesn’t propagate back to GreatDane.prototype
+    // and other objects inheriting from it, it only happens in the spot object
+    console.log(rover.getBreed());
+
+    //Luxuriant line
+    console.log('------------------------------------------------------华丽的分割线------------------------------------------------------');
+
+    //Static Properties and Methods
+    function DateTime() { }
+
+    // set static method now()
+    DateTime.now = function() {
+        return new Date();
+    };
+    console.log(DateTime.now());
+
+    // instances 'tester' has no method 'now'
+    var tester = new DateTime();
+    console.log(tester.now());
+</script>
+</body>
+</html>

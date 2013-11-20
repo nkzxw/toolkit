@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>多个变量引用同一个对象---ifan</title>
+<link rel="stylesheet" type="text/css" href="../css/i-base.css" />
+</head>
+<body>
+<div class="wrapper">
+
+</div>
+<script>
+	//Creating a null array
+	var obj=new Object();
+	
+	//Create a reference array.
+	var objRef=obj;
+	
+	//Modify an attribute of object element
+	obj.oneProperty=true;
+	
+	//They refer to the same object
+	alert(obj.oneProperty===objRef.oneProperty);
+</script>
+</body>
+</html>

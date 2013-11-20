@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>数组的队列方法FIFO(First In First Out)</title>
+</head>
+<body>
+<script type="text/javascript">
+    var colors = new Array();
+    var count = colors.push("red","green");
+    console.log(count);
+
+    count = colors.push("black");
+    console.log(count);
+
+    var item = colors.shift();
+    console.log(item);
+    console.log(colors.length);
+
+    var colors2 = new Array();
+    var count2 = colors2.unshift("red","green");
+    console.log(count2);
+
+    count2 = colors2.unshift("black");
+    console.log(count2);
+
+    var item2 = colors2.pop();
+    console.log(item2);
+    console.log(colors2.length);
+
+</script>
+</body>
+</html>

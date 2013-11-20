@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>用面向对象的javascript表示课程信息及安排---ifan</title>
+<link rel="stylesheet" type="text/css" href="../css/i-base.css" />
+</head>
+<body>
+<div class="wrapper">
+
+</div>
+<script>
+	//create 'Lecture' class's contructor,
+	//with name, teacher for the parameters.
+	function Lecture(name,teacher){
+		this.name=name;
+		this.teacher=teacher;
+		
+	}
+	//'Lecture' class's a prototype method,
+	//with show a message for Lecture.
+	Lecture.prototype.display=function(){
+		return this.teacher+" is teaching "+this.name;
+	}
+	//create 'Schedule' class's contructor,
+	//with "Lecture"'s Array for the parameters.
+	function Schedule(Lecture){
+		this.Lecture=Lecture;
+	}
+	
+	//'Schedule' class's a prototype method,
+	//constructor a String, to show a message for Lecture.
+	Schedule.prototype.display=function(){
+		var str="";
+		//traverse every Lecture,to show a message for Lecture.
+		for(var i=0;i<this.Lecture.length;i++){
+			str+=this.Lecture[i].display()+"\n";
+		}
+		return str;
+	}
+	
+	//create a new 'Schedule' Object.
+	var mySchedule=new Schedule([
+	    new Lecture('Chinese','胡坤玲'),
+		new Lecture('Math','陈向清'),
+		new Lecture('English','欧泰清')
+	]);
+	//show Lecture message!
+	alert(mySchedule.display());
+</script>
+</body>
+</html>

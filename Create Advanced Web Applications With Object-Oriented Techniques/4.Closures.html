@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+<body>
+<script>
+    // Filtering Elements Based on a Predicate
+    function filter(pred, arr){
+        var i, len, filtered = [];
+
+         len = arr.length;
+
+        // iterate through every element in the array...
+
+        for(i = 0; i < len; i++) {
+
+            var val = arr[i];
+
+            // if the element satisfies the predicate let it through
+
+            if(pred(val)) {
+
+                filtered.push(val);
+
+            }
+
+        }
+
+        return filtered;
+    }
+
+    var someRandomNumbers = [12, 32, 1, 3, 2, 2, 234, 236, 632,7, 8];
+//    var numbersGreaterThan100 = filter(
+//            function(x) { return ( x > 100 ) ? true : false; },
+//            someRandomNumbers
+//    );
+//    console.log(numbersGreaterThan100);
+
+    //factor the number out with a function
+    function makeGreaterThanPredicate(lowerBound){
+        return function(numberToCheck) {
+            return ( numberToCheck > lowerBound ) ? true : false;
+        }
+    }
+
+    var greaterThan10 = makeGreaterThanPredicate(10);
+    var greaterThan100 = makeGreaterThanPredicate(100)
+
+    console.log(filter(greaterThan10, someRandomNumbers));
+    console.log(filter(greaterThan100, someRandomNumbers));
+</script>
+</body>
+</html>

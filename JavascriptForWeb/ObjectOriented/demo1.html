@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>理解对象</title>
+</head>
+<body>
+<script type="text/javascript">
+    var person = new Object();
+    person.name = 'Ifany';
+    person.age = 29;
+    person.job = 'software Engineer';
+
+    person.sayName = function(){
+        console.log(this.name);
+    }
+    person.sayName();
+
+    var person = {
+       name : 'Ifany',
+       age : 29,
+       job : 'software Engineer',
+
+        sayName : function(){
+            console.log(this.name);
+        }
+    };
+    person.sayName();
+</script>
+</body>
+</html>

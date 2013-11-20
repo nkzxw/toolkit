@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>判断DOM何时加载完毕---ifan</title>
+        <link rel="stylesheet" type="text/css" href="../css/i-base.css" />
+        <script>
+            	function domReady(f){
+            		//If the DOM installation is completed, immediately perform the function.
+            		if(domReady.done) return f();
+            		
+            		//If a function has been added to.
+            		if(domReady.timer){
+            			//Then add it to the list of functions to be performed.
+            			domReady.ready.push(f);
+            		}else{
+            			//Installation is completed for the page to bind an event.
+            			window.onload = isDOMReady;
+            			//addEvent(window, "load", isDOMReady);
+            			
+            			//Array initialization function to be performed.
+            			domReady.ready = [f];
+            			
+            			//DOM as soon as possible to check whether the available.
+            			domReady.timer = setInterval(isDOMReady, 13);
+            		}
+            	}
+            	
+            	//Check whether the operational DOM.
+            	function isDOMReady(){
+            		//If we can determine the DOM is available, ignore.
+            		if(domReady.done) return false;
+            		
+            		//Check the availability of a number of functions and elements.
+            		if(document && document.getElementsByTagName && document.getElementById && document.body){
+            			//If available, we can stop checking.
+            			clearInterval( domReady.timer );
+                        domReady.timer = null;
+            			
+            			//Perform all the functions are waiting.
+            			for (var i = 0; i < domReady.ready.length; i++) {
+							domReady.ready[i]();
+						}
+            				//We have done this record.
+            				domReady.ready = null;
+            				domReady.done = true;
+            			}
+            		}
+            
+        </script>
+        <script>
+           
+            
+            domReady(function(){
+				 function tag(name, elem){
+                return (elem || document).getElementsByTagName(name);
+            }
+                alert("The DOM is loaded!");
+                tag("h1")[0].style.border = "2px solid red";
+            });
+        </script>
+    </head>
+    <body>
+        <div class="wrapper">
+            <h1>Testing DOM Loading</h1>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>插入话题</title>
+    <link rel="stylesheet" href="../../css/reset.css" />
+</head>
+<body>
+<div class="layout-inner">
+    <h3>微博插入话题的效果实现实例页面</h3>
+    <textarea rows="10" cols="100" id="J_TopicBox"></textarea><br/>
+    <button id="J_InsertTopic" action-data="提问">插入话题</button><br/>
+    <textarea rows="10" cols="100" id="TopicBox"></textarea><br/>
+    <button id="InsertTopic" action-data="建议">插入话题</button>
+</div>
+<script>
+(function(){
+    function func_insertTopic(handle,target){
+        var insertTopic = document.getElementById(handle),
+            topicBox = document.getElementById(target),
+            TOPIC = '';
+        TOPIC = insertTopic.getAttribute('action-data');
+
+        var topicObj = {
+            getSelected : function(element){
+                if (!window.getSelection) {
+                    //ie
+                    return document.selection.createRange().text;
+                } else {
+                    //w3c
+                    return element.value.substr(element.selectionStart, element.selectionEnd - element.selectionStart);
+                }
+            },
+            insertTopic : function(textObj){
+                var topic = "#" + TOPIC + "#",len=TOPIC.toString().length, value = textObj.value, index = value.indexOf(topic);
+                if (index === -1) {
+                    //匹配
+                    topicObj.textAsTopic(textObj, topic);
+                }
+                value = textObj.value;
+                index = value.indexOf(topic);
+                if (textObj.createTextRange) {
+                    var range = textObj.createTextRange();
+                    range.moveEnd("character", -1 * value.length)
+                    range.moveEnd("character", index + len + 1);
+                    range.moveStart("character", index + 1);
+                    range.select();
+                } else {
+                    textObj.setSelectionRange(index + 1, index + len + 1);
+                    textObj.focus();
+                }
+            },
+            textAsTopic : function(textObj, textFeildValue){
+                textObj.focus();
+                if (textObj.createTextRange) {
+                    var caretPos = document.selection.createRange().duplicate();
+                    document.selection.empty();
+                    caretPos.text = textFeildValue;
+                } else if (textObj.setSelectionRange) {
+                    var rangeStart = textObj.selectionStart;
+                    var rangeEnd = textObj.selectionEnd;
+                    var tempStr1 = textObj.value.substring(0, rangeStart);
+                    var tempStr2 = textObj.value.substring(rangeEnd);
+                    textObj.value = tempStr1 + textFeildValue + tempStr2;
+                    textObj.blur();
+                }
+            }
+        };
+
+        insertTopic.onclick = function () {
+            var textSelection = topicObj.getSelected(topicBox);
+            if (!textSelection || textSelection === TOPIC) {
+                //没有文字选中，光标处插入
+                topicObj.insertTopic(topicBox);
+            } else {
+                topicObj.textAsTopic(topicBox, "#" + textSelection + "#");
+            }
+        };
+    }
+
+    func_insertTopic('J_InsertTopic','J_TopicBox')
+    func_insertTopic('InsertTopic','TopicBox')
+})()
+
+</script>
+</body>
+</html>

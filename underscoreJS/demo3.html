@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Function (uh, ahem) Functions</title>
+</head>
+<body>
+<!--<button id="underscore_button">clicked me!</button>-->
+<!--<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>-->
+<!--<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>-->
+<script src="underscore.js"></script>
+<script src="http://code.jquery.com/jquery.min.js"></script>
+<script>
+    /*--
+        _.bind(function, object, [*arguments])
+    --*/
+//    var func = function(greeting){ return greeting + ':' + this.name };
+//    func = _.bind(func, {name: 'ifany'}, 'hi');
+//    console.log(func());
+
+    /*--
+        _.bindAll(object, *methodNames)
+    --*/
+//    var buttonView = {
+//        label : 'underscore',
+//        onClick : function(){ alert('clicked: ' + this.label); },
+//        onHover : function(){ console.log('hovering: ' + this.label) }
+//    };
+//
+//    _.bindAll(buttonView, 'onClick', 'onHover');
+//
+//    jQuery('#underscore_button').bind('click',buttonView.onClick);
+//    jQuery('#underscore_button').bind('mouseenter',buttonView.onHover);
+
+    /*--
+        _.partial(function, [*arguments])
+    --*/
+//    var add = function(a, b){ return a + b; };
+//    add5 = _.partial(add, 5);
+//    console.log(add5(10));
+
+    /*--
+        _.memoize(function, [hashFunction])
+    --*/
+//    var fibonacci = _.memoize(function(n){
+//        return n < 2 ? n : fibonacci(n - 1) + fibonacci(n - 2);
+//    });
+//    console.log(1);
+//    console.log(100);
+
+    /*--
+        _.delay(function, wait, [*arguments])
+    --*/
+//    var log = _.bind(console.log, console);
+//    console.log(_.delay(log, 1000, 'logged later!'));
+
+    /*--
+        _.defer(function, [*arguments])
+    --*/
+//    console.log(_.defer(function(){ alert('deferred'); }));
+
+    /*--
+        _.throttle(function, wait, [options])
+    --*/
+//    var throttled = _.throttle(function(){ console.log('scrolling') }, 100);
+//    $(window).scroll(throttled);
+
+    /*--
+        _.debounce(function, wait, [immediate])
+    --*/
+//    var lazyLayout = _.debounce(function(){ console.log('resizing...') }, 300);
+//    $(window).resize(lazyLayout);
+
+    /*--
+        _.once(function)
+    --*/
+//    var initialize = _.once(function(){ console.log('once..') });
+//    initialize();
+//    initialize();
+
+    /*--
+        _.after(count, function)
+    --*/
+//    var renderNotes = _.after(notes.length, render);
+//    _.each(notes, function(note){
+//        note.asyncSave({success : renderNotes});
+//    })
+    // renderNotes is run once, after all notes have saved.
+
+    /*--
+        _.wrap(function, wrapper)
+    --*/
+//    var hello = function(name){ return 'hello: ' + name; };
+//    hello = _.wrap(hello,function(func){
+//        return 'before, ' + func('ifany') + ' ,after';
+//    })
+//    console.log(hello());
+
+    /*--
+        _.compose(*functions)
+    --*/
+    var greet = function(name){ return 'hi: ' + name; }
+    var exclaim = function(statement){ return statement + ' !'; };
+    var welcome = _.compose(exclaim, greet);
+    console.log(welcome('ifany'));
+</script>
+</body>
+</html>

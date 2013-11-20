@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <title></title>
+    <link rel="shortcut icon" href="" type="image/x-icon"/>
+    <link rel="stylesheet" type="text/css" href="../css/base.css"/>
+</head>
+<body>
+<div class="wrapper">
+    <div class="layout">
+        <h2>输入框只接受大写字母--onkeyup</h2>
+        <input type="text" class="upperCase"  />
+        <input type="text" class="upperCase"  />
+        <input type="text" class="upperCase"  />
+    </div><!--layout end-->
+    <div class="layout">
+        <h2>输入框只接受数字--onkeyup</h2>
+        <input type="text" class="number"  />
+        <input type="text" class="number"  />
+        <input type="text" class="number"  />
+    </div><!--layout end-->
+    <div class="layout">
+        <h2>输入框不接受数字--onkeydown</h2>
+        <input type="text" class="noNumber"  />
+        <input type="text" class="noNumber"  />
+        <input type="text" class="noNumber"  />
+    </div><!--layout end-->
+</div>
+<script src="../js/i-base.js"></script>
+<script>
+    function noNumbers(e){ // IE
+        var keyNum,keyChar,keyCheck;
+        if(window.event){
+            keyNum = e.keyCode;
+        }else if(e.which){ // Netscape/Firefox/Opera
+            keyNum = e.which;
+        }
+        keyChar = String.fromCharCode(keyNum);
+        keyCheck = /\d/;
+        return !keyCheck.test(keyChar);
+    }
+    domReady(function(){
+        var uInput = getByClass('upperCase');
+        for(var i=0,uLen = uInput.length;i<uLen;i++){
+               uInput[i].onkeyup = function(){
+                   this.value = this.value.toUpperCase();
+               }
+        }
+        var nInput = getByClass('number');
+        for(var j=0;j<nInput.length;j++){
+           nInput[j].onkeyup = function(){
+              this.value = this.value.replace(/[^\d]/,'');
+           }
+        }
+        var noNumber = getByClass('noNumber');
+        for(var k=0,oLen=noNumber.length;k<oLen;k++){
+            noNumber[k].onkeydown = function(e){
+                return noNumbers(e);
+            }
+        }
+    })
+</script>
+</body>
+</html>

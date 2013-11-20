@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Inheriting from Classes</title>
+</head>
+<body>
+<script>
+    // class Pet
+    function Pet(name) {
+        this.getName = function() { return name; };
+        this.setName = function(newName) { name = newName; };
+    }
+
+    Pet.prototype.toString = function() {
+        return 'This Pet\'s name is: ' + this.getName();
+    }
+    //end of Pet class
+
+    var ifany = new Pet('Ifany Chen');
+    console.log(ifany);
+    console.log(ifany.getName());
+    ifany.setName('Jeperc Chen');
+    console.log(ifany.toString());
+
+    //Luxuriant line
+    console.log('------------------------------------------------------华丽的分割线------------------------------------------------------');
+
+    //Deriving from the Pet Class
+    //class Dog : Pet
+    function Dog(name, breed) {
+        // think Dog : base(name)
+        Pet.call(this, name);
+
+        this.getBreed = function() { return breed };
+        // Breed doesn’t change, obviously! It’s read only.
+        // this.setBreed = function(newBreed) { name = newName; };
+    }
+
+    // this makes Dog.prototype inherits from Pet.prototype
+    Dog.prototype = new Pet();
+
+    // remember that Pet.prototype.constructor points to Pet. We want our Dog instances’constructor to point to Dog.
+    Dog.prototype.constructor = Dog;
+
+    // Now we override Pet.prototype.toString
+    Dog.prototype.toString = function() {
+        return 'This Dog\'s name: ' + this.getName() + ',and its breed is: ' + this.getBreed();
+    }
+
+    var dog = new Dog('Buddy', 'Greate Dane');
+    console.log(dog);
+    console.log(dog.toString());
+
+    // Testing instanceof (similar to the is operator)
+    console.log(dog instanceof Dog);
+    console.log(dog instanceof Pet);
+    console.log(dog instanceof Object);
+</script>
+</body>
+</html>

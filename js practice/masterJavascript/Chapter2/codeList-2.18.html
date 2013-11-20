@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>context Object---ifan</title>
+<link rel="stylesheet" type="text/css" href="../css/i-base.css" />
+</head>
+<body>
+<div class="wrapper">
+
+</div>
+<script>
+	var obj={
+		yes:function(){
+			//this === obj
+			this.val=true;
+		},
+		no:function(){
+			this.val=false;
+		}
+	};
+	
+	//'obj' Object not a val property
+	alert(obj.val == null);
+	
+	//after the implementation of the yes() function, the val attribute and 'obj' object associated
+	obj.yes();
+	alert(obj.val == true);
+	
+	//Now the window.no point obj.no and execute
+	window.no=obj.no;
+	window.no();
+	
+	//'obj' object's val constant (because no context has been changed to a window object)
+	//The window of 'val' attribute is updated
+	alert(obj.val == window.val);
+</script>
+</body>
+</html>

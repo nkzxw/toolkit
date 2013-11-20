@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <link rel="shortcut icon" href="" type="image/x-icon"/>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="../styles/base.css"/>
+    <style>
+        .wrapper { }
+        #folde{width:200px;margin:10px auto;border:1px solid #aaa;overflow:hidden;}
+        #folde h2{padding:5px;font-size:14px;color:#57646E;cursor:pointer;background:#ced3d7 url("../images/ico.gif") no-repeat 180px 10px;border:1px solid;border-color:#fff #e9edf2;}
+        #folde ul li{list-style:none;padding:3px 5px;}
+        #folde .open{background-position:180px -17px;}
+        #folde li a{color:#57646E;}
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <div id="folde">
+        <h2>播放列表</h2>
+        <ul style="display:block;">
+            <li><a href="javascript:;">玩家之徒 - 蔡依林</a></li>
+            <li><a href="javascript:;">原谅我就是这样的女生 - 戴佩妮</a></li>
+            <li><a href="javascript:;">猜不透 - 丁当</a></li>
+            <li><a href="javascript:;">自导自演 - 周杰伦</a></li>
+            <li><a href="javascript:;">浪漫窝 - 弦子</a></li>
+            <li><a href="javascript:;">流年 - 王菲</a></li>
+        </ul>
+    </div>
+</div>
+<script>
+    window.onload = function(){
+        var folde = document.getElementById('folde');
+        var folder = folde.getElementsByTagName('h2')[0];
+        var folderContent = folde.getElementsByTagName('ul')[0];
+
+        folder.onclick = function(){
+            folderContent.style.display = folderContent.style.display == 'block'?'none':'block';
+            folder.className = folderContent.style.display == 'block'?'':'open';
+        }
+
+    }
+</script>
+</body>
+</html>

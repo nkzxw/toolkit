@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>scope and Implicit global variable---ifan</title>
+<link rel="stylesheet" type="text/css" href="../css/i-base.css" />
+</head>
+<body>
+<div class="wrapper">
+
+</div>
+<script>
+	//var test="test";
+	//As a global variable is actually an attribute of the window object exists
+	//alert(window.test === test);
+	
+	//creating a function ,with set foo's value.
+	function test(){
+		foo='new test';
+	}
+	//perform test();
+	test();
+	//We found that foo is the next in the global scope
+	alert(window.foo === 'new test');
+</script>
+</body>
+</html>

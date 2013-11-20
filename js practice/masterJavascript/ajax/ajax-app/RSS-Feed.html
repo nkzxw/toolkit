@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <title>RSS Feed</title>
+    <link rel="shortcut icon" href="" type="image/x-icon"/>
+    <link rel="stylesheet" type="text/css" href="../../css/i-base.css"/>
+
+</head>
+<body>
+<div class="wrapper">
+    <h1>Dynamic RSS Feed Widget</h1>
+    <p>Check out my RSS feed:</p>
+    <ol id="feed"></ol>
+</div>
+<script src="../../js/i-base.js"></script>
+<script src="../../js/ajax.js"></script>
+<script>
+    window.onload = function(){
+        ajax({
+            url: "rss.xml",
+            type: "xml",
+            onSuccess: function(rss){
+                var feed = document.getElementById("feed");
+                var titles = rss.getElementsByTagName("title");
+
+                for(var i=0; i<titles.length; i++){
+                    var li = document.createElement("li");
+                    li.innerHTML = titles[i].firstChild.nodeValue;
+                    feed.appendChild(li);
+                }
+            }
+        });
+    }
+</script>
+</body>
+</html>

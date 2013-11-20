@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Hovercard with ajax (remote data)</title>
+</head>
+<body>
+<label id="demo-ajax">John Resig</label>
+<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.10.1.min.js"></script>
+<script src="jquery.hovercard.js"></script>
+<script>
+$(function(){
+    var hoverHTMLDemoBasic = '<p>Recent tweets from <label id="twitter-username">the user</label></p><ul id="demo-cb-tweets"></ul>';
+    $('#demo-ajax').hovercard({
+        detailsHTML: hoverHTMLDemoBasic,
+        width: 400,
+        cardImgSrc: 'JohnResig.jpg',
+        onHoverIn: function(){
+            var user = 'jeresig';
+            $.ajax({
+                url: 'http://twitter.com/statuses/user_timeline.json?screen_name=' + user + '&count=5&callback=?',
+                type: 'GET',
+                dataType: 'json',
+                beforeSend: function(){
+                    $("#demo-cb-tweets").prepend('<p class="loading-text">Loading latest tweets...</p>');
+                },
+                success: function(data){
+                    $("#demo-cb-tweets").empty();
+                    $('#twitter-username').text(user);
+                    $.each(data, function (index, value) {
+                        $("#demo-cb-tweets").append('<li>' + value.text + '</li>');
+                    });
+                },
+                complete: function(){
+                     $('.loading-text').remove();
+                }
+            })
+        },
+        onHoverOut: function(){
+         $('.loading-text').remove();
+        }
+    })
+})
+</script>
+</body>
+</html>

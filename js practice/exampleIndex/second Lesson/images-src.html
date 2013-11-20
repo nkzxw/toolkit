@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <link rel="shortcut icon" href="" type="image/x-icon"/>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="../styles/base.css"/>
+    <style>
+        .wrapper {background-color:#333;overflow:hidden;}
+        #imgSrc{width:212px;margin:10px auto;padding:0 0 3px 3px;overflow:hidden;zoom:1;background:#fff;border:5px solid #fff;border-radius:5px;}
+        #imgSrc li,#imgSrc li img{float:left;width:50px;height:50px;}
+        #imgSrc li{margin:3px 3px 0 0;}
+        #imgSrc .imgCon,#imgSrc .imgCon img{width:156px;height:156px;}
+        #imgSrc .imgCon{position:relative;}
+        #imgSrc .imgCon div{position:absolute;top:0;left:0;width:154px;height:154px;background:#fff url("../images/loading.gif") no-repeat center center;border:1px solid #999;}
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <ul id="imgSrc">
+        <li class="imgCon">
+            <img src="../images/imgs/big_1.jpg" alt="" />
+            <div style="display:none"></div>
+        </li>
+        <li>
+            <a href=""><img src="../images/imgs/small_1.jpg" alt="" /></a>
+        </li>
+        <li>
+            <a href=""><img src="../images/imgs/small_2.jpg" alt="" /></a>
+        </li>
+        <li>
+            <a href=""><img src="../images/imgs/small_3.jpg" alt="" /></a>
+        </li>
+        <li>
+            <a href=""><img src="../images/imgs/small_4.jpg" alt="" /></a>
+        </li>
+        <li>
+            <a href=""><img src="../images/imgs/small_5.jpg" alt="" /></a>
+        </li>
+        <li>
+            <a href=""><img src="../images/imgs/small_6.jpg" alt="" /></a>
+        </li>
+        <li>
+            <a href=""><img src="../images/imgs/small_7.jpg" alt="" /></a>
+        </li>
+        <li>
+            <a href=""><img src="../images/imgs/small_8.jpg" alt="" /></a>
+        </li>
+        <li>
+            <a href=""><img src="../images/imgs/small_9.jpg" alt="" /></a>
+        </li>
+        <li>
+            <a href=""><img src="../images/imgs/small_10.jpg" alt="" /></a>
+        </li>
+        <li>
+            <a href=""><img src="../images/imgs/small_11.jpg" alt="" /></a>
+        </li>
+    </ul>
+</div>
+<script>
+    window.onload = function(){
+        var imgSrc = document.getElementById('imgSrc');
+        var imgs = imgSrc.getElementsByTagName('img');
+        var loading = imgSrc.getElementsByTagName('div')[0];
+
+        for(var i=1;i<imgs.length;i++){
+            imgs[i].index = i;
+            imgs[i].onmouseover= function(){
+                var img = new Image();
+                //img.src = imgs[0].src = '../images/imgs/big_' + this.index +'.jpg';
+                img.src = imgs[0].src = this.src.replace(/small/,'big');
+                loading.style.display = 'block';
+                img.complete ? loading.style.display = 'none' : (img.onload = function(){loading.style.display = 'none'});
+                
+            }
+        }
+    }
+</script>
+</body>
+</html>

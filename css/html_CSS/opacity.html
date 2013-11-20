@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js ie ie6 lte9 lte8 lte7"> <![endif]-->
+<!--[if IE 7]><html class="no-js ie ie7 lte9 lte8 lte7"> <![endif]-->
+<!--[if IE 8]><html class="no-js ie ie8 lte9 lte8"> <![endif]-->
+<!--[if IE 9]><html class="no-js ie ie9 lte9"> <![endif]-->
+<!--[if gt IE 9]><html class="no-js"><![endif]-->
+<!--[if !IE]><!-->
+<html><!--<![endif]-->
+<head>
+    <meta charset="utf-8"/>
+    <title></title>
+    <meta name="description" content="SEO相关的页面介绍文字"/>
+    <meta name="keywords" content=""/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link type="image/x-icon" href="" rel="shortcut icon"/>
+    <link rel="stylesheet" type="text/css" href="/ifanyTools/css/i-base.css"/>
+    <style>
+        h3{margin:6px 0;}
+        pre{margin:0;padding:0;font-size:14px}
+        .wrapper {margin:0 auto;width:1000px;color:#21759B;}
+        .div{overflow:hidden;margin:10px 0 0;padding:0 15px;width:600px;height:200px;background:#000;}
+        .opacity50{opacity:0.5;}  /* chrome,firefox,safari,opera,ie9,ie10 */
+        .lte8 .opacity50{filter:alpha(opacity=50);zoom:1;}  /* ie6-8 */
+        .rgba{
+            background:rgb(0,0,0);  /* 声明一个保留颜色 */
+            background:rgba(0, 0, 0, 0.5);
+            filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr='#7e000000', EndColorStr='#7e000000');
+        }
+        :root .rgba{
+            filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr='#00000000', EndColorStr='#00000000');
+        }
+    </style>
+    <!--[if lt IE 9]><script src="/ifanyTools/js/html5shiv.js"></script><script src="/ifanyTools/js/modernizr-v2.5.3.js"></script><![endif]--><!--[if gte IE 9]><script src="/ifanyTools/js/modernizr-v2.5.3.js"></script><![endif]-->
+</head>
+<body>
+<div class="wrapper">
+    <div class="div">
+        <h3>我是不透明的div</h3>
+        <pre>
+.div{
+    overflow:hidden;
+    margin:10px 0 0;padding:0 15px;width:600px;height:200px;
+    background:#000;
+}
+        </pre>
+    </div>
+    <div class="div opacity50">
+        <h3>使用opacity实现的半透明</h3>
+        <pre>
+.opacity50{ /* chrome,firefox,safari,opera,ie9+ */
+    background:#000;
+    opacity:0.5;
+}
+.lte8 .opacity50{ /* ie6-8 */
+    filter:alpha(opacity=50);
+    zoom:1; /* ie6,ie7下的行内元素必须要出触发haslayout，透明效果才有效 */
+}
+        </pre>
+    </div>
+    <div class="div rgba">
+        <h3>使用RGBa完美实现半透明</h3>
+        <pre>
+.rgba{ /* chrome,firefox,safari,opera,ie6-8 */
+    background:rgb(0,0,0);  /* 声明一个保留颜色 */
+    background:rgba(0, 0, 0, 0.5);
+    filter:progid:DXImageTransform.Microsoft.Gradient
+    (GradientType=0, StartColorStr='#7e000000', EndColorStr='#7e000000');
+}
+:root .rgba{ /* ie9+ */
+    filter:progid:DXImageTransform.Microsoft.Gradient
+    (GradientType=0, StartColorStr='#00000000', EndColorStr='#00000000');
+}
+        </pre>
+    </div>
+</div>
+<script type="text/javascript">
+</script>
+</body>
+</html>

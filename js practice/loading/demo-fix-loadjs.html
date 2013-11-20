@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Javascript加载方式--动态创建DOM方式(二)</title>
+    <script type="text/javascript">
+        function loadjs(file,id){
+            var scriptEle = document.createElement('script');
+            scriptEle.setAttribute('id',id);
+            scriptEle.setAttribute('src',file);
+
+            if(id){
+                var scriptId = document.getElementById(id);
+            }
+            if(scriptId){
+                document.getElementsByTagName('head')[0].removeChild(scriptId);
+            }
+
+            document.getElementsByTagName('head')[0].appendChild(scriptEle);
+        }
+
+        //window.onload = loadjs('alert.js');
+    </script>
+</head>
+<body>
+<h1>Javascript加载方式--动态创建DOM方式</h1>
+<p>这个方式几乎成了标准的异步载入js文件的方式</p>
+<button type="button" onclick="loadjs('alert.js')">点击我-加载alert.js</button>
+</body>
+</html>

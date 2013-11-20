@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>修改函数上下文---ifan</title>
+<link rel="stylesheet" type="text/css" href="../css/i-base.css" />
+</head>
+<body>
+<div class="wrapper">
+	body
+     <div id="main" style="height:60px;">main</div>
+</div>
+<script>
+	//Set context function
+	function changeColor(color){
+		this.style.color=color;
+	}
+	
+	//Call failed because there is no style properties in window object
+	//changeColor('white');
+	
+	var main=document.getElementById('main');
+	//The call method will set the context object as the first argument, the remaining parameters as a original function of the parameters 
+	changeColor.call(main,'red');
+	
+	function setBodyColor(){
+		//The apply method will set the context object as the first argument, the remaining parameters(with an Array) as a original function of the parameters 
+		changeColor.apply(document.body,arguments);
+	}
+	setBodyColor('green');
+</script>
+</body>
+</html>

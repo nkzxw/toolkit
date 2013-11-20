@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>object类型--属性名的全能性</title>
+</head>
+<body>
+<script type="text/javascript">
+    var person = {
+        "name" : "Ifany",
+        "age" : 29,
+        "first name" : "Chen"
+    };
+
+    console.log(person["name"]);
+    console.log(person.name);
+
+    var propertyName = "name";
+    console.log(person[propertyName]);
+
+    console.log(person["first name"]);
+</script>
+</body>
+</html>

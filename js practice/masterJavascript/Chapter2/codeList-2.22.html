@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>constructor---ifan</title>
+<link rel="stylesheet" type="text/css" href="../css/i-base.css" />
+</head>
+<body>
+<div class="wrapper">
+
+</div>
+<script>
+	//Create a new simple User object
+	function User(){};
+	
+	//Create a User object
+	var me = new User();
+	
+	//Or create a User object
+	var you = new me.constructor();
+	
+	//You can find these two objects (me and you) is essentially the same
+	alert(me.constructor === you.constructor);
+</script>
+</body>
+</html>

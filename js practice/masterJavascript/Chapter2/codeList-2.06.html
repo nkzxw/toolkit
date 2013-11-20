@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>()---ifan</title>
+<link rel="stylesheet" type="text/css" href="../css/i-base.css" />
+</head>
+<body>
+<div class="wrapper">
+
+</div>
+<script>
+	//A any number of parameters and converts it into an array of functions
+	function makeArray(){
+		//Create an empty array
+		var arr=[];
+		
+		//Each parameter passed through
+		for(var i=0;i<arguments.length;i++){
+			arr.push(arguments[i]);
+		}
+		
+		//Return result array
+		return arr;
+	}
+</script>
+</body>
+</html>

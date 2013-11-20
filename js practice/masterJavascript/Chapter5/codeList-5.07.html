@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>()---ifan</title>
+<link rel="stylesheet" type="text/css" href="../css/i-base.css" />
+</head>
+<body>
+<div class="wrapper">
+     <h1>header1</h1>
+</div>
+<script>
+	
+	HTMLElement.prototype.text = function(){
+    var elem = this;
+	var t = '';
+		
+		//If the element is passed, then continue through the child elements.
+		elem = elem.childNodes || elem;
+		
+		//Traverse the child elements.
+		for(var j=0; j<elem.length; j++){
+			//If not an element, append the text value.
+			//Otherwise, recursively through all child nodes of the elements.
+			t += elem[j].nodeType != 1 ? elem[j].nodeValue
+			:text(elem[j].childNodes);
+		}
+		
+		//Returns the text matched.
+		return t;
+	}
+</script>
+<script>
+	var header=document.getElementsByTagName("h1")[0];
+	alert(header.text());
+</script>
+</body>
+</html>

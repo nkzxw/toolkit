@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>检查元素是否有一个指定的特性---ifan</title>
+<link rel="stylesheet" type="text/css" href="../css/i-base.css" />
+</head>
+<body>
+<div id="wrapper" width="100">
+
+</div>
+<script>
+	HTMLElement.prototype.hasAttribute=function(){
+		var elem = this;
+		var name=this;
+		return elem.getAttribute(name) != null;
+	}
+</script>
+<script>
+	window.onload=function(){
+		var wrapper = document.getElementById("wrapper");
+		if (wrapper.hasAttribute("width")) {
+			alert(123);
+		}else{
+			alert(456)
+		}
+	}	
+</script>
+</body>
+</html>

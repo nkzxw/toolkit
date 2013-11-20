@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]> <html class="no-js" lang="en"> <![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <link rel="shortcut icon" href="" type="image/x-icon"/>
+    <title>placeholder纯js解决方案</title>
+    <link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+    <script type="text/javascript" src="../../js/modernizr.js"></script>
+    <style>
+        input{ width:200px; height:24px; line-height:24px; border:1px solid #999; background:#ccc; margin:15px 0 0; padding:4px; color:#666;}
+       	.active{ background:#E0FEE4; border:1px solid #093;}
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <fieldset>
+        <legend>placeholder纯js解决方案</legend>
+        <p><input type="text" name="" value="请输入姓名" /></p>
+        <p><input type="text" name="" value="请输入昵称" /></p>
+        <p><input type="text" name="" value="请输入验证码" /></p>
+        <p><input type="text" name="" value="请输入手机号码" /></p>
+        <p><input type="text" name="" value="请输入电子邮箱" /></p>
+    </fieldset>
+</div>
+
+<script type="text/javascript" src="../../js/i-base.js"></script>
+<script type="text/javascript">
+   Iw.Dom.Ready(function(){
+       var Placeholders = [];
+       var pTxts = Iw.Dom.getByTag('input');
+       for(var i=0;i<pTxts.length;i++){
+           pTxts[i].index = i;
+           Placeholders.push(pTxts[i].value);
+
+           pTxts[i].onfocus = function(){
+               if(this.value === Placeholders[this.index]){
+                   this.value = "";
+               }
+               Iw.Dom.addClass(this,"active");
+           };
+           pTxts[i].onblur = function(){
+               if(this.value === ''){
+                   this.value = Placeholders[this.index]
+               }
+               Iw.Dom.removeClass(this,"active");
+           };
+       }
+
+   });
+</script>
+</body>
+</html>

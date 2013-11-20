@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>使用匿名函数来激发出创建多个使用闭包的函数所需的作用域---ifan</title>
+<link rel="stylesheet" type="text/css" href="../css/i-base.css" />
+</head>
+<body>
+<div class="wrapper">
+    <div id="main" style="height:60px;background:#666"></div>
+</div>
+<script>
+	//Obtain an ID for the 'main' elements
+	var obj=document.getElementById('main');
+	
+	//The variable 'items' to bind an array
+	var items=['click','keypress'];
+	
+	//Each member of traversing an array
+	for(var i=0;i<items.length;i++){
+		//Using a self-executing anonymous function to stimulate the scope
+		(function(){
+			//Remember that the value within this scope
+			var item=items[i];
+			//A function to bind to the element
+			obj["on"+item]=function(){
+				//reference to the context item belongs to the for loop scope of a parent variable
+				alert("Thanks for your "+item);
+			}
+		})()
+	}
+</script>
+</body>
+</html>

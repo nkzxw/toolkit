@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Anonymous Closures</title>
+</head>
+<body>
+
+<script>
+(function () {
+    // ... all vars and functions are in this scope only
+    // still maintains access to all globals
+}());
+
+(function () {
+    // ... all vars and functions are in this scope only
+    // still maintains access to all globals
+})();
+</script>
+</body>
+</html>

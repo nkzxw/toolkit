@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>showCustomCard</title>
+</head>
+<body>
+<label id="demo-coustomCard">Prashant Chaudhary</label>
+<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.10.1.min.js"></script>
+<script src="jquery.hovercard.js"></script>
+<script>
+var aboutPC = {
+    name: "Prashant Chaudhary",
+    link: "http://designwithpc.com/", 
+    bio: "Prashant Chaudhary (or PC for short!) is a Web Developer (.net) with strong interest in UI. He loves to talk about CSS3, HTML5, jQuery. Entrepreneur in making! He run a design blog at http://designwithpc.com",
+    image: "http://30.media.tumblr.com/avatar_d3eadb3e29f8_128.png",
+    website: "http://designwithpc.com", 
+    email: "hello@callmepc.com"
+};
+
+$(function(){
+    $('#demo-coustomCard').hovercard({
+        showCustomCard: true,
+        customCardJSON: aboutPC
+    })
+})
+</script>
+</body>
+</html>

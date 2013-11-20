@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>rapeal practice</title>
+    <script src="raphael.js"></script>
+    <script>
+        window.onload = function(){
+
+            // Creates canvas 320 × 200 at 10, 50
+            var paper = Raphael(10, 50, 320, 200);
+
+            // Creates circle at x = 50, y = 40, with radius 10
+            var circle = paper.circle(50, 40, 10);
+            var circle2 = paper.circle(100,120,5);
+            // Sets the fill attribute of the circle to red (#f00)
+            circle.attr("fill", "#f00");
+            circle2.attr('fill','green');
+
+            // Sets the stroke attribute of the circle to white
+            circle.attr("stroke", "#fff");
+
+            var anim = Raphael.animation({cx: 10, cy: 20}, 2e3, 'bounce', function(){console.log('callback1')});
+            var anim2 = Raphael.animation({cx: 10, cy: 20}, 2e3, 'bounce', function(){console.log('callback2')});
+            circle.animateWith(circle2 ,anim2, {cx: 10, cy: 20}, 2e3, 'bounce', function(){console.log('callback1')}); // run the given animation immediately
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>删除DOM节点---ifan</title>
+<link rel="stylesheet" type="text/css" href="../css/i-base.css" />
+</head>
+<body>
+<div class="wrapper">
+    <ol>
+    	<li>Cats</li>
+		<li>Dog</li>
+		<li id='mice'>Mice</li>
+    </ol>
+	<button id='remove'>remove(elem)</button>
+	<button id='empty'>empty(elem)</button>
+</div>
+<script src="../js/i-base.js"></script>
+<script>
+	//Delete a single DOM node.
+	function remove(elem){
+		if(elem){
+			elem.parentNode.removeChild(elem);
+		}
+	}
+	//Deleting a DOM element all child nodes.
+	function empty(elem){
+		while(elem.firstChild){
+			remove(elem.firstChild);
+		}
+	}
+</script>
+<script>
+	ID('remove').onclick=function(){
+		remove(ID('mice'))
+	};
+	ID('empty').onclick=function(){
+		empty(tag('ol')[0])
+	}
+</script>
+</body>
+</html>

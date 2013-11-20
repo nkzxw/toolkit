@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>通过判断参数来进行不同的操作---ifan</title>
+<link rel="stylesheet" type="text/css" href="../css/i-base.css" />
+</head>
+<body>
+<div class="wrapper">
+
+</div>
+<script>
+	function displayError(msg){
+		//Check whether the underfined msg.
+		if(typeof msg === 'undefined'){
+			//Setting default message.
+			msg='An error occurred.';
+		}
+		//Display the message
+		alert(msg);
+	}
+	displayError();
+</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <link rel="shortcut icon" href="" type="image/x-icon"/>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="../styles/base.css"/>
+    <style>
+        .wrapper { }
+        #countdown{width:300px;background-color:#333;color:#fff;font-size:15px;padding:20px;margin:0 auto;text-align:center;}
+        #countdown span{display:inline-block;margin:0 3px;padding:0 10px;line-height:2;background-color:#fafafa;color:#333;border:2px solid;border-color:#ccc #ddd;}
+        #countdown button{width:283px;height:50px;border:0;margin-top:20px;cursor:pointer;background:url("../images/coutdown_btn.png") no-repeat left top;}
+        #countdown .cancel{background-position:left -50px;}
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <div id="countdown">
+        <span>01</span>分
+        <span>40</span>秒
+        <button></button>
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+    var countdown = function(){
+        var countdown = document.getElementById('countdown');
+        var M = countdown.getElementsByTagName('span')[0];
+        var S = countdown.getElementsByTagName('span')[1];
+        var startBtn = countdown.getElementsByTagName('button')[0];
+        var timer = null;
+
+        startBtn.onclick = function(){
+            startBtn.className === '' ? (timer = setInterval(updateCd,1000),updateCd()) : clearInterval(timer);
+            startBtn.className = startBtn.className === '' ? 'cancel' : '';
+        };
+
+        var updateCd = function(){
+            var remainCd = M.innerHTML.replace(/^0/,'') * 60 + parseInt(S.innerHTML.replace(/^d/,''));
+            if(remainCd <= 0){
+                clearInterval(timer);
+                return;
+            }
+            remainCd--;
+            M.innerHTML = checkNum(parseInt(remainCd/60));
+            S.innerHTML = checkNum(parseInt(remainCd%60));
+
+        };
+
+        var checkNum = function(n){
+            n<10 ? (n='0'+n) : n;
+            return n;
+        };
+    };
+    window.onload = function(){
+        countdown();
+    }
+</script>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Loose Augmentation</title>
+</head>
+<body>
+<code>
+var MODULE = (function (my) {
+    var old_moduleMethod = my.moduleMethod;
+
+    my.moduleMethod = function () {
+        // method override, has access to old through old_moduleMethod...
+    };
+
+    return my;
+}(MODULE));
+</code>
+<script>
+var MODULE = (function(my){
+    var old_moduleMethod = my.moduleMethod;
+    my.moduleMethod = function(){
+        console.log("method override, has access to old through old_moduleMethod...")
+    }
+    return my;
+}(MODULE || {}))
+
+MODULE.moduleMethod();
+
+MODULE.moduleMethod = function(){
+    console.log('redo');
+}
+MODULE.moduleMethod();
+console.log(MODULE.old_moduleMethod);
+</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <link rel="shortcut icon" href="" type="image/x-icon"/>
+    <title>自定义右键菜单</title>
+    <link rel="stylesheet" type="text/css" href="../styles/base.css"/>
+    <style type="text/css">
+    body,ul,li{margin:0;padding:0;}
+    body{font:12px/24px arial;}
+    #contextmenu{position:absolute;top:-9999px;left:-9999px;width:100px;border-radius:3px;list-style-type:none;border:1px solid #8f8f8f;padding:2px;background:#fff;}
+    #contextmenu li{position:relative;list-style:none;height:24px;padding-left:24px;background:#eaead7;vertical-align:top;}
+    #contextmenu li a{display:block;color:#333;background:#fff;padding-left:5px;text-decoration:none;}
+    #contextmenu li.active{background:#999;}
+    #contextmenu li.active a{color:#fff;background:#8f8f8f;}
+    #contextmenu li em{position:absolute;top:0;left:0;width:24px;height:24px;background:url(../images/icon_contextmenu.png) no-repeat;}
+    #contextmenu li em.cut{background-position:0 0;}
+    #contextmenu li em.copy{background-position:0 -24px;}
+    #contextmenu li em.paste{background-position:0 -48px;}
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <h3>自定义右键菜单，请在页面点击右键查看效果。</h3>
+    <ul id="contextmenu">
+        <li><em class="copy"></em><a href="javascript:;">复制</a></li>
+        <li><em class="cut"></em><a href="javascript:;">剪切</a></li>
+        <li><em class="paste"></em><a href="javascript:;">黏贴</a></li>
+    </ul>
+</div>
+<script type="text/javascript">
+    window.onload = function(){
+        var menu = document.getElementById('contextmenu');
+        var lists = menu.getElementsByTagName('li');
+        menu.style.display = 'none';
+
+        for(var i=0;i<lists.length;i++){
+            lists[i].onmouseover = function(){
+                this.className = 'active';
+            }
+            lists[i].onmouseout = function(){
+                this.className = '';
+            }
+        }
+
+        document.oncontextmenu = function(event){
+            var e = event || window.event;
+            menu.style.display = 'block';
+            menu.style.left = e.clientX - 25 + 'px';
+            menu.style.top = e.clientY - 5 + 'px';
+            return false;
+        }
+        document.onclick = function(){
+            menu.style.display = "none";
+        }
+    }
+</script>
+</body>
+</html>

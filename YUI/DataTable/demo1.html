@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>DataTable Basics</title>
+</head>
+<body class="yui3-skin-sam">
+
+<script src="http://yui.yahooapis.com/3.10.1/build/yui/yui-min.js"></script>
+<script type="text/javascript">
+    YUI().use('datatable',function(Y){
+        //columns must match data object property names
+        var data = [
+            {id:'#1',name:'teacher',salary:'$2000',cost:'$500'},
+            {id:'#2',name:'doctor',salary:'$5000',cost:'$1500'},
+            {id:'#3',name:'Front-end Engineer',salary:'$8000',cost:'$3000'}
+        ];
+        var table = new Y.DataTable({
+            columns : ["id","name","salary"],
+            data : data,
+            caption : "My first DataTable",
+            summary : "Example DataTable showing basic instantiation configuration"
+        });
+
+        table.render('#exmple');
+    })
+</script>
+</body>
+</html>

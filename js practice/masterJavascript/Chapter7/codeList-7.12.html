@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>确定当前页面高度和宽度的两个函数---ifan</title>
+<link rel="stylesheet" type="text/css" href="../css/i-base.css" />
+</head>
+<body>
+<div class="wrapper" style="height:1000px;">
+
+</div>
+<script src="../js/i-base.js"></script>
+<script>
+	//Returns the page's height (an increase when the content may change).
+	function pageHeight(){
+		return document.body.scrollHeight;
+	}
+	////Returns the page's height
+	function pageWidth(){
+		return document.body.scrollWidth;
+	}
+</script>
+<script>
+	addEvent(window,'load',function(){
+		alert(pageHeight()+':'+pageWidth())
+	});
+</script>
+</body>
+</html>

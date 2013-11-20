@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title></title>
+</head>
+<body>
+<script>
+    var MODULE = (function(){
+        var my = {},
+                privateVariable = 1;
+
+        function privateMethod(){
+
+        }
+
+        my.moduleProperty = 1;
+        my.moduleMethod = function(){
+
+        };
+
+        return my;
+    }());
+
+    //console.log(privateVariable);  //undefined
+    //console.log(my.moduleProperty); //undefined
+    console.log(MODULE.moduleProperty); //1
+</script>
+</body>
+</html>
