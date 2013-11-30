@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Hello world!</title>
+    <link rel="dns-prefetch" href="http://g.tbcdn.cn/">
+</head>
+<body>
+<button class="continue">continue...</button>
+<button class="continue">continue...</button>
+<br>
+<button id="click-me">click me!</button>
+<p id="banner-msg" style="display:none">点击click-me按钮，现在我的内容</p>
+<br>
+<button id="data-io">data io</button>
+<div id="weather-con"></div>
+
+<script src="http://g.tbcdn.cn/kissy/k/1.4.0/seed-min.js" data-config="{combine: true}"></script>
+<script>
+    KISSY.use('io, node', function(S, IO, Node){    
+        
+        //获取当前的全局配置
+        var combine = S.config('combine');
+        console.log(combine);
+        
+        console.log('Hello world!');
+        
+        //DOM操作：获取一个(or 所有)className叫continue的button，并将它的内容改为"Hello Kissy"。
+        Node.one('button.continue').html('hello kissy!');
+        //Node.all('button.continue').html('hello kissy!');
+        
+        //事件处理：点击一个id为click-me的button，显示#banner-msg的内容。
+        Node.one('#click-me').on('click', function(e){
+            Node.one('#banner-msg').show();
+        })
+        
+        //Ajax：请求一个io/demo1.html，将结果显示在#weather-con中
+        Node.one('#data-io').on('click', function(e){
+            IO({
+                url: 'io/demo1.html',
+                data: {
+                
+                },
+                success: function(data){
+                    Node.one('#weather-con').html(data);
+                }
+            })
+        })     
+    })
+</script>
+</body>
+</html>
