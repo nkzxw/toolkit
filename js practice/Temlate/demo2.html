@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+<body>
+<script type="text/html" id="item_tmpl">
+  <div id="<%=id%>" class="<%=(i % 2 == 1 ? " even" : "")%>">
+    <div class="grid_1 alpha right">
+      <img class="righted" src="<%=profile_image_url%>"/>
+    </div>
+    <div class="grid_6 omega contents">
+      <p><b><a href="/<%=from_user%>"><%=from_user%></a>:</b> <%=text%></p>
+    </div>
+  </div>
+</script>
+<div id="result1"></div>
+
+<script src="template2.js"></script> 
+<script>
+var dataObject = {
+    {id: '1', profile_image_url: 'http://www.baidu.com/', form_user: 'ifany', text: '哈哈大笑'},
+    {id: '2', profile_image_url: 'http://www.google.com/', form_user: 'jeperc', text: '哈哈哈'}
+}
+document.getElementById('result1').innerHTML = tmpl(item_tmpl, dataObject);  
+</script>
+</body>
+</html>

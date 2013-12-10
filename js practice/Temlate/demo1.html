@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+<body>
+<div id="result1"></div>
+<hr>
+<div id="result2"></div>
+<hr>
+<div id="result3"></div>
+<script src="template1.js"></script>
+<script>
+var template1 = '<p>Hello, my name is <b><%this.name%></b>. I\'m <b><%this.age%></b> years old.</p>';
+
+var template2 = '<p>Hello, my name is <b><%this.name%></b>. I\'m <b><%this.profile.age%></b> years old.</p>';
+
+var template3 = 
+'My skills:<ul>' + 
+'<%if(this.showSkills) {%>' +
+    '<%for(var index in this.skills) {%>' + 
+    '<li><a href="#"><%this.skills[index]%></a></li>' +
+    '<%}%>' +
+'<%} else {%>' +
+    '<p>none</p>' +
+'<%}%>' + '</ul>';
+
+document.getElementById('result1').innerHTML = TemplateEngine(template1, {name: "Krasimir",age: 29});
+document.getElementById('result2').innerHTML = TemplateEngine(template2, {name: "Krasimir Tsonev", profile: { age: 29 }});
+document.getElementById('result3').innerHTML = TemplateEngine(template3, {skills: ['js', 'html', 'csss'], showSkills: true});
+</script>  
+</body>
+</html>
