@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>获取浏览器可视区域的width和height</title>
+    <style>
+        *{margin:0;padding:0}
+        .inner{margin-left:auto;margin-right:auto;width:1000px}
+    </style>
+</head>
+<body>
+<div class="inner">
+    当前浏览器的可视width为：<b id="width"></b><br>
+    当前浏览器的可视width为：<b id="height"></b>
+</div>
+<script>
+//获取容器的可视区域的width、height
+getViewportSize = function() {
+    var width = (window.innerWidth) ? window.innerWidth : (document.documentElement && document.documentElement.clientWidth) ? document.documentElement.clientWidth : document.body.offsetWidth;
+    var height = (window.innerHeight) ? window.innerHeight : (document.documentElement && document.documentElement.clientHeight) ? document.documentElement.clientHeight : document.body.offsetHeight;
+
+    return {
+        width: width,
+        height: height
+    };
+}
+
+var viewportSize = getViewportSize();
+document.getElementById('width').innerHTML = viewportSize.width;
+document.getElementById('height').innerHTML = viewportSize.height;
+</script>
+</body>
+</html>
