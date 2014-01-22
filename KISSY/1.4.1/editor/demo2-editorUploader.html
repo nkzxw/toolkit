@@ -1,0 +1,61 @@
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Demo - editor 的基本使用</title>
+    <link href="../assets/css/dpl/base-min.css" rel="stylesheet"/>
+    <link href="../assets/editor/theme/cool/editor-min.css" rel="stylesheet"/>
+    <style>
+        .grid-inner{width:1000px;margin:20px auto}
+    </style>
+    <!-- use seed-min in production-->
+    <script src="../assets/seed.js"></script>
+</head>
+<body>
+<div class="grid-inner">
+    <div id="ks-editor-textarea"></div>
+</div>
+
+<script>
+KISSY.use("editor", function (S, Editor) {
+    var cfg = {
+        // 是否初始聚焦
+        focused:true,
+        attachForm:true,
+        render:'#ks-editor-textarea',
+        width:'80%',
+        height:"400px"
+    };
+    KISSY.use("editor/plugin/source-area," +
+            "editor/plugin/font-size," +
+            "editor/plugin/code,"+
+            "gallery/editorUploader/1.4/index", function (S, SourceArea, FontSize,Code,EditorUploader) {
+        //初始化上传插件
+        var editorUploader = new EditorUploader({
+            prefix:'demo-',
+            multiple:true,
+            autoUpload:false,
+            auth:{
+                //最多上传个数
+                max:15,
+                //图片最大允许大小
+                maxSize:1024
+            },
+            listeners:{
+                add:function(ev){
+                    S.log(ev.file);
+                }
+            }
+        });
+        cfg.plugins = [SourceArea, FontSize,Code,editorUploader];
+
+        new Editor(cfg).render();
+    });
+
+});
+</script>
+
+</body>
+</html>
+

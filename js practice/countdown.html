@@ -5,7 +5,7 @@
     <title>原生js倒计时</title>
 </head>
 <body>
-<span id="countdown" data-time="1359561600000">&nbsp;</span>
+<span id="countdown" data-time="9359561600000">&nbsp;</span>
 <br/>
 <span id="countdown2" data-time="1362758400000">&nbsp;</span> 
 <script type="text/javascript">
@@ -38,7 +38,7 @@ targetTimeMsg += (distanceTime.getDate()) + "日";
         M = M.toString().length === 1 ? '0' + M : M;
         S = S.toString().length === 1 ? '0' + S : S;
 
-        var html = '今天距离<strong>' + targetTimeMsg + '</strong>还有<strong>' + D + '</strong>天<strong>' + H + '</strong>时<strong>' + M + '</strong>分<strong>' + S + '.' + MS + '</strong>秒';
+        var html = '今天距离<>' + targetTimeMsg + '</b>还有<b>' + D + '</b>天<b>' + H + '</b>时<b>' + M + '</b>分<b>' + S + '.' + MS + '</b>秒';
 
         ele.innerHTML = html;
         //restTime = null;
