@@ -14,7 +14,7 @@
 </head>
 <body>
 <div class="grid-inner">
-    <textarea id="ks-editor-textarea" style="width:600px;height: 400px;">我有初始值！</textarea>
+    <textarea id="ks-editor-textarea" style="width:600px;height: 400px;"></textarea>
 </div>
 
 <script>
@@ -24,11 +24,12 @@ KISSY.use("editor", function (S, Editor) {
         fromTextarea:'#ks-editor-textarea',
         focused: true,
         attachForm: true,
-        baseZIndex: 10000
+        data: '<span style="color:green">我是默认文本</span>',
+        baseZIndex: 10000,
         // 自定义样式
-        // customStyle:"p{line-height: 1.4;margin: 1.12em 0;padding: 0;}",
+         customStyle:"p{line-height: 1.4;margin: 1.12em 0;padding: 0;font-size:24px}",
         // 自定义外部样式
-        // customLink:["http://localhost/customLink.css","http://xx.com/y2.css"],
+         customLink:["../assets/css/dpl/base-min.css"]
 
     };
 
@@ -150,14 +151,59 @@ KISSY.use("editor", function (S, Editor) {
             S.log("selectionChange : " + e.path.toString());
         });
 
+        //console.log(editor.getData());
+       // editor.setData('11');
+//        editor.focus();
+//        setTimeout(function(){
+//            editor.insertHtml('<span style="color:red">haha</span>');
+//        },50);
+//       console.log(editor.getDocHtml());
+editor.focus();
+setTimeout(function(){
+    editor.insertElement(new KISSY.Node('<strong style="color:red">haha</strong>'),
+    null,editor.get('document')[0]);
+},50);
+        editor.addButton("plugin2", {
+    content:'<div style="margin: 2px;border: 1px solid red;padding: 1px;">p2</div>',
+    listeners:{
+        click:function () {
+        editor.focus();
+        setTimeout(function(){
+            editor.insertHtml('<span style="color:red">haha</span>');
+        },50);
+        }
+    }
+}); 
+
+                
+                      editor.docReady(function(){
+                          console.log('docReady');
+                      });      
         window.newEditor = editor;
 
-//            editor.on('paste', function () {
-//                return 'x';
-//            });
+
+            editor.on('paste', function () {
+                return 'x';
+            });
+            
+            editor.on('wysiwygMode', function () {
+                alert('wysiwygMode');
+            });
+            
+            editor.on('sourceMode', function () {
+                alert('sourceMode');
+            });
+            
+            editor.on('dialogShow', function(){
+                alert('dialogShow');
+            });
+            
+            console.log(editor);
     });
 
 });
+
+
 </script>
 
 </body>
