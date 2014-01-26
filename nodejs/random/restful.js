@@ -45,7 +45,7 @@ http.createServer(function(request, response) {
 
    // When we create the server, we have to explicitly connect the HTTP server to
    // a port.  Standard HTTP port is 80, so we'll connect it to that one.
-}).listen(80);
+}).listen(1337, '127.0.0.1');
 
 // Output a String to the console once the server starts up, letting us know everything
 // starts up correctly
