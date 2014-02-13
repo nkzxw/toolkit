@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HTML5 Web Storage</title>
+</head>
+<body>
+<script>
+    if (typeof window.localStorage != 'undefined') {
+        //console.log(window.localStorage);
+
+        /*store*/
+        localStorage.setItem('hello', 'Hello World!');
+        //console.log(window.localStorage);
+
+        /*retrieve*/
+        alert(localStorage.getItem('hello'));
+
+        /*delete*/
+        localStorage.removeItem('hello');
+
+        /*retrieve*/
+        //console.log(localStorage.getItem('hello'));
+
+        //console.log(window.localStorage);
+    }
+</script>
+</body>
+</html>
