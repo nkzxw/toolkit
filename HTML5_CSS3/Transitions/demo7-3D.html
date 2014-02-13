@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>rotateY for 3D Transforms</title>
+    <style>
+        #transitions {
+            width: 100px;
+            height: 100px;
+            color: #fff;
+            background: green;
+            transform: rotateY(120deg);
+            -webkit-transform: rotateY(120deg); /* Safari and Chrome */
+        }
+    </style>
+</head>
+<body>
+<!--
+    Browser Support:
+    -- Internet Explorer 10 and Firefox.
+    -- Chrome and Safari requires the prefix -webkit-.
+    -- Opera does not yet support 3D transforms (It supports 2D transforms only).
+-->
+<div id="transitions"></div>
+</body>
+</html>

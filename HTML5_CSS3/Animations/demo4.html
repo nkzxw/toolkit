@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@keyframes rule and the animation</title>
+    <style>
+        #animate {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            color: #fff;
+            background: green;
+            animation: myfirst 5s linear 2s infinite alternate;
+            /* Safari and Chrome: */
+            -webkit-animation: myfirst 5s linear 2s infinite alternate;
+/*            animation-name: myfirst;
+            animation-duration: 5s;
+            animation-timing-function: linear;
+            animation-delay: 2s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            animation-play-state: running;
+            *//* Safari and Chrome: *//*
+            -webkit-animation-name: myfirst;
+            -webkit-animation-duration: 5s;
+            -webkit-animation-timing-function: linear;
+            -webkit-animation-delay: 2s;
+            -webkit-animation-iteration-count: infinite;
+            -webkit-animation-direction: alternate;
+            -webkit-animation-play-state: running;*/
+        }
+        @keyframes myfirst {
+            0% {background: green;left: 0;top: 0}
+            25% {background: blue;left: 200px;top: 0}
+            50% {background: yellow;left: 200px;top: 200px}
+            75% {background: red;left: 0;top: 200px}
+            100% {background: green;left: 0;top: 0}
+        }
+        @-webkit-keyframes myfirst {
+            0% {background: green;left: 0;top: 0}
+            25% {background: blue;left: 200px;top: 0}
+            50% {background: yellow;left: 200px;top: 200px}
+            75% {background: red;left: 0;top: 200px}
+            100% {background: green;left: 0;top: 0}
+        }
+    </style>
+</head>
+<body>
+<!--
+    Browser Support:
+    --Internet Explorer 10, Firefox, and Opera
+    --Chrome and Safari requires the prefix -webkit-.
+-->
+<div id="animate"></div>
+</body>
+</html>

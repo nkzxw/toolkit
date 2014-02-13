@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>skew for 2D Transforms</title>
+    <style>
+        #transitions {
+            width: 100px;
+            height: 100px;
+            color: #fff;
+            background: green;
+            transform: skew(30deg, 40deg);
+            -ms-transform: skew(30deg, 40deg); /* IE 9 */
+            -webkit-transform: skew(30deg, 40deg); /* Safari and Chrome */
+        }
+    </style>
+</head>
+<body>
+<!--
+    Browser Support:
+    -- Internet Explorer 10, Firefox, and Opera.
+    -- Chrome and Safari requires the prefix -webkit-.
+    -- Internet Explorer 9 requires the prefix -ms-.
+-->
+<div id="transitions"></div>
+</body>
+</html>

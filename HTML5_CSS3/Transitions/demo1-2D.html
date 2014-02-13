@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>rotate for 2D Transforms</title>
+    <style>
+        #transitions {
+            width: 100px;
+            height: 100px;
+            background: green;
+            transform: rotate(30deg);
+            -ms-transform: rotate(30deg); /* IE 9 */
+            -webkit-transform: rotate(30deg) /* Safari and Chrome */
+        }
+    </style>
+</head>
+<body>
+<!--
+    Browser Support:
+    -- Internet Explorer 10, Firefox, and Opera.
+    -- Chrome and Safari requires the prefix -webkit-.
+    -- Internet Explorer 9 requires the prefix -ms-.
+-->
+<div id="transitions"></div>
+</body>
+</html>

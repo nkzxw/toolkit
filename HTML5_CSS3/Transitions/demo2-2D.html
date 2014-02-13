@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>translate for 2D Transforms</title>
+    <style>
+        #transitions {
+            width: 100px;
+            height: 100px;
+            background: green;
+            transform: translate(100px, 200px);
+            -ms-transform: translate(100px, 200px); /* IE 9 */
+            -webkit-transform: translate(100px, 200px) /* Safari and Chrome */
+        }
+    </style>
+</head>
+<body>
+<!--
+    Browser Support:
+    -- Internet Explorer 10, Firefox, and Opera.
+    -- Chrome and Safari requires the prefix -webkit-.
+    -- Internet Explorer 9 requires the prefix -ms-.
+-->
+<div id="transitions"></div>
+</body>
+</html>

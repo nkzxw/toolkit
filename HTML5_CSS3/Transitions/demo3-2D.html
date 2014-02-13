@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>scale for 2D Transforms</title>
+    <style>
+        #transitions {
+            width: 100px;
+            height: 100px;
+            color: #fff;
+            background: green;
+            transform: scale(2, 4);
+            -ms-transform: scale(2, 4); /* IE 9 */
+            -webkit-transform: scale(2, 4) /* Safari and Chrome */
+        }
+    </style>
+</head>
+<body>
+<!--
+    Browser Support:
+    -- Internet Explorer 10, Firefox, and Opera.
+    -- Chrome and Safari requires the prefix -webkit-.
+    -- Internet Explorer 9 requires the prefix -ms-.
+-->
+<div id="transitions">scale for 2D Transforms</div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@keyframes rule and the animation</title>
+    <style>
+        #animate {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            color: #fff;
+            background: green;
+            animation: myfirst 5s;
+            -webkit-animation: myfirst 5s
+        }
+        @keyframes myfirst {
+            0% {background: green;left: 0;top: 0}
+            25% {background: blue;left: 200px;top: 0}
+            50% {background: yellow;left: 200px;top: 200px}
+            75% {background: red;left: 0;top: 200px}
+            100% {background: green;left: 0;top: 0}
+        }
+        @-webkit-keyframes myfirst {
+            0% {background: green;left: 0;top: 0}
+            25% {background: blue;left: 200px;top: 0}
+            50% {background: yellow;left: 200px;top: 200px}
+            75% {background: red;left: 0;top: 200px}
+            100% {background: green;left: 0;top: 0}
+        }
+    </style>
+</head>
+<body>
+<!--
+    Browser Support:
+    --Internet Explorer 10, Firefox, and Opera
+    --Chrome and Safari requires the prefix -webkit-.
+-->
+<div id="animate"></div>
+</body>
+</html>
