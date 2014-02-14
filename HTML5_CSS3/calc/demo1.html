@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS3 Calculating Values With calc()</title>
+    <style>
+        *{margin: 0;padding: 0}
+        #calc {
+            /* Calculate the width */
+            width: -webkit-calc(100% - 40px);
+            width: -moz-calc(100% - 40px);
+            width: calc(100% - 40px);
+
+            background-color:#CDEBC4;
+            color:#6D8B64;
+            text-align:center;
+            padding:25px 0;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+<!--
+    Browser Support:
+    --Internet Explorer 9+
+    --Chrome 19+ and Safari 6+ requires the prefix -webkit-.
+    --Firefox 4+ requires the prefix -moz-.
+    Note that the grammar requires spaces around binary ‘+’ and ‘-’ operators. The ‘*’ and ‘/’ operators do not require spaces.
+-->
+</body>
+<div id="calc">
+    <p>This div has 20px on either side.</p>
+</div>
+</html>

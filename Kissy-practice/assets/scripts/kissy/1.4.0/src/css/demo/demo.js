@@ -50,7 +50,7 @@ KISSY.use("menu", function (S, Menu) {
                                 children: [
                                     {
                                         content: 'fly-swing demo',
-                                        href: 'demo/dpl/fly-swing/demo.html'
+                                        href: 'demo/dpl/fly-swing/demo2.html'
                                     },
                                     {
                                         content: 'layout generator',
@@ -114,15 +114,15 @@ KISSY.use("menu", function (S, Menu) {
                     children: [
                         {
                             content: 'button',
-                            href: '../button/demo.html'
+                            href: '../button/demo2.html'
                         },
                         {
                             content: 'calendar',
-                            href: '../calendar/demo.html'
+                            href: '../calendar/demo2.html'
                         },
                         {
                             content: 'combobox',
-                            href: '../combobox/demo.html'
+                            href: '../combobox/demo2.html'
                         },
                         {
                             content: 'editor',
@@ -130,34 +130,34 @@ KISSY.use("menu", function (S, Menu) {
                         },
                         {
                             content: 'menu',
-                            href: '../menu/demo.html'
+                            href: '../menu/demo2.html'
                         },
                         {
                             content: 'menubutton',
-                            href: '../menubutton/demo.html'
+                            href: '../menubutton/demo2.html'
                         },
                         {
                             content: 'overlay',
-                            href: '../overlay/demo.html'
+                            href: '../overlay/demo2.html'
                         },
                         {
                             content: 'split-button',
-                            href: '../split-button/demo.html'
+                            href: '../split-button/demo2.html'
                         },
 
                         {
                             content: 'tabs',
-                            href: '../tabs/demo.html'
+                            href: '../tabs/demo2.html'
                         },
 
                         {
                             content: 'toolbar',
-                            href: '../toolbar/demo.html'
+                            href: '../toolbar/demo2.html'
                         },
 
                         {
                             content: 'tree',
-                            href: '../tree/demo.html'
+                            href: '../tree/demo2.html'
                         }
 
                     ]
