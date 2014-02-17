@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS3 Grandients with Multiple Color Stops</title>
+    <style>
+        #grad {
+            width: 700px;
+            height: 100px;
+
+            /*Multiple Color Stops*/
+/*            background: -webkit-linear-gradient(red, green, blue);
+            background: -o-linear-gradient(red, green, blue);
+            background: -moz-linear-greadient(red, green, blue);
+            background: linear-gradient(red, green, blue);*/
+
+            background: -webkit-linear-gradient(left, red, orange, yellow, green, blue, indigo, violet);
+            background: -o-linear-gradient(left, red, orange, yellow, green, blue, indigo, violet);
+            background: -moz-linear-greadient(left, red, orange, yellow, green, blue, indigo, violet);
+            background: linear-gradient(left, red, orange, yellow, green, blue, indigo, violet);
+        }
+    </style>
+</head>
+<body>
+<!--
+    Browser Support:
+    --Internet Explorer 10+, Firefox 16+, Chrome 26+, and Opera 12.1+
+    --Chrome 10 to 25 and Safari 5.1+ requires the prefix -webkit-.
+    --Firefox 3.6 to 15 require the prefix -moz-.
+    --Opera 11.1 to 12.0 require the prefix -o-.
+    --Internet Explorer 9 and earlier versions do not support gradients.
+-->
+<div id="grad"></div>
+</body>
+</html>

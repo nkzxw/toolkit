@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS3 Box Sizing</title>
+    <style>
+        div {
+            border:15px solid transparent;
+            width:250px;
+            padding:10px 20px;
+        }
+        #round {
+            -webkit-border-image: url(border.png) 30 30 round;
+            -o-border-image: url(border.png) 30 30 round;
+            border-image: url(border.png) 30 30 round;
+        }
+        #stretch {
+            -webkit-border-image: url(border.png) 30 30 stretch;
+            -o-border-image: url(border.png) 30 30 stretch;
+            border-image: url(border.png) 30 30 stretch;
+        }
+    </style>
+</head>
+<body>
+<!--
+    Browser Support:
+    -- Internet Explorer 11, Firefox, Chrome, and Safari 6.
+    -- Opera requires the prefix -o-.
+    -- Safari 5 requires the prefix -webkit-.
+-->
+
+<div id="round"></div>
+<div id="stretch"></div>
+<p>Here is the image used:</p>
+<img src="border.png" alt="">
+</body>
+</html>

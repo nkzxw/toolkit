@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS3 Radial Grandients with Size Keywords</title>
+    <style>
+        #grad1, #grad2, #grad3, #grad4 {width: 200px;height: 200px}
+        #grad1 {
+            background: -webkit-radial-gradient(60% 55%, closest-side, red, green, blue, black);
+            background: -o-radial-gradient(60% 55%, closest-side, red, green, blue, black);
+            background: -moz-radial-greadient(60% 55%, closest-side, red, green, blue, black);
+            background: radial-gradient(60% 55%, closest-side, red, green, blue, black);
+        }
+
+        #grad2 {
+            background: -webkit-radial-gradient(60% 55%, farthest-side, red, green, blue, black);
+            background: -o-radial-gradient(60% 55%, farthest-side, red, green, blue, black);
+            background: -moz-radial-greadient(60% 55%, farthest-side, red, green, blue, black);
+            background: radial-gradient(60% 55%, farthest-side, red, green, blue, black);
+        }
+
+        #grad3 {
+            background: -webkit-radial-gradient(60% 55%, closest-corner, red, green, blue, black);
+            background: -o-radial-gradient(60% 55%, closest-corner, red, green, blue, black);
+            background: -moz-radial-greadient(60% 55%, closest-corner, red, green, blue, black);
+            background: radial-gradient(60% 55%, closest-corner, red, green, blue, black);
+        }
+
+        #grad4 {
+            background: -webkit-radial-gradient(60% 55%, farthest-corner, red, green, blue, black);
+            background: -o-radial-gradient(60% 55%, farthest-corner, red, green, blue, black);
+            background: -moz-radial-greadient(60% 55%, farthest-corner, red, green, blue, black);
+            background: radial-gradient(60% 55%, farthest-corner, red, green, blue, black);
+        }
+    </style>
+</head>
+<body>
+<!--
+    Browser Support:
+    --Internet Explorer 10+, Firefox 16+, Chrome 26+, and Opera 12.1+
+    --Chrome 10 to 25 and Safari 5.1+ requires the prefix -webkit-.
+    --Firefox 3.6 to 15 require the prefix -moz-.
+    --Opera 11.1 to 12.0 require the prefix -o-.
+    --Internet Explorer 9 and earlier versions do not support gradients.
+-->
+<h3>Radial Gradients - Use of different size keywords</h3>
+
+<p><strong>closest-side:</strong></p>
+<div id="grad1"></div>
+
+<p><strong>farthest-side:</strong></p>
+<div id="grad2"></div>
+
+<p><strong>closest-corner:</strong></p>
+<div id="grad3"></div>
+
+<p><strong>farthest-corner (this is default):</strong></p>
+<div id="grad4"></div>
+</body>
+</html>

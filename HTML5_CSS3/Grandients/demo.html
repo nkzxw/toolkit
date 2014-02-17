@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS3 Grandients</title>
+    <style>
+        .container{
+            text-align:center;
+            padding:20px 0;
+            width:450px;
+            margin: 0 auto;
+        }
+
+        .container div{
+            width:100px;
+            height:100px;
+            display:inline-block;
+            margin:2px;
+
+            box-shadow: 0 0 1px rgba(0, 0, 0, 0.5) inset, 0 1px 1px #DDD;
+            border-radius:2px;
+
+            color:#666;
+            vertical-align: top;
+            line-height: 230px;
+            font-size: 12px;
+        }
+
+        #el1 {
+            background: -webkit-linear-gradient(to bottom, #8dd2d9 , #58c0c7);
+            background: -o-linear-gradient(to bottom, #8dd2d9 , #58c0c7);
+            background: -moz-linear-gradient(to bottom, #8dd2d9 , #58c0c7);
+            background: linear-gradient(to bottom, #8dd2d9 , #58c0c7);
+        }
+        #el2 {
+            background: -webkit-radial-gradient(#8dd2d9 , #58c0c7);
+            background: -o-radial-gradient(#8dd2d9 , #58c0c7);
+            background: -moz-radial-gradient(#8dd2d9 , #58c0c7);
+            background: linear-gradient(#8dd2d9 , #58c0c7);
+        }
+        #el3 {
+            background: -webkit-repeating-linear-gradient(-45deg, #de9dd4, #de9dd4 5px, white 5px, white 10px);
+            background: -o-repeating-linear-gradient(-45deg, #de9dd4, #de9dd4 5px, white 5px, white 10px);
+            background: -moz-repeating-linear-gradient(-45deg, #de9dd4, #de9dd4 5px, white 5px, white 10px);
+            background: repeating-linear-gradient(-45deg, #de9dd4, #de9dd4 5px, white 5px, white 10px);
+        }
+        #el4 {
+            background: -webkit-repeating-radial-gradient(#b8e7bf, #b8e7bf 5px, white 5px, white 10px);
+            background: -o-repeating-radial-gradient(#b8e7bf, #b8e7bf 5px, white 5px, white 10px);
+            background: -moz-repeating-radial-gradient(#b8e7bf, #b8e7bf 5px, white 5px, white 10px);
+            background: repeating-radial-gradient(#b8e7bf, #b8e7bf 5px, white 5px, white 10px);
+        }
+    </style>
+</head>
+<body>
+<!--
+    Browser Support:
+    --Internet Explorer 10+, Firefox 16+, Chrome 26+, and Opera 12.1+
+    --Chrome 10 to 25 and Safari 5.1+ requires the prefix -webkit-.
+    --Firefox 3.6 to 15 require the prefix -moz-.
+    --Opera 11.1 to 12.0 require the prefix -o-.
+    --Internet Explorer 9 and earlier versions do not support gradients.
+-->
+<div class="container">
+    <div id="el1">Linear</div>
+    <div id="el2">Radial</div>
+    <div id="el3">Repeating Lin.</div>
+    <div id="el4">Repeating Rad.</div>
+</div>
+</body>
+</html>

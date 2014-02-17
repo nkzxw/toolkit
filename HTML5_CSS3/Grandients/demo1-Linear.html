@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS3 Linear Grandients</title>
+    <style>
+        #grad {
+            width: 100px;
+            height: 100px;
+
+            /*Top to Bottom (this is default)*/
+
+/*            background: -webkit-linear-gradient(red, blue);
+            background: -o-linear-gradient(red, blue);
+            background: -moz-linear-greadient(red, blue);
+            background: linear-gradient(red, blue);*/
+
+            /*Left to Right*/
+/*            background: -webkit-linear-gradient(left, red, blue);
+            background: -o-linear-gradient(left, red, blue);
+            background: -moz-linear-greadient(left, red, blue);
+            background: linear-gradient(left, red, blue);*/
+
+            /*Diagonal*/
+            background: -webkit-linear-gradient(left top, red, blue);
+            background: -o-linear-gradient(left top, red, blue);
+            background: -moz-linear-greadient(left top, red, blue);
+            background: linear-gradient(left top, red, blue);
+        }
+    </style>
+</head>
+<body>
+<!--
+    Browser Support:
+    --Internet Explorer 10+, Firefox 16+, Chrome 26+, and Opera 12.1+
+    --Chrome 10 to 25 and Safari 5.1+ requires the prefix -webkit-.
+    --Firefox 3.6 to 15 require the prefix -moz-.
+    --Opera 11.1 to 12.0 require the prefix -o-.
+    --Internet Explorer 9 and earlier versions do not support gradients.
+-->
+<div id="grad"></div>
+</body>
+</html>
