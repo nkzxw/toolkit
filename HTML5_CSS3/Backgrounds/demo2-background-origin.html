@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS3 Backgrounds with background-origin</title>
+    <style>
+        div
+        {
+            border:1px solid black;
+            padding:35px;
+            background-image:url('smiley.gif');
+            background-repeat:no-repeat;
+            background-position:left;
+        }
+
+        #div1 {
+            background-origin: content-box;
+        }
+
+        #div2 {
+            background-origin: border-box;
+        }
+    </style>
+</head>
+<body>
+<!--
+    Browser Support:
+    -- Internet Explorer 9+,Chrome, Safari, Firefox, and Opera.
+-->
+<p>background-origin:border-box:</p>
+<div id="div1">
+    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+</div>
+
+<p>background-origin:content-box:</p>
+<div id="div2">
+    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+</div>
+</body>
+</html>
