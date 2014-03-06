@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>1. Using a function</title>
+</head>
+<body>
+<script>
+    function Apple(type) {
+        this.type = type;
+        this.color = 'gray';
+    }
+
+    Apple.prototype.getInfo = function () {
+        return this.color + ' ' + this.type + ' apple';
+    };
+
+    var apple = new Apple('macbook');
+    apple.color = 'silver';
+    console.log(apple.getInfo());
+</script>
+</body>
+</html>

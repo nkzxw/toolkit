@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>2. Using object literals</title>
+</head>
+<body>
+<script>
+    var Apple = {
+        type: 'Macbook',
+        color: 'Silver',
+        getInfo: function () {
+            return this.type + ' ' + this.color + ' Apple';
+        }
+    }
+
+    console.log(Apple.getInfo());
+</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var apple = new function () {
+        this.type = 'macbook';
+        this.color = 'silver';
+        this.getInfo = function () {
+            return this.type + ' ' + this.color + ' Apple';
+        };
+    };
+
+    apple.color = 'black';
+    console.log(apple.getInfo());
+</script>
+</body>
+</html>
