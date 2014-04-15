@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Using Objects to Organize Your Code</title>
+</head>
+<body>
+<h1>This is My Nifty Feature</h1>
+
+<div id="myFeature">
+    <ul class="sections">
+        <li>
+            <h2><a href="javascript:">Section 1</a></h2>
+
+        </li>
+
+        <li>
+            <h2><a href="javascript:">Section 2</a></h2>
+
+        </li>
+
+        <li>
+            <h2><a href="javascript:">Section 3</a></h2>
+
+        </li>
+
+    </ul>
+</div>
+
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+/*    $(function(){
+        $('#myFeature li')
+                .append('<div></div>')
+                .each(function(){
+                    $(this)
+                            .find('div')
+                            .load('ajax.html')
+                })
+                .click(function(){
+                    $(this).find('div').show();
+                    $(this).siblings().find('div').hide();
+                })
+    })*/
+
+    var myFeature = {
+        config : {
+            wrapper : '#myFeature',
+            container : 'div',
+            urlBase : 'ajax.html'
+        },
+
+        init : function(config) {
+            $.extend(myFeature.config, config);
+            $(myFeature.config.wrapper).find('li').
+                    each(function() {
+                        myFeature.getContent($(this));
+                    }).
+                    click(function() {
+                        myFeature.showContent($(this));
+                    });
+        },
+
+        buildUrl : function() {
+            return myFeature.config.urlBase;
+        },
+
+        getContent : function($li) {
+            $li.append(myFeature.config.container);
+            var url = myFeature.buildUrl($li);
+            $li.find(myFeature.config.container).load(url);
+        },
+
+        showContent : function($li) {
+            $li.find('div').show();
+            myFeature.hideContent($li.siblings());
+        },
+
+        hideContent : function($elements) {
+            $elements.find('div').hide();
+        }
+    };
+
+    $(function(){
+        myFeature.init;
+    })
+</script>
+</body>
+</html>

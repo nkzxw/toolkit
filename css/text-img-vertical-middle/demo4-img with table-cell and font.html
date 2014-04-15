@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>img display vertical middle with transparent gif and background-position</title>
+    <style>
+        .clearfix {*zoom: 1}
+        .clearfix:before, .clearfix:after {display: table;content: ""}
+        .clearfix:after {clear: both}
+        .img-vertical-box li {
+            float: left;margin-right: 12px;list-style: none;
+        }
+        .img-vertical-box li div{
+            display: table-cell;
+            width: 144px;
+            height: 144px;
+            *font-size: 128px;
+            text-align: center;
+            vertical-align: middle;
+            border: 1px solid #beceeb;
+        }
+        .img-vertical-box li img {
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+<ul class="img-vertical-box clearfix">
+    <li>
+        <div><img src="http://image.zhangxinxu.com/image/study/s/s128/mm1.jpg" /></div>
+    </li>
+    <li>
+        <div><img src="http://image.zhangxinxu.com/image/study/s/s128/mm2.jpg" /></div>
+    </li>
+    <li>
+        <div><img src="http://image.zhangxinxu.com/image/study/s/s128/mm3.jpg" /></div>
+    </li>
+    <li>
+        <div><img src="http://image.zhangxinxu.com/image/study/s/s128/mm4.jpg" /></div>
+    </li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>img display vertical middle with transparent gif and background-position</title>
+    <style>
+        .clearfix {*zoom: 1}
+        .clearfix:before, .clearfix:after {display: table;content: ""}
+        .clearfix:after {clear: both}
+        .img-vertical-box li {
+            width:144px; height:144px; padding:0.1em; margin:0 0.1em 0 0; *font-size:128px; float:left; border:1px solid #beceeb;list-style: none;
+        }
+        .img-vertical-box li img {
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    </style>
+</head>
+<body>
+    <ul class="img-vertical-box clearfix">
+        <li>
+            <img src="pixel.gif" style="background-image:url(http://image.zhangxinxu.com/image/study/s/s128/mm1.jpg);" />
+        </li>
+        <li>
+            <img src="pixel.gif" style="background-image:url(http://image.zhangxinxu.com/image/study/s/s128/mm2.jpg);" />
+        </li>
+        <li>
+            <img src="pixel.gif" style="background-image:url(http://image.zhangxinxu.com/image/study/s/s128/mm3.jpg);" />
+        </li>
+        <li>
+            <img src="pixel.gif" style="background-image:url(http://image.zhangxinxu.com/image/study/s/s128/mm4.jpg);" />
+        </li>
+    </ul>
+</body>
+</html>

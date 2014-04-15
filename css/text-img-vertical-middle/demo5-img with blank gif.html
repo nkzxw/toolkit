@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>img display vertical middle with transparent gif and background-position</title>
+    <style>
+        .clearfix {*zoom: 1}
+        .clearfix:before, .clearfix:after {display: table;content: ""}
+        .clearfix:after {clear: both}
+        .img-vertical-box li {
+            float:left;margin-right:10px;padding:13px 0;height:128px; width:150px; text-align:center; font-size:0; border:1px solid #beceeb;
+        }
+        .img-vertical-box li .alpha_img{
+            height: 100%;
+            width: 1px;
+            vertical-align: middle;
+        }
+        .img-vertical-box li .show-img {
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+<ul class="img-vertical-box clearfix">
+    <li>
+        <img class="show-img" src="http://image.zhangxinxu.com/image/study/s/s128/mm1.jpg" />
+        <img class="alpha_img" src="pixel.gif" />
+    </li>
+    <li>
+        <img class="show-img" src="http://image.zhangxinxu.com/image/study/s/s128/mm2.jpg" />
+        <img class="alpha_img" src="pixel.gif" />
+    </li>
+    <li>
+        <img class="show-img" src="http://image.zhangxinxu.com/image/study/s/s128/mm3.jpg" />
+        <img class="alpha_img" src="pixel.gif" />
+    </li>
+    <li>
+        <img class="show-img" src="http://image.zhangxinxu.com/image/study/s/s128/mm4.jpg" />
+        <img class="alpha_img" src="pixel.gif" />
+    </li>
+</ul>
+</body>
+</html>
