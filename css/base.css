@@ -19,6 +19,11 @@ address, caption, cite, code, dfn, em, i, strong, th {font-style: normal;font-we
 button, label, input[type="submit"], input[type="button"], input[type="radio"], input[type="checkbox"], input[type="file"]{ cursor:pointer}
 button{ border:none; padding:0}
 button img{ display:block}
+textarea{
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box;         /* Opera/IE 8+ */
+}
 .clearfix {*zoom: 1}
 .clearfix:before, .clearfix:after {display: table;content: ""}
 .clearfix:after {clear: both}
