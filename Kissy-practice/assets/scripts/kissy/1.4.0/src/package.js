@@ -362,7 +362,7 @@ if (!loc.getQuery().has('build')) {
             "ignorePackageNameInUri": 1
         },
         "editor/plugin/local-storage": {
-            "base": "/kissy/src/editor/sub-modules/plugin/local-storage/src/local-storage",
+            "base": "/kissy/src/editor/sub-modules/plugin/local-Offline Storage/src/local-Offline Storage",
             "ignorePackageNameInUri": 1
         },
         "editor/plugin/maximize": {

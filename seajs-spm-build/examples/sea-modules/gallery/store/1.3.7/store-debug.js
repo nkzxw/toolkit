@@ -33,7 +33,7 @@ define("gallery/store/1.3.7/store-debug", [], function(require, exports, module)
             }
         };
         // Functions to encapsulate questionable FireFox 3.6.13 behavior
-        // when about.config::dom.storage.enabled === false
+        // when about.config::dom.Offline Storage.enabled === false
         // See https://github.com/marcuswestin/store.js/issues#issue/13
         function isLocalStorageNameSupported() {
             try {
@@ -70,7 +70,7 @@ define("gallery/store/1.3.7/store-debug", [], function(require, exports, module)
             };
         } else if (doc.documentElement.addBehavior) {
             var storageOwner, storageContainer;
-            // Since #userData storage applies only to specific paths, we need to
+            // Since #userData Offline Storage applies only to specific paths, we need to
             // somehow link our data to a specific path.  We choose /favicon.ico
             // as a pretty safe option, since all browsers already make a request to
             // this URL anyway and being a 404 will not hurt us here.  We wrap an
@@ -79,7 +79,7 @@ define("gallery/store/1.3.7/store-debug", [], function(require, exports, module)
             // since the iframe access rules appear to allow direct access and
             // manipulation of the document element, even for a 404 page.  This
             // document can be used instead of the current document (which would
-            // have been limited to the current path) to perform #userData storage.
+            // have been limited to the current path) to perform #userData Offline Storage.
             try {
                 storageContainer = new ActiveXObject("htmlfile");
                 storageContainer.open();
@@ -89,7 +89,7 @@ define("gallery/store/1.3.7/store-debug", [], function(require, exports, module)
                 storage = storageOwner.createElement("div");
             } catch (e) {
                 // somehow ActiveXObject instantiation failed (perhaps some special
-                // security settings or otherwse), fall back to per-path storage
+                // security settings or otherwse), fall back to per-path Offline Storage
                 storage = doc.createElement("div");
                 storageOwner = doc.body;
             }

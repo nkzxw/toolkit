@@ -263,7 +263,7 @@ define("examples/todo/1.0.0/vendor/backbone.localStorage-debug", [ "underscore-d
         find: function(model) {
             return this.jsonData(this.localStorage().getItem(this.name + "-" + model.id));
         },
-        // Return the array of all models currently in storage.
+        // Return the array of all models currently in Offline Storage.
         findAll: function() {
             return _(this.records).chain().map(function(id) {
                 return this.jsonData(this.localStorage().getItem(this.name + "-" + id));

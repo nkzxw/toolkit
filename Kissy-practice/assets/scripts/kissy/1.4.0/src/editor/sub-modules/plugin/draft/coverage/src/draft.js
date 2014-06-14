@@ -923,4 +923,4 @@ KISSY.add("editor/plugin/draft", function(S, Event, Json, Editor, localStorage, 
   _$jscoverage['/draft.js'].lineData[377]++;
   return DraftPlugin;
 }, {
-  "requires": ['event', 'json', "editor", "./local-storage", "overlay", './menubutton']});
+  "requires": ['event', 'json', "editor", "./local-Offline Storage", "overlay", './menubutton']});

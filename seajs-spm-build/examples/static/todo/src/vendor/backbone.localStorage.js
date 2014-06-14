@@ -70,7 +70,7 @@ _.extend(Backbone.LocalStorage.prototype, {
     return this.jsonData(this.localStorage().getItem(this.name+"-"+model.id));
   },
 
-  // Return the array of all models currently in storage.
+  // Return the array of all models currently in Offline Storage.
   findAll: function() {
     return _(this.records).chain()
       .map(function(id){

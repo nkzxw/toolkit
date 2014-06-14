@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="uft-8">
+    <title>jQuery.proxy</title>
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+<!--Change the context of functions bound to a click handler using the "function, context" signature. Unbind the first handler after first click.-->
+<p><button type="button" id="test">Test</button></p>
+<div id="log"></div>
+
+<script>
+    var me = {
+        type: 'zombie',
+        test: function(event){
+            var element = event.target;
+            $(element).css('background', 'red');
+            
+            $('#log').append('Hello ' + this.type + '<br>');
+            $('#test').off('click', this.test);
+        }
+    };
+    
+    var you = {
+        type: 'person',
+        test: function(event){
+            $('#log').append(this.type + '<br>');
+        }
+    };
+    
+    var youClick = $.proxy(you.test, you);
+    
+    $('#test')
+        .on('click', $.proxy(me.test, me))
+        .on('click', youClick)
+        .on('click', $.proxy(you.test, me))
+        .on('click', you.test);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+<body>
+<script>
+    console.log(navigator.onLine)
+
+    if(typeof Storage !== 'undefined'){
+        console.log(localStorage);
+
+        localStorage.setItem(name, 'Ifany');
+        localStorage.career = 'Front-end Engineer';
+        console.log(localStorage);
+        console.log(localStorage.getItem(name));
+
+        localStorage.removeItem(name);
+        console.log(localStorage);
+
+        localStorage.clear();
+        console.log(localStorage);
+
+        var myArray = ['name','age','career'];
+        localStorage.formData = JSON.stringify(myArray);
+        console.log(localStorage);
+        console.log(localStorage.formData);
+        console.log(typeof localStorage.formData);
+        console.log(typeof JSON.parse(localStorage.getItem('myArray')));
+    }else{
+        alert('this browser do not support for HTML5 Web Storage!');
+    }
+</script>
+</body>
+</html>

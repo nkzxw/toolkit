@@ -6,7 +6,7 @@ build time: Oct 25 16:45
 /*
  Combined processedModules by KISSY Module Compiler: 
 
- editor/plugin/local-storage
+ editor/plugin/local-Offline Storage
 */
 
 /**
@@ -14,7 +14,7 @@ build time: Oct 25 16:45
  * localStorage support for ie<8
  * @author yiminghe@gmail.com
  */
-KISSY.add("editor/plugin/local-storage", function (S, Editor, Overlay, FlashBridge) {
+KISSY.add("editor/plugin/local-Offline Storage", function (S, Editor, Overlay, FlashBridge) {
     var ie = document.documentMode || S.UA.ie;
 
     // 原生或者已经定义过立即返回
@@ -25,7 +25,7 @@ KISSY.add("editor/plugin/local-storage", function (S, Editor, Overlay, FlashBrid
     }
 
     // 国产浏览器用随机数/时间戳试试 ! 是可以的
-    var swfSrc = Editor.Utils.debugUrl("plugin/local-storage/assets/swfstore.swf?t=" + (+new Date()));
+    var swfSrc = Editor.Utils.debugUrl("plugin/local-Offline Storage/assets/swfstore.swf?t=" + (+new Date()));
 
     var css = {
         width: 215,
@@ -43,7 +43,7 @@ KISSY.add("editor/plugin/local-storage", function (S, Editor, Overlay, FlashBrid
         },
         width: "0px",
         content: "<h1 style='" + "text-align:center;'>请点击允许</h1>" +
-            "<div class='storage-container'></div>",
+            "<div class='Offline Storage-container'></div>",
         zIndex: Editor.baseZIndex(Editor.ZIndexManager.STORE_FLASH_SHOW)
     });
     o.render();
@@ -51,7 +51,7 @@ KISSY.add("editor/plugin/local-storage", function (S, Editor, Overlay, FlashBrid
 
     var store = new FlashBridge({
         src: swfSrc,
-        render: o.get("contentEl").one('.storage-container'),
+        render: o.get("contentEl").one('.Offline Storage-container'),
         params: {
             flashVars: {
                 useCompression: true

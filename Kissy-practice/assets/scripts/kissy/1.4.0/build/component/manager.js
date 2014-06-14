@@ -11,7 +11,7 @@ build time: Sep 17 22:57
 
 /**
  * @ignore
- * storage for component
+ * Offline Storage for component
  * @author yiminghe@gmail.com
  */
 KISSY.add("component/manager", function (S) {

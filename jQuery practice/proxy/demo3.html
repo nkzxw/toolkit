@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="uft-8">
+    <title>jQuery.proxy</title>
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+<!--Change the context of a function bound to the click handler,-->
+<p><button type="button" id="test">Test</button></p>
+<div id="log"></div>
+
+<script>
+    var me = {
+        type: 'dog',
+        test: function(one, two, event){
+            $('#log')
+                .append('<h3>Hello ' + one.type + ':</h3>')
+                .append('I am a ' + this.type + ', ')
+                .append('and they are ' + two.type + '.<br>')
+                .append('Thanks for ' + event.type + 'ing.')
+                .append('the ' + event.target.type + '.');
+        }
+    };
+    
+    var you = {type: 'cat'};
+    var they = {type: 'fish'};
+    
+    var proxy = $.proxy(me.test, me, you, they);
+    
+    $('#test').on('click', proxy);
+</script>
+
+</body>
+</html>

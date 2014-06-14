@@ -403,7 +403,7 @@ KISSY.add('editor/plugin-meta', function() {
   _$jscoverage['/editor/plugin-meta.js'].lineData[69]++;
   config({
   'editor/plugin/draft': {
-  requires: ['event', 'json', 'editor', 'editor/plugin/local-storage', 'overlay', 'editor/plugin/menubutton']}});
+  requires: ['event', 'json', 'editor', 'editor/plugin/local-Offline Storage', 'overlay', 'editor/plugin/menubutton']}});
   _$jscoverage['/editor/plugin-meta.js'].lineData[73]++;
   config({
   'editor/plugin/drag-upload': {

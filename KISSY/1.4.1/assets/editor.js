@@ -3212,7 +3212,7 @@ KISSY.add("editor/plugin-meta", [], function() {
     config({"editor/plugin/dent-cmd":{requires:["editor", "editor/plugin/list-utils"]}});
     config({"editor/plugin/dialog-loader":{requires:["editor", "overlay"]}});
     config({"editor/plugin/dialog":{requires:["editor", "overlay", "editor/plugin/focus-fix", "dd/plugin/constrain", "component/plugin/drag"]}});
-    config({"editor/plugin/draft":{requires:["editor", "json", "event", "editor/plugin/local-storage", "overlay", "editor/plugin/menubutton"]}});
+    config({"editor/plugin/draft":{requires:["editor", "json", "event", "editor/plugin/local-Offline Storage", "overlay", "editor/plugin/menubutton"]}});
     config({"editor/plugin/drag-upload":{requires:["editor", "event"]}});
     config({"editor/plugin/element-path":{requires:["editor"]}});
     config({"editor/plugin/fake-objects":{requires:["editor", "html-parser"]}});

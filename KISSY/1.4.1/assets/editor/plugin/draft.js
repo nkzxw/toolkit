@@ -9,7 +9,7 @@ build time: Dec 4 22:08
  editor/plugin/draft
 */
 
-KISSY.add("editor/plugin/draft", ["editor", "json", "event", "./local-storage", "overlay", "./menubutton"], function(S, require) {
+KISSY.add("editor/plugin/draft", ["editor", "json", "event", "./local-Offline Storage", "overlay", "./menubutton"], function(S, require) {
   var Editor = require("editor");
   var Json = require("json");
   var Event = require("event");

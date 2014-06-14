@@ -6,10 +6,10 @@ build time: Dec 4 22:12
 /*
  Combined processedModules by KISSY Module Compiler: 
 
- editor/plugin/local-storage
+ editor/plugin/local-Offline Storage
 */
 
-KISSY.add("editor/plugin/local-storage", ["editor", "overlay", "./flash-bridge"], function(S, require) {
+KISSY.add("editor/plugin/local-Offline Storage", ["editor", "overlay", "./flash-bridge"], function(S, require) {
   var Editor = require("editor");
   var Overlay = require("overlay");
   var FlashBridge = require("./flash-bridge");
@@ -17,12 +17,12 @@ KISSY.add("editor/plugin/local-storage", ["editor", "overlay", "./flash-bridge"]
   if((!ie || ie > 8) && window.localStorage) {
     return window.localStorage
   }
-  var swfSrc = Editor.Utils.debugUrl("plugin/local-storage/assets/swfstore.swf?t=" + +new Date);
+  var swfSrc = Editor.Utils.debugUrl("plugin/local-Offline Storage/assets/swfstore.swf?t=" + +new Date);
   var css = {width:215, border:"1px solid red"}, reverseCss = {width:0, border:"none"};
-  var o = new Overlay({prefixCls:"ks-editor-", elStyle:{background:"white"}, width:"0px", content:'<h1 style="' + 'text-align:center;">\u8bf7\u70b9\u51fb\u5141\u8bb8</h1>' + '<div class="storage-container"></div>', zIndex:Editor.baseZIndex(Editor.ZIndexManager.STORE_FLASH_SHOW)});
+  var o = new Overlay({prefixCls:"ks-editor-", elStyle:{background:"white"}, width:"0px", content:'<h1 style="' + 'text-align:center;">\u8bf7\u70b9\u51fb\u5141\u8bb8</h1>' + '<div class="Offline Storage-container"></div>', zIndex:Editor.baseZIndex(Editor.ZIndexManager.STORE_FLASH_SHOW)});
   o.render();
   o.show();
-  var store = new FlashBridge({src:swfSrc, render:o.get("contentEl").one(".storage-container"), params:{flashVars:{useCompression:true}}, attrs:{height:138, width:"100%"}, methods:["setItem", "removeItem", "getItem", "setMinDiskSpace", "getValueOf"]});
+  var store = new FlashBridge({src:swfSrc, render:o.get("contentEl").one(".Offline Storage-container"), params:{flashVars:{useCompression:true}}, attrs:{height:138, width:"100%"}, methods:["setItem", "removeItem", "getItem", "setMinDiskSpace", "getValueOf"]});
   S.ready(function() {
     setTimeout(function() {
       o.center()

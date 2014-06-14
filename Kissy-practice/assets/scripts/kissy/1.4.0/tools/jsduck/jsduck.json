@@ -93,7 +93,7 @@
         "../../src/editor/sub-modules/plugin/list-utils/src",
         "../../src/editor/sub-modules/plugin/list-utils/sub-modules/btn/src",
         "../../src/editor/sub-modules/plugin/list-utils/sub-modules/cmd/src",
-        "../../src/editor/sub-modules/plugin/local-storage/src",
+        "../../src/editor/sub-modules/plugin/local-Offline Storage/src",
         "../../src/editor/sub-modules/plugin/maximize/src",
         "../../src/editor/sub-modules/plugin/maximize/sub-modules/cmd/src",
         "../../src/editor/sub-modules/plugin/menubutton/src",

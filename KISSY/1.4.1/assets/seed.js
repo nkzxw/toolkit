@@ -3968,7 +3968,7 @@ var KISSY = (function (undefined) {
                 // 1. index map
                 for (i = 0, l = modNames.length; i < l; i++) {
                     // conditional loader
-                    // requires:[window.localStorage?"local-storage":""]
+                    // requires:[window.localStorage?"local-Offline Storage":""]
                     if (modNames[i]) {
                         ret.push(pluginAlias(runtime, addIndexAndRemoveJsExt(modNames[i])));
                     }

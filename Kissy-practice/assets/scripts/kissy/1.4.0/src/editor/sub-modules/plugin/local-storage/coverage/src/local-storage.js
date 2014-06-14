@@ -226,114 +226,114 @@ catch (e) {}
 if (! this._$jscoverage) {
   this._$jscoverage = {};
 }
-if (! _$jscoverage['/local-storage.js']) {
-  _$jscoverage['/local-storage.js'] = {};
-  _$jscoverage['/local-storage.js'].lineData = [];
-  _$jscoverage['/local-storage.js'].lineData[6] = 0;
-  _$jscoverage['/local-storage.js'].lineData[7] = 0;
-  _$jscoverage['/local-storage.js'].lineData[11] = 0;
-  _$jscoverage['/local-storage.js'].lineData[13] = 0;
-  _$jscoverage['/local-storage.js'].lineData[17] = 0;
-  _$jscoverage['/local-storage.js'].lineData[19] = 0;
-  _$jscoverage['/local-storage.js'].lineData[28] = 0;
-  _$jscoverage['/local-storage.js'].lineData[38] = 0;
-  _$jscoverage['/local-storage.js'].lineData[39] = 0;
-  _$jscoverage['/local-storage.js'].lineData[41] = 0;
-  _$jscoverage['/local-storage.js'].lineData[57] = 0;
-  _$jscoverage['/local-storage.js'].lineData[58] = 0;
-  _$jscoverage['/local-storage.js'].lineData[59] = 0;
-  _$jscoverage['/local-storage.js'].lineData[63] = 0;
-  _$jscoverage['/local-storage.js'].lineData[64] = 0;
-  _$jscoverage['/local-storage.js'].lineData[65] = 0;
-  _$jscoverage['/local-storage.js'].lineData[66] = 0;
-  _$jscoverage['/local-storage.js'].lineData[68] = 0;
-  _$jscoverage['/local-storage.js'].lineData[69] = 0;
-  _$jscoverage['/local-storage.js'].lineData[73] = 0;
-  _$jscoverage['/local-storage.js'].lineData[74] = 0;
-  _$jscoverage['/local-storage.js'].lineData[77] = 0;
-  _$jscoverage['/local-storage.js'].lineData[79] = 0;
-  _$jscoverage['/local-storage.js'].lineData[82] = 0;
-  _$jscoverage['/local-storage.js'].lineData[85] = 0;
-  _$jscoverage['/local-storage.js'].lineData[86] = 0;
-  _$jscoverage['/local-storage.js'].lineData[89] = 0;
-  _$jscoverage['/local-storage.js'].lineData[90] = 0;
-  _$jscoverage['/local-storage.js'].lineData[91] = 0;
-  _$jscoverage['/local-storage.js'].lineData[96] = 0;
-  _$jscoverage['/local-storage.js'].lineData[97] = 0;
-  _$jscoverage['/local-storage.js'].lineData[107] = 0;
+if (! _$jscoverage['/local-Offline Storage.js']) {
+  _$jscoverage['/local-Offline Storage.js'] = {};
+  _$jscoverage['/local-Offline Storage.js'].lineData = [];
+  _$jscoverage['/local-Offline Storage.js'].lineData[6] = 0;
+  _$jscoverage['/local-Offline Storage.js'].lineData[7] = 0;
+  _$jscoverage['/local-Offline Storage.js'].lineData[11] = 0;
+  _$jscoverage['/local-Offline Storage.js'].lineData[13] = 0;
+  _$jscoverage['/local-Offline Storage.js'].lineData[17] = 0;
+  _$jscoverage['/local-Offline Storage.js'].lineData[19] = 0;
+  _$jscoverage['/local-Offline Storage.js'].lineData[28] = 0;
+  _$jscoverage['/local-Offline Storage.js'].lineData[38] = 0;
+  _$jscoverage['/local-Offline Storage.js'].lineData[39] = 0;
+  _$jscoverage['/local-Offline Storage.js'].lineData[41] = 0;
+  _$jscoverage['/local-Offline Storage.js'].lineData[57] = 0;
+  _$jscoverage['/local-Offline Storage.js'].lineData[58] = 0;
+  _$jscoverage['/local-Offline Storage.js'].lineData[59] = 0;
+  _$jscoverage['/local-Offline Storage.js'].lineData[63] = 0;
+  _$jscoverage['/local-Offline Storage.js'].lineData[64] = 0;
+  _$jscoverage['/local-Offline Storage.js'].lineData[65] = 0;
+  _$jscoverage['/local-Offline Storage.js'].lineData[66] = 0;
+  _$jscoverage['/local-Offline Storage.js'].lineData[68] = 0;
+  _$jscoverage['/local-Offline Storage.js'].lineData[69] = 0;
+  _$jscoverage['/local-Offline Storage.js'].lineData[73] = 0;
+  _$jscoverage['/local-Offline Storage.js'].lineData[74] = 0;
+  _$jscoverage['/local-Offline Storage.js'].lineData[77] = 0;
+  _$jscoverage['/local-Offline Storage.js'].lineData[79] = 0;
+  _$jscoverage['/local-Offline Storage.js'].lineData[82] = 0;
+  _$jscoverage['/local-Offline Storage.js'].lineData[85] = 0;
+  _$jscoverage['/local-Offline Storage.js'].lineData[86] = 0;
+  _$jscoverage['/local-Offline Storage.js'].lineData[89] = 0;
+  _$jscoverage['/local-Offline Storage.js'].lineData[90] = 0;
+  _$jscoverage['/local-Offline Storage.js'].lineData[91] = 0;
+  _$jscoverage['/local-Offline Storage.js'].lineData[96] = 0;
+  _$jscoverage['/local-Offline Storage.js'].lineData[97] = 0;
+  _$jscoverage['/local-Offline Storage.js'].lineData[107] = 0;
 }
-if (! _$jscoverage['/local-storage.js'].functionData) {
-  _$jscoverage['/local-storage.js'].functionData = [];
-  _$jscoverage['/local-storage.js'].functionData[0] = 0;
-  _$jscoverage['/local-storage.js'].functionData[1] = 0;
-  _$jscoverage['/local-storage.js'].functionData[2] = 0;
-  _$jscoverage['/local-storage.js'].functionData[3] = 0;
-  _$jscoverage['/local-storage.js'].functionData[4] = 0;
-  _$jscoverage['/local-storage.js'].functionData[5] = 0;
-  _$jscoverage['/local-storage.js'].functionData[6] = 0;
-  _$jscoverage['/local-storage.js'].functionData[7] = 0;
-  _$jscoverage['/local-storage.js'].functionData[8] = 0;
-  _$jscoverage['/local-storage.js'].functionData[9] = 0;
+if (! _$jscoverage['/local-Offline Storage.js'].functionData) {
+  _$jscoverage['/local-Offline Storage.js'].functionData = [];
+  _$jscoverage['/local-Offline Storage.js'].functionData[0] = 0;
+  _$jscoverage['/local-Offline Storage.js'].functionData[1] = 0;
+  _$jscoverage['/local-Offline Storage.js'].functionData[2] = 0;
+  _$jscoverage['/local-Offline Storage.js'].functionData[3] = 0;
+  _$jscoverage['/local-Offline Storage.js'].functionData[4] = 0;
+  _$jscoverage['/local-Offline Storage.js'].functionData[5] = 0;
+  _$jscoverage['/local-Offline Storage.js'].functionData[6] = 0;
+  _$jscoverage['/local-Offline Storage.js'].functionData[7] = 0;
+  _$jscoverage['/local-Offline Storage.js'].functionData[8] = 0;
+  _$jscoverage['/local-Offline Storage.js'].functionData[9] = 0;
 }
-if (! _$jscoverage['/local-storage.js'].branchData) {
-  _$jscoverage['/local-storage.js'].branchData = {};
-  _$jscoverage['/local-storage.js'].branchData['7'] = [];
-  _$jscoverage['/local-storage.js'].branchData['7'][1] = new BranchData();
-  _$jscoverage['/local-storage.js'].branchData['11'] = [];
-  _$jscoverage['/local-storage.js'].branchData['11'][1] = new BranchData();
-  _$jscoverage['/local-storage.js'].branchData['11'][2] = new BranchData();
-  _$jscoverage['/local-storage.js'].branchData['11'][3] = new BranchData();
+if (! _$jscoverage['/local-Offline Storage.js'].branchData) {
+  _$jscoverage['/local-Offline Storage.js'].branchData = {};
+  _$jscoverage['/local-Offline Storage.js'].branchData['7'] = [];
+  _$jscoverage['/local-Offline Storage.js'].branchData['7'][1] = new BranchData();
+  _$jscoverage['/local-Offline Storage.js'].branchData['11'] = [];
+  _$jscoverage['/local-Offline Storage.js'].branchData['11'][1] = new BranchData();
+  _$jscoverage['/local-Offline Storage.js'].branchData['11'][2] = new BranchData();
+  _$jscoverage['/local-Offline Storage.js'].branchData['11'][3] = new BranchData();
 }
-_$jscoverage['/local-storage.js'].branchData['11'][3].init(135, 6, 'ie > 8');
+_$jscoverage['/local-Offline Storage.js'].branchData['11'][3].init(135, 6, 'ie > 8');
 function visit4_11_3(result) {
-  _$jscoverage['/local-storage.js'].branchData['11'][3].ranCondition(result);
+  _$jscoverage['/local-Offline Storage.js'].branchData['11'][3].ranCondition(result);
   return result;
-}_$jscoverage['/local-storage.js'].branchData['11'][2].init(128, 13, '!ie || ie > 8');
+}_$jscoverage['/local-Offline Storage.js'].branchData['11'][2].init(128, 13, '!ie || ie > 8');
 function visit3_11_2(result) {
-  _$jscoverage['/local-storage.js'].branchData['11'][2].ranCondition(result);
+  _$jscoverage['/local-Offline Storage.js'].branchData['11'][2].ranCondition(result);
   return result;
-}_$jscoverage['/local-storage.js'].branchData['11'][1].init(128, 37, '(!ie || ie > 8) && window.localStorage');
+}_$jscoverage['/local-Offline Storage.js'].branchData['11'][1].init(128, 37, '(!ie || ie > 8) && window.localStorage');
 function visit2_11_1(result) {
-  _$jscoverage['/local-storage.js'].branchData['11'][1].ranCondition(result);
+  _$jscoverage['/local-Offline Storage.js'].branchData['11'][1].ranCondition(result);
   return result;
-}_$jscoverage['/local-storage.js'].branchData['7'][1].init(15, 32, 'document.documentMode || S.UA.ie');
+}_$jscoverage['/local-Offline Storage.js'].branchData['7'][1].init(15, 32, 'document.documentMode || S.UA.ie');
 function visit1_7_1(result) {
-  _$jscoverage['/local-storage.js'].branchData['7'][1].ranCondition(result);
+  _$jscoverage['/local-Offline Storage.js'].branchData['7'][1].ranCondition(result);
   return result;
-}_$jscoverage['/local-storage.js'].lineData[6]++;
-KISSY.add("editor/plugin/local-storage", function(S, Editor, Overlay, FlashBridge) {
-  _$jscoverage['/local-storage.js'].functionData[0]++;
-  _$jscoverage['/local-storage.js'].lineData[7]++;
+}_$jscoverage['/local-Offline Storage.js'].lineData[6]++;
+KISSY.add("editor/plugin/local-Offline Storage", function(S, Editor, Overlay, FlashBridge) {
+  _$jscoverage['/local-Offline Storage.js'].functionData[0]++;
+  _$jscoverage['/local-Offline Storage.js'].lineData[7]++;
   var ie = visit1_7_1(document.documentMode || S.UA.ie);
-  _$jscoverage['/local-storage.js'].lineData[11]++;
+  _$jscoverage['/local-Offline Storage.js'].lineData[11]++;
   if (visit2_11_1((visit3_11_2(!ie || visit4_11_3(ie > 8))) && window.localStorage)) {
-    _$jscoverage['/local-storage.js'].lineData[13]++;
+    _$jscoverage['/local-Offline Storage.js'].lineData[13]++;
     return window.localStorage;
   }
-  _$jscoverage['/local-storage.js'].lineData[17]++;
-  var swfSrc = Editor.Utils.debugUrl("plugin/local-storage/assets/swfstore.swf?t=" + (+new Date()));
-  _$jscoverage['/local-storage.js'].lineData[19]++;
+  _$jscoverage['/local-Offline Storage.js'].lineData[17]++;
+  var swfSrc = Editor.Utils.debugUrl("plugin/local-Offline Storage/assets/swfstore.swf?t=" + (+new Date()));
+  _$jscoverage['/local-Offline Storage.js'].lineData[19]++;
   var css = {
   width: 215, 
   border: '1px solid red'}, reverseCss = {
   width: 0, 
   border: 'none'};
-  _$jscoverage['/local-storage.js'].lineData[28]++;
+  _$jscoverage['/local-Offline Storage.js'].lineData[28]++;
   var o = new Overlay({
   prefixCls: 'ks-editor-', 
   elStyle: {
   background: 'white'}, 
   width: "0px", 
-  content: "<h1 style='" + "text-align:center;'>\u8bf7\u70b9\u51fb\u5141\u8bb8</h1>" + "<div class='storage-container'></div>", 
+  content: "<h1 style='" + "text-align:center;'>\u8bf7\u70b9\u51fb\u5141\u8bb8</h1>" + "<div class='Offline Storage-container'></div>",
   zIndex: Editor.baseZIndex(Editor.ZIndexManager.STORE_FLASH_SHOW)});
-  _$jscoverage['/local-storage.js'].lineData[38]++;
+  _$jscoverage['/local-Offline Storage.js'].lineData[38]++;
   o.render();
-  _$jscoverage['/local-storage.js'].lineData[39]++;
+  _$jscoverage['/local-Offline Storage.js'].lineData[39]++;
   o.show();
-  _$jscoverage['/local-storage.js'].lineData[41]++;
+  _$jscoverage['/local-Offline Storage.js'].lineData[41]++;
   var store = new FlashBridge({
   src: swfSrc, 
-  render: o.get("contentEl").one('.storage-container'), 
+  render: o.get("contentEl").one('.Offline Storage-container'),
   params: {
   flashVars: {
   useCompression: true}}, 
@@ -341,73 +341,73 @@ KISSY.add("editor/plugin/local-storage", function(S, Editor, Overlay, FlashBridg
   height: 138, 
   width: '100%'}, 
   methods: ["setItem", "removeItem", "getItem", "setMinDiskSpace", "getValueOf"]});
-  _$jscoverage['/local-storage.js'].lineData[57]++;
+  _$jscoverage['/local-Offline Storage.js'].lineData[57]++;
   S.ready(function() {
-  _$jscoverage['/local-storage.js'].functionData[1]++;
-  _$jscoverage['/local-storage.js'].lineData[58]++;
+  _$jscoverage['/local-Offline Storage.js'].functionData[1]++;
+  _$jscoverage['/local-Offline Storage.js'].lineData[58]++;
   setTimeout(function() {
-  _$jscoverage['/local-storage.js'].functionData[2]++;
-  _$jscoverage['/local-storage.js'].lineData[59]++;
+  _$jscoverage['/local-Offline Storage.js'].functionData[2]++;
+  _$jscoverage['/local-Offline Storage.js'].lineData[59]++;
   o.center();
 }, 0);
 });
-  _$jscoverage['/local-storage.js'].lineData[63]++;
+  _$jscoverage['/local-Offline Storage.js'].lineData[63]++;
   store.on("pending", function() {
-  _$jscoverage['/local-storage.js'].functionData[3]++;
-  _$jscoverage['/local-storage.js'].lineData[64]++;
+  _$jscoverage['/local-Offline Storage.js'].functionData[3]++;
+  _$jscoverage['/local-Offline Storage.js'].lineData[64]++;
   o.get('el').css(css);
-  _$jscoverage['/local-storage.js'].lineData[65]++;
+  _$jscoverage['/local-Offline Storage.js'].lineData[65]++;
   o.center();
-  _$jscoverage['/local-storage.js'].lineData[66]++;
+  _$jscoverage['/local-Offline Storage.js'].lineData[66]++;
   o.show();
-  _$jscoverage['/local-storage.js'].lineData[68]++;
+  _$jscoverage['/local-Offline Storage.js'].lineData[68]++;
   setTimeout(function() {
-  _$jscoverage['/local-storage.js'].functionData[4]++;
-  _$jscoverage['/local-storage.js'].lineData[69]++;
+  _$jscoverage['/local-Offline Storage.js'].functionData[4]++;
+  _$jscoverage['/local-Offline Storage.js'].lineData[69]++;
   store.retrySave();
 }, 1000);
 });
-  _$jscoverage['/local-storage.js'].lineData[73]++;
+  _$jscoverage['/local-Offline Storage.js'].lineData[73]++;
   store.on("save", function() {
-  _$jscoverage['/local-storage.js'].functionData[5]++;
-  _$jscoverage['/local-storage.js'].lineData[74]++;
+  _$jscoverage['/local-Offline Storage.js'].functionData[5]++;
+  _$jscoverage['/local-Offline Storage.js'].lineData[74]++;
   o.get('el').css(reverseCss);
 });
-  _$jscoverage['/local-storage.js'].lineData[77]++;
+  _$jscoverage['/local-Offline Storage.js'].lineData[77]++;
   var oldSet = store.setItem;
-  _$jscoverage['/local-storage.js'].lineData[79]++;
+  _$jscoverage['/local-Offline Storage.js'].lineData[79]++;
   S.mix(store, {
   _ke: 1, 
   getItem: function(k) {
-  _$jscoverage['/local-storage.js'].functionData[6]++;
-  _$jscoverage['/local-storage.js'].lineData[82]++;
+  _$jscoverage['/local-Offline Storage.js'].functionData[6]++;
+  _$jscoverage['/local-Offline Storage.js'].lineData[82]++;
   return this['getValueOf'](k);
 }, 
   retrySave: function() {
-  _$jscoverage['/local-storage.js'].functionData[7]++;
-  _$jscoverage['/local-storage.js'].lineData[85]++;
+  _$jscoverage['/local-Offline Storage.js'].functionData[7]++;
+  _$jscoverage['/local-Offline Storage.js'].lineData[85]++;
   var self = this;
-  _$jscoverage['/local-storage.js'].lineData[86]++;
+  _$jscoverage['/local-Offline Storage.js'].lineData[86]++;
   self.setItem(self.lastSave.k, self.lastSave.v);
 }, 
   setItem: function(k, v) {
-  _$jscoverage['/local-storage.js'].functionData[8]++;
-  _$jscoverage['/local-storage.js'].lineData[89]++;
+  _$jscoverage['/local-Offline Storage.js'].functionData[8]++;
+  _$jscoverage['/local-Offline Storage.js'].lineData[89]++;
   var self = this;
-  _$jscoverage['/local-storage.js'].lineData[90]++;
+  _$jscoverage['/local-Offline Storage.js'].lineData[90]++;
   self.lastSave = {
   k: k, 
   v: v};
-  _$jscoverage['/local-storage.js'].lineData[91]++;
+  _$jscoverage['/local-Offline Storage.js'].lineData[91]++;
   oldSet.call(self, k, v);
 }});
-  _$jscoverage['/local-storage.js'].lineData[96]++;
+  _$jscoverage['/local-Offline Storage.js'].lineData[96]++;
   store.on("contentReady", function() {
-  _$jscoverage['/local-storage.js'].functionData[9]++;
-  _$jscoverage['/local-storage.js'].lineData[97]++;
+  _$jscoverage['/local-Offline Storage.js'].functionData[9]++;
+  _$jscoverage['/local-Offline Storage.js'].lineData[97]++;
   store._ready = 1;
 });
-  _$jscoverage['/local-storage.js'].lineData[107]++;
+  _$jscoverage['/local-Offline Storage.js'].lineData[107]++;
   return store;
 }, {
   "requires": ["editor", "overlay", "./flash-bridge"]});

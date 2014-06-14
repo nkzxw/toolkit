@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="uft-8">
+    <title>jQuery.proxy</title>
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+<!--Enforce the context of the function using the "context, function name" signature. Unbind the handler after first click.-->
+<p><button type="button" id="test">Test</button></p>
+<div id="log"></div>
+
+<script>
+    var obj = {
+        name: 'John',
+        test: function(){
+            $('#log').append(this.name);
+            $('#test').off('click', obj.test);
+        }
+    };
+    
+    $('#test').on('click', jQuery.proxy(obj, 'test'));
+</script>
+
+</body>
+</html>
