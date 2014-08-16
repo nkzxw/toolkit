@@ -39,6 +39,18 @@ textarea{
 .text-clip, .text-ellipsis{overflow:hidden; white-space:nowrap}
 .text-clip{text-overflow:clip}
 .text-ellipsis{text-overflow:ellipsis}
+.text-autowrap{
+    -ms-word-break: break-all;
+    /* Be VERY careful with this, breaks normal words wh_erever */
+    word-break: break-all;
+
+    /* Non standard for webkit */
+    word-break: break-word;
+
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
+}
 
 .radius{
 	-webkit-border-radius: 3px;
