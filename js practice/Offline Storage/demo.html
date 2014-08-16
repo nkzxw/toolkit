@@ -31,6 +31,18 @@
     }else{
         alert('this browser do not support for HTML5 Web Storage!');
     }
+
+    if (window.addEventListener) {
+        window.addEventListener("storage", handle_storage, false);
+    } else {
+        window.attachEvent("onstorage", handle_storage);
+    };
+
+    function handle_storage(e) {
+        if (!e) { e = window.event; }
+
+        console.log(e)
+    }
 </script>
 </body>
 </html>

@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>detect whether the browser supports HTML5 Storage.</title>
+</head>
+<body>
+
+<script>
+    function supports_html5_storage(){
+        try {
+            return 'localStorage' in window && window['localStorage'] !== null;
+        } catch(e){
+            return false;
+        }
+    }
+
+    /*use Modernizr to detect support for HTML5 Storage.*/
+    if (Modernizr.localstorage) {
+      // window.localStorage is available!
+    } else {
+      // no native support for HTML5 storage :(
+      // maybe try dojox.storage or a third-party solution
+    }
+    
+</script>
+
+</body>
+</html>
