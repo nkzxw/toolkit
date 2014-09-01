@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Simple DOM Events</title>
+    <style>
+        #container {
+            background-color: #F5E3B1;
+            border: 1px solid #C2AE6D;
+            height: 76px;
+            /*padding: 1em 0 0 1em;*/
+            padding-left: 1em;
+            cursor: pointer;
+        }
+        #demo .hello {
+            background: #000000;
+            color: #C3A7CD;
+            border-color: #000;
+            font-size: 150%;
+        }
+        #example-canvas #demo a {
+            color: #00c;
+            text-decoration: underline;
+        }
+        .message {
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body>
+<div id="demo">
+    <div id="container">
+        <p>Click for Hello World test.</p>
+    </div>
+    <p><a href="http://yuilibrary.com" id="firstA">The YUI Library. (Link navigates away from page.)</a></p>
+
+    <a href="http://yuilibrary.com" id="secondA">The YUI Library. (Link's default behavior is suppressed.)</a>
+    <div class="message">
+        When you clicked on the second link, *preventDefault* was called, so it did not navigate away from the page.
+    </div>
+
+</div>
+
+<script src="http://yui.yahooapis.com/3.17.2/build/yui/yui-min.js"></script>
+<script>
+    YUI().use('node', function(Y){
+       /* A function that gives hello world feedback: */
+        var helloworld = function(e){
+            e.target.setHTML('<p>Hello World!</p>');
+            Y.one('#container').addClass('hello');
+        };
+
+        Y.one('#container').on('click', helloworld);
+
+        /* A function that displays a message and prevents the default behavior of the event for which it is a handler: */
+        var interceptLink = function(e){
+            e.preventDefault();
+            Y.one('.message').setStyle('visibility', 'visible');
+        };
+
+        Y.one('#secondA').on('click', interceptLink)
+
+    })
+</script>
+</body>
+</html>
